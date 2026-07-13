@@ -38,7 +38,7 @@ export function Slideshow({ slides }: { slides: Slide[] }) {
     <section
       aria-roledescription="carousel"
       aria-label="Featured"
-      className="relative h-[min(92svh,56rem)] min-h-[32rem] overflow-hidden bg-ink text-bone"
+      className="relative h-[min(72svh,56rem)] min-h-[30rem] overflow-hidden bg-ink text-bone sm:h-[min(92svh,56rem)]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -62,7 +62,7 @@ export function Slideshow({ slides }: { slides: Slide[] }) {
             priority={i === 0}
             loading={i === 0 ? "eager" : "lazy"}
             sizes="100vw"
-            className="object-cover object-top"
+            className="object-contain object-center"
           />
           <div className="absolute inset-0 bg-ink/45" />
           <div className="absolute inset-0 flex items-center">
