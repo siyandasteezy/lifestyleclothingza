@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ButtonLink } from "@/components/ui/Button";
 
 export interface Slide {
   eyebrow: string;
@@ -14,7 +14,13 @@ export interface Slide {
 
 const INTERVAL_MS = 6500;
 
+/**
+ * Editorial carousel matching the original theme's slideshow: light canvas,
+ * neighbouring slides peeking at the edges, prev/next arrows, and a frosted
+ * white text card with dark type. Scroll-snap based, so it swipes natively.
+ */
 export function Slideshow({ slides }: { slides: Slide[] }) {
+  const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const reducedMotion = useRef(false);
@@ -23,81 +29,139 @@ export function Slideshow({ slides }: { slides: Slide[] }) {
     reducedMotion.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }, []);
 
-  const next = useCallback(
-    () => setActive((i) => (i + 1) % slides.length),
-    [slides.length],
+  const scrollToSlide = useCallback((i: number) => {
+    const track = trackRef.current;
+    const slide = track?.children[i] as HTMLElement | undefined;
+    if (!track || !slide) return;
+    track.scrollTo({
+      left: slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2,
+      behavior: reducedMotion.current ? "auto" : "smooth",
+    });
+  }, []);
+
+  const step = useCallback(
+    (dir: 1 | -1) => {
+      const next = (active + dir + slides.length) % slides.length;
+      scrollToSlide(next);
+    },
+    [active, slides.length, scrollToSlide],
   );
+
+  // Keep `active` in sync while the user swipes
+  const onScroll = useCallback(() => {
+    const track = trackRef.current;
+    if (!track || track.children.length === 0) return;
+    const slideWidth = (track.children[0] as HTMLElement).clientWidth;
+    const gap = 16;
+    setActive(
+      Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / (slideWidth + gap)))),
+    );
+  }, [slides.length]);
 
   useEffect(() => {
     if (paused || reducedMotion.current) return;
-    const id = setInterval(next, INTERVAL_MS);
+    const id = setInterval(() => step(1), INTERVAL_MS);
     return () => clearInterval(id);
-  }, [paused, next]);
+  }, [paused, step]);
 
   return (
     <section
       aria-roledescription="carousel"
       aria-label="Featured"
-      className="relative h-[min(72svh,56rem)] min-h-[30rem] overflow-hidden bg-ink text-bone sm:h-[min(92svh,56rem)]"
+      className="bg-bone py-4 sm:py-6"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
+      onTouchStart={() => setPaused(true)}
     >
-      {slides.map((slide, i) => (
-        <div
-          key={slide.heading}
-          role="group"
-          aria-roledescription="slide"
-          aria-label={`${i + 1} of ${slides.length}`}
-          aria-hidden={i !== active}
-          className={`absolute inset-0 transition-opacity duration-700 ${
-            i === active ? "z-10 opacity-100" : "z-0 opacity-0"
-          }`}
-        >
-          <Image
-            src={slide.image}
-            alt=""
-            fill
-            priority={i === 0}
-            loading={i === 0 ? "eager" : "lazy"}
-            sizes="100vw"
-            className="object-contain object-center"
-          />
-          <div className="absolute inset-0 bg-ink/45" />
-          <div className="absolute inset-0 flex items-center">
-            <div className="mx-auto w-full max-w-[100rem] px-4 sm:px-6 lg:px-10">
-              <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
-                <p className="mb-4 text-xs tracking-[0.3em] uppercase text-bone/90 sm:text-sm">
-                  {slide.eyebrow}
-                </p>
-                <h2 className="font-display text-display-xl leading-[1.08] text-balance [text-shadow:0_1px_24px_rgb(0_0_0/0.35)]">
-                  {slide.heading}
-                </h2>
-                <p className="mt-5 line-clamp-4 max-w-xl text-sm leading-relaxed font-light text-bone/90 sm:text-base">
-                  {slide.body}
-                </p>
-                <div className={i === active ? "mt-8" : "mt-8 invisible"}>
-                  <ButtonLink href={slide.cta.href} variant="inverse" size="lg" tabIndex={i === active ? 0 : -1}>
+      <div
+        ref={trackRef}
+        onScroll={onScroll}
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-[5vw] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {slides.map((slide, i) => (
+          <div
+            key={slide.heading}
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`${i + 1} of ${slides.length}`}
+            className="relative w-[90vw] shrink-0 snap-center overflow-hidden bg-white sm:w-[86vw]"
+          >
+            <div className="relative h-[72svh] min-h-[28rem] sm:h-[min(82svh,50rem)]">
+              <Image
+                src={slide.image}
+                alt=""
+                fill
+                priority={i === 0}
+                loading={i === 0 ? "eager" : "lazy"}
+                sizes="90vw"
+                className="object-cover object-top"
+              />
+
+              {/* Frosted text card */}
+              <div className="absolute bottom-4 left-1/2 w-[92%] -translate-x-1/2 sm:top-1/2 sm:bottom-auto sm:left-[6%] sm:w-[24rem] sm:-translate-x-0 sm:-translate-y-1/2">
+                {/* Prev / next arrows */}
+                <div className="absolute -top-11 left-0 flex" role="group" aria-label="Slide controls">
+                  <button
+                    type="button"
+                    aria-label="Previous slide"
+                    onClick={() => step(-1)}
+                    className="flex h-11 w-14 items-center justify-center bg-ink text-bone transition hover:bg-clay"
+                    tabIndex={i === active ? 0 : -1}
+                  >
+                    <svg width="20" height="12" viewBox="0 0 20 12" fill="none" aria-hidden>
+                      <path d="M7 1L2 6l5 5M2 6h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    aria-label="Next slide"
+                    onClick={() => step(1)}
+                    className="flex h-11 w-14 items-center justify-center bg-ink text-bone transition hover:bg-clay"
+                    tabIndex={i === active ? 0 : -1}
+                  >
+                    <svg width="20" height="12" viewBox="0 0 20 12" fill="none" aria-hidden>
+                      <path d="M13 1l5 5-5 5M18 6H0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+
+                <div className="bg-white/75 p-6 text-center text-ink backdrop-blur-[2px] sm:p-9">
+                  <p className="text-[11px] tracking-[0.25em] uppercase text-ink-soft">
+                    {slide.eyebrow}
+                  </p>
+                  <h2 className="mt-4 font-display text-xl leading-snug tracking-[0.06em] uppercase text-balance sm:text-2xl">
+                    {slide.heading}
+                  </h2>
+                  <p className="mt-4 hidden text-sm leading-relaxed font-light text-ink-soft sm:block">
+                    {slide.body}
+                  </p>
+                  <Link
+                    href={slide.cta.href}
+                    tabIndex={i === active ? 0 : -1}
+                    className="mt-5 inline-flex items-center gap-3 border-b border-ink pb-1 text-sm tracking-wide hover:border-clay hover:text-clay sm:mt-6"
+                  >
                     {slide.cta.label}
-                  </ButtonLink>
+                    <span aria-hidden>→</span>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
 
-      <div className="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 gap-2.5">
+      <div className="mt-4 flex justify-center gap-2.5">
         {slides.map((slide, i) => (
           <button
             key={slide.heading}
             type="button"
             aria-label={`Go to slide ${i + 1}`}
             aria-current={i === active}
-            onClick={() => setActive(i)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              i === active ? "w-8 bg-bone" : "w-2 bg-bone/45 hover:bg-bone/70"
+            onClick={() => scrollToSlide(i)}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              i === active ? "w-8 bg-ink" : "w-2 bg-ink/25 hover:bg-ink/50"
             }`}
           />
         ))}
