@@ -1,0 +1,136 @@
+{
+  "sections": [
+    {
+      "type": "slideshow",
+      "slides": [
+        {
+          "eyebrow": "POSE® Streetwear – Just Dropped",
+          "heading": "Bold, original, unforgettable.",
+          "body": "Our latest collection fuses signature urban energy with high‑quality construction. From head‑to‑toe outfits that scream attitude to styles built for confidence and comfort, each piece is a statement. Ready to set your vibe?",
+          "cta": { "label": "Shop The Drop", "href": "/collections/all" },
+          "image": "/images/home/IMG_1849.jpg"
+        },
+        {
+          "eyebrow": "Not Just a Brand — It’s a Lifestyle.",
+          "heading": "Be seen, Be heard, Be unforgettable.",
+          "body": "We’re more than clothing — We’re a culture of bold voices and unapologetic expression. From our classic staples to the next big thing, every piece reflects a mindset. Join the tribe. Wear the movement.",
+          "cta": { "label": "Join The Movement", "href": "/collections/all" },
+          "image": "/images/home/IMG_1834-Edit.jpg"
+        },
+        {
+          "eyebrow": "Timeless tees, hoodies & matching sets.",
+          "heading": "DRESS LIKE YOU MEAN IT",
+          "body": "Built to last, styled to impress. Discover wardrobe staples made for real life—cotton‑rich fabrics and designs that suit your everyday hustle. Streetwear that doesn’t quit.",
+          "cta": { "label": "Buy From Us", "href": "/collections/all" },
+          "image": "/images/home/IMG_1852.jpg"
+        }
+      ]
+    },
+    {
+      "type": "richText",
+      "heading": "It’s More Than Clothing — It’s a Lifestyle.",
+      "paragraphs": [
+        "At Lifestyle Clothing ZA, we create bold streetwear for real people with real style. Our brand stands for confidence, culture, and originality — made for those who walk with purpose and dress like they mean it.",
+        "Locally rooted and globally inspired, every piece is designed to turn heads, spark conversations, and represent the lifestyle you live. We don’t just sell clothes — we represent a movement."
+      ],
+      "cta": { "label": "Shop the Lifestyle", "href": "/collections" }
+    },
+    {
+      "type": "imageWithTextOverlay",
+      "heading": "Bucket Your Lifestyle.",
+      "subheading": "Step into effortless cool with our signature headwear a must-have for the modern wardrobe.",
+      "body": "Our premium head wear blend casual flair with effortless comfort. Designed for the modern minimalist, each piece adds a bold yet refined finish to your daily look. Perfect for every season, every vibe.",
+      "cta": { "label": "Grab Yours", "href": "/collections/5-panel-caps" },
+      "image": "/images/home/61214309-167F-48DD-9523-FA5EC24D10C8.jpg"
+    },
+    {
+      "type": "featuredCollection",
+      "heading": "Shop the Lifestyle Collection",
+      "collectionHandle": "jewellery"
+    },
+    {
+      "type": "guarantees",
+      "heading": "Guarantees",
+      "items": [
+        { "title": "Fast Delivery", "body": "Swift, reliable shipping to your door." },
+        { "title": "PREMIUM QUALITY", "body": "Built to last with top-tier materials." },
+        { "title": "SECURE CHECKOUT", "body": "Safe payments, always protected." },
+        { "title": "Perfect Fit Promise", "body": "Designed for comfort, wear-tested for you." },
+        { "title": "24/7 Support", "body": "We're here when you need us, anytime." },
+        { "title": "Clean & Fresh Guarantee", "body": "Every item packaged with care and hygiene." },
+        { "title": "Proudly South African", "body": "Locally curated with love and intention." }
+      ]
+    },
+    {
+      "type": "collectionList",
+      "heading": "Collections",
+      "collections": [
+        { "handle": "hoodie-collection", "title": "Premium Hoodie", "image": "/images/home/rn-image_picker_lib_temp_c3920391-48a5-4ad6-b074-4a80976a4163.jpg" },
+        { "handle": "short-sleeve-t-shirts", "title": "Lifestyle T-shirts", "image": "/images/home/rn-image_picker_lib_temp_52d3cb9a-51f6-4bd1-a310-ebb6ff6f266c.webp" },
+        { "handle": "5-panel-caps", "title": "Headwear", "image": "/images/home/99EFD2A4-043C-410B-931E-67F30A62530F.png" }
+      ]
+    },
+    {
+      "type": "mediaBanner",
+      "heading": "LOOK GOOD WITH US",
+      "image": "/images/home/IMG-0021.jpg"
+    },
+    {
+      "type": "imageBanner",
+      "heading": "Undeniable Quality.",
+      "body": "Our premium hoodies combine luxe feel with street-smart design. Built for those who don’t just follow trends — they set them.",
+      "cta": { "label": "Level Up Your Wardrobe", "href": "/collections" },
+      "image": "/images/home/7D7957D0-E8D0-4DAA-B6DF-9ABBDBA3C608.jpg",
+      "imageMobile": "/images/home/59ADA9E0-FBE4-48F0-BA7B-59916022E69D.jpg"
+    },
+    {
+      "type": "imageWithText",
+      "heading": "Simplicity Done Right.",
+      "paragraphs": [
+        "Our shirt blends effortless expression with clean, modern style — making it a timeless piece in any wardrobe. It’s crafted from premium, breathable fabric that offers a lightweight yet structured feel, delivering comfort without compromising on design. The smooth texture and high-quality finish give it a polished look, while still feeling relaxed enough for all-day wear.",
+        "Designed to move with you, this shirt works across seasons and settings — from casual street looks to more refined, smart-casual occasions. Pair it with jeans, trousers, or layer it over a tee for added edge. Its tailored silhouette is complemented by durable stitching and a soft-touch feel.",
+        "This isn’t just a shirt — it’s a style foundation. A piece you’ll reach for again and again, thanks to its versatility, durability, and quiet confidence. Built for those who appreciate quality, comfort, and modern simplicity in one seamless design."
+      ],
+      "cta": { "label": "Discover The Shirt", "href": "/collections/short-sleeve-t-shirts" },
+      "image": "/images/home/WhatsAppImage2025-01-19at08.24.06_1.jpg"
+    },
+    {
+      "type": "imagesWithText",
+      "heading": "Made to Fit You",
+      "paragraphs": [
+        "This shirt delivers the perfect balance of comfort, simplicity, and everyday style. Made from high-quality, breathable fabric, it feels soft on the skin while offering a structured look that holds its shape. Whether worn on its own or styled with layers, it’s designed to keep you looking sharp and feeling confident.",
+        "Versatile enough for any setting — from laid-back weekends to on-the-go days — this essential piece is all about effortless expression. With a relaxed fit and smooth finish, it’s a wardrobe staple built for movement, comfort, and standout presence."
+      ],
+      "cta": { "label": "Shop Bold Looks", "href": "/products/classic-t-shirt" },
+      "images": [
+        "/images/home/WhatsApp_Image_2025-01-25_at_16.44.06.jpg",
+        "/images/home/WhatsApp_Image_2025-01-17_at_17.07.28.jpg",
+        "/images/home/att.7lZiw44wcacoAD_QDMGhlU11Q2s6SJXeDy-z9jUE3aQ_1_023d860f-a30e-4da2-a147-1e10b73f4d54.jpg",
+        "/images/home/att.VpjFMMsqYI-8du_mx61Y8wFjAgRjcvF-jHKAu6IJkPA_1_1b824b0a-9dd9-43ad-8640-6b20f71f82ba.jpg"
+      ]
+    },
+    {
+      "type": "collage",
+      "heading": "Multimedia collage",
+      "items": [
+        { "kind": "product", "handle": "everyday-socks" },
+        { "kind": "collection", "handle": "summer-silky-scarfs", "title": "Summer Silky Scarfs", "image": "/images/home/rn-image_picker_lib_temp_b2fe8f30-7350-4850-8a4d-956bb4048d6c.jpg" },
+        { "kind": "image", "image": "/images/home/460367041_8364509973634257_2436332829859874933_n-2.jpg" }
+      ]
+    },
+    {
+      "type": "faq",
+      "heading": "common questions we receive.",
+      "items": [
+        { "question": "Q: Do you offer nationwide shipping?", "answer": "A: Yes, we ship across South Africa and to selected international locations. Shipping options and rates are available at checkout." },
+        { "question": "Q: How long does delivery take?", "answer": "A: Orders typically take 2–5 business days locally, and 7–14 days for international orders, depending on your location." },
+        { "question": "Q: How can I track my order?", "answer": "A: Once your order is shipped, you’ll receive a tracking number via email or SMS." }
+      ]
+    },
+    {
+      "type": "mediaBanner",
+      "heading": "CRAFTED FROM HIGH QUALITY",
+      "image": "/images/home/IMG_1845.jpg"
+    }
+  ]
+}

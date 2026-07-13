@@ -1,0 +1,256 @@
+// Lifestyle Clothing ZA — custom CMS + commerce schema
+// PostgreSQL via Prisma. Seeded from /content (migrated from Shopify).
+
+generator client {
+  provider = "prisma-client-js"
+  // native = local dev (macOS); rhel-openssl-3.0.x = Netlify/AWS Lambda functions
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------- Commerce ----------
+
+model Product {
+  id          String   @id @default(cuid())
+  shopifyId   BigInt?  @unique
+  handle      String   @unique
+  title       String
+  bodyHtml    String   @default("")
+  vendor      String   @default("")
+  productType String   @default("")
+  tags        String[] @default([])
+  status      ProductStatus @default(ACTIVE)
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+  canonicalUrl    String?
+
+  options     ProductOption[]
+  variants    ProductVariant[]
+  images      ProductImage[]
+  collections CollectionProduct[]
+  orderItems  OrderItem[]
+}
+
+enum ProductStatus {
+  ACTIVE
+  DRAFT
+  ARCHIVED
+}
+
+model ProductOption {
+  id        String   @id @default(cuid())
+  productId String
+  name      String
+  position  Int
+  values    String[] @default([])
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, position])
+}
+
+model ProductVariant {
+  id             String  @id @default(cuid())
+  shopifyId      BigInt? @unique
+  productId      String
+  title          String
+  sku            String  @default("")
+  priceCents     Int
+  compareAtCents Int?
+  option1        String?
+  option2        String?
+  option3        String?
+  available      Boolean @default(true)
+  inventoryQty   Int     @default(0)
+  position       Int     @default(1)
+  product        Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  orderItems     OrderItem[]
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  productId String
+  src       String
+  alt       String  @default("")
+  width     Int?
+  height    Int?
+  position  Int     @default(1)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Collection {
+  id              String   @id @default(cuid())
+  shopifyId       BigInt?  @unique
+  handle          String   @unique
+  title           String
+  descriptionHtml String   @default("")
+  image           String?
+  publishedAt     DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+
+  products CollectionProduct[]
+}
+
+model CollectionProduct {
+  collectionId String
+  productId    String
+  position     Int    @default(0)
+  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  product      Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@id([collectionId, productId])
+}
+
+// ---------- Orders ----------
+
+model Order {
+  id            String      @id @default(cuid())
+  number        Int         @unique @default(autoincrement())
+  email         String
+  phone         String?
+  status        OrderStatus @default(PENDING)
+  currency      String      @default("ZAR")
+  subtotalCents Int
+  shippingCents Int         @default(0)
+  totalCents    Int
+  shippingName    String?
+  shippingAddress Json?
+  note          String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  items         OrderItem[]
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  FULFILLED
+  CANCELLED
+  REFUNDED
+}
+
+model OrderItem {
+  id         String  @id @default(cuid())
+  orderId    String
+  productId  String?
+  variantId  String?
+  title      String
+  variantTitle String @default("")
+  quantity   Int
+  priceCents Int
+  image      String?
+  order      Order           @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product    Product?        @relation(fields: [productId], references: [id], onDelete: SetNull)
+  variant    ProductVariant? @relation(fields: [variantId], references: [id], onDelete: SetNull)
+}
+
+// ---------- Content (magazine + pages) ----------
+
+model Article {
+  id          String   @id @default(cuid())
+  blogHandle  String   @default("news")
+  blogTitle   String   @default("News")
+  handle      String   @unique
+  title       String
+  author      String   @default("")
+  excerpt     String   @default("")
+  bodyHtml    String   @default("")
+  heroImage   String?
+  status      ContentStatus @default(PUBLISHED)
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+}
+
+model Page {
+  id       String @id @default(cuid())
+  handle   String @unique
+  title    String
+  bodyHtml String @default("")
+  status   ContentStatus @default(PUBLISHED)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+}
+
+enum ContentStatus {
+  PUBLISHED
+  DRAFT
+}
+
+// ---------- Media ----------
+
+model MediaAsset {
+  id        String   @id @default(cuid())
+  path      String   @unique // public path, e.g. /images/products/foo.jpg
+  alt       String   @default("")
+  width     Int?
+  height    Int?
+  bytes     Int?
+  createdAt DateTime @default(now())
+}
+
+// ---------- Admin / settings ----------
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String   @default("")
+  passwordHash String
+  role         AdminRole @default(EDITOR)
+  createdAt    DateTime @default(now())
+  sessions     AdminSession[]
+}
+
+enum AdminRole {
+  OWNER
+  EDITOR
+}
+
+model AdminSession {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model Setting {
+  key   String @id
+  value Json
+}
+
+// 301 redirects for legacy URL preservation
+model Redirect {
+  id     String @id @default(cuid())
+  from   String @unique
+  to     String
+  status Int    @default(301)
+}

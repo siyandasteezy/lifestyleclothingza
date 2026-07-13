@@ -1,0 +1,31 @@
+# Netlify configuration for the Lifestyle Clothing ZA storefront.
+#
+# Required environment variables (Site settings → Environment variables):
+#   DATABASE_URL          — hosted PostgreSQL connection string (Neon / Supabase / Netlify DB).
+#                           Use the POOLED connection string on serverless.
+#   NEXT_PUBLIC_SITE_URL  — https://lifestyleclothingza.com (canonicals, sitemap, OG tags)
+#   AUTH_SECRET           — long random string for admin sessions
+#   DATA_SOURCE           — "db" (default). Set to "content" to launch the storefront
+#                           from the bundled JSON archive before the database is ready
+#                           (admin, checkout, newsletter, and contact form need the DB).
+#
+# One-time database setup (run locally against the hosted DB):
+#   DATABASE_URL="<hosted-url>" npm run db:push
+#   DATABASE_URL="<hosted-url>" ADMIN_EMAIL=... ADMIN_PASSWORD=... npm run db:seed
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Migrated catalog images are content-hashed by name in practice (never overwritten) —
+# safe to cache hard. Mirrors the headers in next.config.ts.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

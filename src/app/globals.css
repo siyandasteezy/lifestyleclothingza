@@ -1,26 +1,125 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ---------------------------------------------------------------------------
+   Lifestyle Clothing ZA — design tokens
+   Warm, premium, editorial. Bone canvas, ink typography, clay accent.
+--------------------------------------------------------------------------- */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  /* Palette — matched to the original theme's color schemes:
+     bg 243,243,243 · warm white 255,248,246 · fg near-black · burgundy accent 79,15,31 */
+  --color-bone: #f3f3f3;
+  --color-paper: #fff8f6;
+  --color-ink: #1a1b18;
+  --color-ink-soft: #3c3d3a;
+  --color-stone: #5d5e5a;
+  --color-line: #e2e2e0;
+  --color-clay: #6e1729;
+  --color-clay-deep: #4f0f1f;
+  --color-moss: #4a5240;
+  --color-gold: #b98a2f;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Semantic aliases */
+  --color-background: var(--color-bone);
+  --color-foreground: var(--color-ink);
+
+  /* Typography — same families as the original theme */
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-tenor), var(--font-outfit), ui-sans-serif, sans-serif;
+
+  /* Type scale (fluid) */
+  --text-display-xl: clamp(2.5rem, 1.5rem + 5vw, 4.75rem);
+  --text-display-lg: clamp(1.875rem, 1.25rem + 3vw, 3.25rem);
+  --text-display-md: clamp(1.5rem, 1.1rem + 2vw, 2.25rem);
+  --text-display-sm: clamp(1.25rem, 1.05rem + 1vw, 1.625rem);
+
+  /* Rhythm */
+  --spacing-section: clamp(3.5rem, 2rem + 6vw, 7rem);
+
+  /* Elevation */
+  --shadow-card: 0 1px 2px rgb(26 27 24 / 0.05), 0 8px 24px -12px rgb(26 27 24 / 0.1);
+  --shadow-lift: 0 2px 4px rgb(26 27 24 / 0.06), 0 16px 40px -16px rgb(26 27 24 / 0.18);
+
+  --radius-card: 4px;
+
+  --animate-marquee: marquee 32s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bone);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 300; /* Outfit Light — matches the original theme's body weight */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+/* Tenor Sans ships a single 400 weight — neutralise bolding on display type */
+.font-display {
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-bone);
+}
+
+/* Visible focus for keyboard users (WCAG 2.4.7) */
+:focus-visible {
+  outline: 2px solid var(--color-clay);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Prose — typographic defaults for migrated rich-text HTML (pages, products,
+   articles). Content HTML comes from the CMS, so it is styled from outside.
+--------------------------------------------------------------------------- */
+
+.prose {
+  color: var(--color-ink-soft);
+  line-height: 1.75;
+  font-size: 1rem;
+}
+.prose > * + * { margin-top: 1em; }
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.2;
+  margin-top: 1.75em;
+}
+.prose h1 { font-size: 1.875rem; }
+.prose h2 { font-size: 1.5rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose h1:first-child, .prose h2:first-child, .prose h3:first-child { margin-top: 0; }
+.prose strong { color: var(--color-ink); font-weight: 650; }
+.prose a { color: var(--color-clay); text-decoration: underline; text-underline-offset: 3px; }
+.prose a:hover { color: var(--color-clay-deep); }
+.prose ul, .prose ol { padding-left: 1.5rem; }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li + li { margin-top: 0.35em; }
+.prose img { border-radius: var(--radius-card); margin-inline: auto; }
+.prose blockquote {
+  border-left: 3px solid var(--color-clay);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--color-stone);
+}
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+.prose th, .prose td { border: 1px solid var(--color-line); padding: 0.5rem 0.75rem; text-align: left; }

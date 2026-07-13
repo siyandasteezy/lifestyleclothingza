@@ -1,0 +1,58 @@
+{
+  "name": "LIfestyle Clothingza",
+  "domain": "https://lifestyleclothingza.com",
+  "metaTitle": "LIfestyle Clothingza",
+  "metaDescription": "Lifestyle Clothingza",
+  "logo": "/images/home/CL_LOgo.png",
+  "email": "support@lifestyleclothingza.com",
+  "currency": "ZAR",
+  "currencySymbol": "R",
+  "announcements": [
+    "Level Up Your Look — Free Shipping on Orders Over R500!",
+    "New Drop. Big Energy. Limited Stock — Shop the Lifestyle Now."
+  ],
+  "mainMenu": [
+    { "label": "Home", "href": "/" },
+    {
+      "label": "Catalog",
+      "href": "/collections/all",
+      "children": [
+        { "label": "Lifestyle Clothingza Headwear", "href": "/collections/5-panel-caps" },
+        { "label": "Lifestyle Clothingza Winter Hat", "href": "/collections/slouchy-hats" },
+        { "label": "Lifestyle Clothingza Hoodies", "href": "/collections/hoodie-collection" },
+        { "label": "Lifestyle Clothingza Short Sleeve T-shirts", "href": "/collections/short-sleeve-t-shirts" },
+        { "label": "Lifestyle Summer Silky Scarf", "href": "/collections/summer-silky-scarfs" },
+        { "label": "Lifestyle Clothingza Croppie", "href": "/collections/croppie-tee" },
+        { "label": "Everyday Socks", "href": "/collections/everyday-summer-socks" },
+        { "label": "Lifestyle Jewellery", "href": "/collections/jewellery" }
+      ]
+    },
+    { "label": "Contact", "href": "/pages/contact" },
+    { "label": "Track Your Order", "href": "https://www.facebook.com/share/19aRxoC3fV/?mibextid=wwXIfr" }
+  ],
+  "footerMenu": [
+    { "label": "Search", "href": "/search" },
+    { "label": "About Us", "href": "/pages/about-us" },
+    { "label": "Contct Us", "href": "/pages/contact" },
+    { "label": "Refund Policy", "href": "/pages/refund-policy" },
+    { "label": "Privacy Policy", "href": "/pages/privacy-policy" },
+    { "label": "FAQs On Size & Fit", "href": "/pages/faqs-on-size-fit" },
+    { "label": "Orders & Payment", "href": "/pages/orders-payments" }
+  ],
+  "newsletter": {
+    "heading": "Your Access to Exclusive Style.",
+    "body": "Sign up for updates on new arrivals, curated edits, and member-only perks.",
+    "placeholder": "Enter email here",
+    "subheading": "Don’t Miss a Drop.",
+    "socialNote": "Follow us on social media!"
+  },
+  "popup": {
+    "heading": "Be the First to Know",
+    "body": "Sign up now and get 10% off your first order!"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/share/19aRxoC3fV/?mibextid=wwXIfr",
+    "instagram": "https://www.instagram.com/lifestyleclothingza?igsh=MWpwemk0MXJvdjhzcQ%3D%3D&utm_source=qr",
+    "tiktok": "https://www.tiktok.com/@lifestyleclothingzaa?_t=ZS-8yQykWHi838&_r=1"
+  }
+}

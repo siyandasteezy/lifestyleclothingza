@@ -1,0 +1,6597 @@
+[
+ {
+  "shopifyId": 9238449324247,
+  "handle": "unisex-beanie-hat-faux-pearls-copy",
+  "title": "Unisex Beanie Hat",
+  "bodyHtml": "<p>Beanie by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>\n<ul data-end=\"1334\" data-start=\"1147\">\n<li data-end=\"1169\" data-start=\"1147\">\n<p data-end=\"1169\" data-start=\"1149\">beanie hat</p>\n</li>\n<li data-end=\"1192\" data-start=\"1170\">\n<p data-end=\"1192\" data-start=\"1172\">Unisex  hat</p>\n</li>\n<li data-end=\"1224\" data-start=\"1193\">\n<p data-end=\"1224\" data-start=\"1195\">Oversized beanie for winter</p>\n</li>\n<li data-end=\"1247\" data-start=\"1225\">\n<p data-end=\"1247\" data-start=\"1227\">Cotton slouchy hat</p>\n</li>\n<li data-end=\"1279\" data-start=\"1248\">\n<p data-end=\"1279\" data-start=\"1250\">Trendy beanie for men/women</p>\n</li>\n<li data-end=\"1306\" data-start=\"1280\">\n<p data-end=\"1306\" data-start=\"1282\">Breathable slouchy cap</p>\n</li>\n<li data-end=\"1334\" data-start=\"1307\">\n<p data-end=\"1334\" data-start=\"1309\">Lightweight slouchy hat</p>\n</li>\n</ul>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "BEANIE",
+  "tags": [
+   "Accessories",
+   "black",
+   "blue",
+   "Essentials",
+   "Feminine",
+   "green",
+   "grey",
+   "Outerwear",
+   "pink",
+   "red",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex",
+   "white",
+   "Winterwear"
+  ],
+  "publishedAt": "2026-04-13T09:22:01+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Black",
+     "Red"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48478375870679,
+    "title": "Black",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 48478375936215,
+    "title": "Red",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 3
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/unisex-beanie-hat-faux-pearls-copy-1.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Unisex Beanie Hat",
+    "position": 1
+   },
+   {
+    "src": "/images/products/unisex-beanie-hat-faux-pearls-copy-2.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Unisex Beanie Hat",
+    "position": 2
+   }
+  ]
+ },
+ {
+  "shopifyId": 9216830111959,
+  "handle": "lifestyle-premium-tee-copy",
+  "title": "Faith Motion Graphic Tee",
+  "bodyHtml": "<p><span>Step into purpose with the Faith Motion Tee — a bold expression of belief backed by action. Designed with striking butterfly visuals symbolising growth and transformation, this piece is more than style—it’s a mindset.</span></p>\n<p>Crafted for everyday confidence, this tee blends clean streetwear aesthetics with a powerful message: faith only works when you do. Whether you’re building, grinding, or evolving, this is your reminder to keep going.<br><span></span></p>\n<ul>\n<li><span>Premium soft cotton for all-day comfort</span></li>\n<li><span>Statement back print with high-detail graphics</span></li>\n<li><span>Relaxed fit for effortless streetwear styling</span></li>\n<li><span>Durable print that won’t fade easily</span></li>\n<li><span>Designed for those who move with intention</span></li>\n</ul>\n<p> </p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex"
+  ],
+  "publishedAt": "2026-03-18T06:01:48+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48386700869847,
+    "title": "White / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 48386700902615,
+    "title": "White / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 48386700935383,
+    "title": "White / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 48386700968151,
+    "title": "White / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 48386701000919,
+    "title": "White / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 48386701033687,
+    "title": "White / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 48386701066455,
+    "title": "White / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 48386701099223,
+    "title": "White / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 8
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/lifestyle-premium-tee-copy-1.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Faith Motion Graphic Tee",
+    "position": 1
+   },
+   {
+    "src": "/images/products/lifestyle-premium-tee-copy-2.png",
+    "width": 832,
+    "height": 1248,
+    "alt": "Faith Motion Graphic Tee",
+    "position": 2
+   }
+  ]
+ },
+ {
+  "shopifyId": 9214415732951,
+  "handle": "lifestyle-legacy-pendant",
+  "title": "Lifestyle Legacy Pendant",
+  "bodyHtml": "<p><span>Complete the look. Pair your Lifestyle Legacy Pendant with one of our signature Lifestyle tees for a clean street-luxury fit.</span></p>\n<p><span>The Lifestyle Signature Pendant Necklace is designed for those who move with purpose. With its clean, minimal pendant and sleek black cord, this piece adds effortless style to any outfit while representing a mindset — the belief in creating your own path.</span></p>\n<p> </p>\n<p><span>Whether you’re dressing up or keeping it casual, this necklace becomes a subtle statement that speaks without saying a word.</span></p>\n<p> </p>\n<p><span>Simple. Powerful. Lifestyle.</span></p>\n<p><span> </span></p>",
+  "vendor": "LIfestyle Clothingza",
+  "productType": "Jewellery",
+  "tags": [
+   "Accessories",
+   "Essentials",
+   "Jewellery"
+  ],
+  "publishedAt": "2026-03-16T17:01:03+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Siliver"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48377881297111,
+    "title": "Siliver",
+    "sku": null,
+    "price": "600.00",
+    "compareAtPrice": null,
+    "option1": "Siliver",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/lifestyle-legacy-pendant-1.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Lifestyle Legacy Pendant",
+    "position": 1
+   },
+   {
+    "src": "/images/products/lifestyle-legacy-pendant-2.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Lifestyle Legacy Pendant",
+    "position": 2
+   },
+   {
+    "src": "/images/products/lifestyle-legacy-pendant-3.png",
+    "width": 905,
+    "height": 905,
+    "alt": "Lifestyle Legacy Pendant",
+    "position": 3
+   },
+   {
+    "src": "/images/products/lifestyle-legacy-pendant-4.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Lifestyle Legacy Pendant",
+    "position": 4
+   }
+  ]
+ },
+ {
+  "shopifyId": 9213467361495,
+  "handle": "runner-cap",
+  "title": "Runner Cap",
+  "bodyHtml": "<p>Lifestyle Cap by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "Cap",
+  "tags": [
+   "Accessories",
+   "black",
+   "blue",
+   "green",
+   "grey",
+   "pink",
+   "red",
+   "Streetwear",
+   "Unisex",
+   "white"
+  ],
+  "publishedAt": "2026-03-13T10:01:25+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Black",
+     "Khaki",
+     "Red"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48370291146967,
+    "title": "Black",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 48370291179735,
+    "title": "Khaki",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Khaki",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 48370291212503,
+    "title": "Red",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 4
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/runner-cap-1.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Runner Cap",
+    "position": 1
+   },
+   {
+    "src": "/images/products/runner-cap-2.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Runner Cap",
+    "position": 2
+   },
+   {
+    "src": "/images/products/runner-cap-3.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Runner Cap",
+    "position": 3
+   },
+   {
+    "src": "/images/products/runner-cap-4.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Runner Cap",
+    "position": 4
+   }
+  ]
+ },
+ {
+  "shopifyId": 9212860596439,
+  "handle": "unisex-beanie-hat-cozy-stylish-stretchy",
+  "title": "Unisex Beanie Hat Faux Pearls",
+  "bodyHtml": "<p>Faux Pearls Beanie by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>\n<ul data-end=\"1334\" data-start=\"1147\">\n<li data-end=\"1169\" data-start=\"1147\">\n<p data-end=\"1169\" data-start=\"1149\">beanie hat</p>\n</li>\n<li data-end=\"1192\" data-start=\"1170\">\n<p data-end=\"1192\" data-start=\"1172\">Unisex  hat</p>\n</li>\n<li data-end=\"1224\" data-start=\"1193\">\n<p data-end=\"1224\" data-start=\"1195\">Oversized beanie for winter</p>\n</li>\n<li data-end=\"1247\" data-start=\"1225\">\n<p data-end=\"1247\" data-start=\"1227\">Cotton slouchy hat</p>\n</li>\n<li data-end=\"1279\" data-start=\"1248\">\n<p data-end=\"1279\" data-start=\"1250\">Trendy beanie for men/women</p>\n</li>\n<li data-end=\"1306\" data-start=\"1280\">\n<p data-end=\"1306\" data-start=\"1282\">Breathable slouchy cap</p>\n</li>\n<li data-end=\"1334\" data-start=\"1307\">\n<p data-end=\"1334\" data-start=\"1309\">Lightweight slouchy hat</p>\n</li>\n<li data-end=\"1334\" data-start=\"1307\">Molteno Fleece Fabric </li>\n</ul>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "BEANIE",
+  "tags": [
+   "Accessories",
+   "black",
+   "blue",
+   "Essentials",
+   "Feminine",
+   "green",
+   "grey",
+   "Outerwear",
+   "pink",
+   "red",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex",
+   "white",
+   "Winterwear"
+  ],
+  "publishedAt": "2026-03-12T10:21:57+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Black",
+     "Green",
+     "Red",
+     "Khaki"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48368213229783,
+    "title": "Black",
+    "sku": null,
+    "price": "180.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 48368213262551,
+    "title": "Green",
+    "sku": null,
+    "price": "180.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 48368213295319,
+    "title": "Red",
+    "sku": null,
+    "price": "180.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 48368213328087,
+    "title": "Khaki",
+    "sku": null,
+    "price": "180.00",
+    "compareAtPrice": null,
+    "option1": "Khaki",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 4
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/unisex-beanie-hat-cozy-stylish-stretchy-1.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Unisex Beanie Hat Faux Pearls",
+    "position": 1
+   }
+  ]
+ },
+ {
+  "shopifyId": 9180027453655,
+  "handle": "ungachazi-silky-shirt",
+  "title": "Ungachazi Silky Shirt",
+  "bodyHtml": "<p data-start=\"307\" data-end=\"618\" class=\"\">Our classic silky shirt is designed for everyday comfort and effortless style. Made from high-quality cotton or cotton-blend fabrics, they offer a soft touch, breathable feel, and a flattering fit that works for any look. Whether you're dressing up or down, these tees are your go-to essential.</p>\n<ul data-start=\"620\" data-end=\"810\">\n<li data-start=\"620\" data-end=\"660\" class=\"\">\n<p data-start=\"622\" data-end=\"660\" class=\"\">Material: 100% silky / satin-blend</p>\n</li>\n<li data-start=\"661\" data-end=\"718\" class=\"\">\n<p data-start=\"663\" data-end=\"718\" class=\"\">Fit: Regular / Slim / Oversized (customize per style)</p>\n</li>\n<li data-start=\"719\" data-end=\"769\" class=\"\">\n<p data-start=\"721\" data-end=\"769\" class=\"\">Features: short sleeves, pre-shrunk, buttons</p>\n</li>\n<li data-start=\"770\" data-end=\"810\" class=\"\">\n<p data-start=\"772\" data-end=\"810\" class=\"\">Available in white</p>\n</li>\n</ul>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex"
+  ],
+  "publishedAt": "2026-02-10T10:14:38+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White",
+     "Black",
+     "Green",
+     "Off White"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48278972956887,
+    "title": "White / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 48278972989655,
+    "title": "White / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 48278973022423,
+    "title": "White / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 48278973055191,
+    "title": "White / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 48278973087959,
+    "title": "White / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 48278973120727,
+    "title": "White / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 48278973153495,
+    "title": "White / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 48278973186263,
+    "title": "White / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 8
+   },
+   {
+    "shopifyId": 48278973219031,
+    "title": "Black / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 9
+   },
+   {
+    "shopifyId": 48278973251799,
+    "title": "Black / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 10
+   },
+   {
+    "shopifyId": 48278973284567,
+    "title": "Black / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 11
+   },
+   {
+    "shopifyId": 48278973317335,
+    "title": "Black / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 12
+   },
+   {
+    "shopifyId": 48278973350103,
+    "title": "Black / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 13
+   },
+   {
+    "shopifyId": 48278973382871,
+    "title": "Black / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 14
+   },
+   {
+    "shopifyId": 48278973415639,
+    "title": "Black / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 15
+   },
+   {
+    "shopifyId": 48278973448407,
+    "title": "Black / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 16
+   },
+   {
+    "shopifyId": 48278973481175,
+    "title": "Green / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 17
+   },
+   {
+    "shopifyId": 48278973513943,
+    "title": "Green / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 18
+   },
+   {
+    "shopifyId": 48278973546711,
+    "title": "Green / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 19
+   },
+   {
+    "shopifyId": 48278973579479,
+    "title": "Green / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 20
+   },
+   {
+    "shopifyId": 48278973612247,
+    "title": "Green / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 21
+   },
+   {
+    "shopifyId": 48278973645015,
+    "title": "Green / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 22
+   },
+   {
+    "shopifyId": 48278973677783,
+    "title": "Green / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 23
+   },
+   {
+    "shopifyId": 48278973710551,
+    "title": "Green / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 24
+   },
+   {
+    "shopifyId": 48278973743319,
+    "title": "Off White / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 25
+   },
+   {
+    "shopifyId": 48278973776087,
+    "title": "Off White / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 26
+   },
+   {
+    "shopifyId": 48278973808855,
+    "title": "Off White / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 27
+   },
+   {
+    "shopifyId": 48278973841623,
+    "title": "Off White / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 28
+   },
+   {
+    "shopifyId": 48278973874391,
+    "title": "Off White / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 29
+   },
+   {
+    "shopifyId": 48278973907159,
+    "title": "Off White / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 30
+   },
+   {
+    "shopifyId": 48278973939927,
+    "title": "Off White / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 31
+   },
+   {
+    "shopifyId": 48278973972695,
+    "title": "Off White / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 32
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/ungachazi-silky-shirt-1.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Ungachazi Silky Shirt",
+    "position": 1
+   },
+   {
+    "src": "/images/products/ungachazi-silky-shirt-2.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Ungachazi Silky Shirt",
+    "position": 2
+   }
+  ]
+ },
+ {
+  "shopifyId": 9168755917015,
+  "handle": "lifestyle-premium-tee",
+  "title": "Lifestyle Premium Tee",
+  "bodyHtml": "<p><span>A statement tee inspired by the belief that the rich life starts within. Built for those who trust their vision and back themselves through every step. Because before the lifestyle, there’s belief.</span></p>\n<p>✔️ Relaxed fit<br>✔️ Everyday comfort<br>✔️ Bold back print that turns heads<br>✔️ Built for REAL bodies — not unrealistic standards</p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex"
+  ],
+  "publishedAt": "2026-01-28T10:22:27+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48241531584727,
+    "title": "White / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 48241531617495,
+    "title": "White / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 48241531650263,
+    "title": "White / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 48241531683031,
+    "title": "White / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 48241531715799,
+    "title": "White / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 48241531748567,
+    "title": "White / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 48241531781335,
+    "title": "White / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 48241531814103,
+    "title": "White / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 8
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/lifestyle-premium-tee-1.png",
+    "width": 832,
+    "height": 1248,
+    "alt": "Lifestyle Premium Tee",
+    "position": 1
+   },
+   {
+    "src": "/images/products/lifestyle-premium-tee-2.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Lifestyle Premium Tee",
+    "position": 2
+   }
+  ]
+ },
+ {
+  "shopifyId": 9152609714391,
+  "handle": "chubby-lifestyle-croppie-tee",
+  "title": "Chubby Lifestyle Croppie Tee",
+  "bodyHtml": "<p>The CHUBBY LIFESTYLE™ Statement Tee is made for people who are done hiding, done squeezing into clothes that don’t respect their bodies, and ready to wear confidence out loud.</p>\n<p>✔️ Relaxed fit<br>✔️ Everyday comfort<br>✔️ Bold back print that turns heads<br>✔️ Built for REAL bodies — not unrealistic standards</p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex"
+  ],
+  "publishedAt": "2026-01-11T15:08:20+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White",
+     "Black",
+     "Green",
+     "Off White"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48183380738263,
+    "title": "White / S",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 48183380771031,
+    "title": "White / M",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 48183380803799,
+    "title": "White / L",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 48183380836567,
+    "title": "White / XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 48183380869335,
+    "title": "White / 2XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 48183380902103,
+    "title": "White / 3XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 48183380934871,
+    "title": "White / 4XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 48183380967639,
+    "title": "White / 5XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 8
+   },
+   {
+    "shopifyId": 48183381000407,
+    "title": "Black / S",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 9
+   },
+   {
+    "shopifyId": 48183381033175,
+    "title": "Black / M",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 10
+   },
+   {
+    "shopifyId": 48183381065943,
+    "title": "Black / L",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 11
+   },
+   {
+    "shopifyId": 48183381098711,
+    "title": "Black / XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 12
+   },
+   {
+    "shopifyId": 48183381131479,
+    "title": "Black / 2XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 13
+   },
+   {
+    "shopifyId": 48183381164247,
+    "title": "Black / 3XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 14
+   },
+   {
+    "shopifyId": 48183381197015,
+    "title": "Black / 4XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 15
+   },
+   {
+    "shopifyId": 48183381229783,
+    "title": "Black / 5XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 16
+   },
+   {
+    "shopifyId": 48183381262551,
+    "title": "Green / S",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 17
+   },
+   {
+    "shopifyId": 48183381295319,
+    "title": "Green / M",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 18
+   },
+   {
+    "shopifyId": 48183381328087,
+    "title": "Green / L",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 19
+   },
+   {
+    "shopifyId": 48183381360855,
+    "title": "Green / XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 20
+   },
+   {
+    "shopifyId": 48183381393623,
+    "title": "Green / 2XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 21
+   },
+   {
+    "shopifyId": 48183381426391,
+    "title": "Green / 3XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 22
+   },
+   {
+    "shopifyId": 48183381459159,
+    "title": "Green / 4XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 23
+   },
+   {
+    "shopifyId": 48183381491927,
+    "title": "Green / 5XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 24
+   },
+   {
+    "shopifyId": 48183381524695,
+    "title": "Off White / S",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 25
+   },
+   {
+    "shopifyId": 48183381557463,
+    "title": "Off White / M",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 26
+   },
+   {
+    "shopifyId": 48183381590231,
+    "title": "Off White / L",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 27
+   },
+   {
+    "shopifyId": 48183381622999,
+    "title": "Off White / XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 28
+   },
+   {
+    "shopifyId": 48183381655767,
+    "title": "Off White / 2XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 29
+   },
+   {
+    "shopifyId": 48183381688535,
+    "title": "Off White / 3XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 30
+   },
+   {
+    "shopifyId": 48183381721303,
+    "title": "Off White / 4XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 31
+   },
+   {
+    "shopifyId": 48183381754071,
+    "title": "Off White / 5XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 32
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/chubby-lifestyle-croppie-tee-1.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Chubby Lifestyle Croppie Tee",
+    "position": 1
+   },
+   {
+    "src": "/images/products/chubby-lifestyle-croppie-tee-2.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Chubby Lifestyle Croppie Tee",
+    "position": 2
+   },
+   {
+    "src": "/images/products/chubby-lifestyle-croppie-tee-3.jpg",
+    "width": 4032,
+    "height": 3024,
+    "alt": "Chubby Lifestyle Croppie Tee",
+    "position": 3
+   }
+  ]
+ },
+ {
+  "shopifyId": 9137459560663,
+  "handle": "maxi-dress",
+  "title": "Maxi Dress",
+  "bodyHtml": "<p><span>Step into bold confidence with our Lifestyle Maxi Skirt — where streetwear edge meets everyday comfort. Crafted from premium fabric, this piece delivers a smooth, structured fit that flatters every body type while keeping you comfortable all day.</span></p>\n<p> </p>\n<ul>\n<li><span>Fabric: Soft fabric – soft, stretchy, and durable</span></li>\n<li>Fit: Relaxed yet structured silhouette — perfect as a dress or styled oversized</li>\n<li><span>Details: Long Skirt, elastic band other one with slit on the side</span></li>\n</ul>\n<p> </p>\n<p> </p>\n<p><span>This isn’t just a dress. It’s a mindset you can wear.</span></p>",
+  "vendor": "LIfestyle Clothingza",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Feminine",
+   "Outerwear",
+   "Size-Inclusive",
+   "Streetwear",
+   "tops"
+  ],
+  "publishedAt": "2025-12-19T06:19:19+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Black"
+    ]
+   },
+   {
+    "name": "Target gender",
+    "position": 2,
+    "values": [
+     "Female"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 3,
+    "values": [
+     "Small",
+     "Medium",
+     "Large",
+     "XLarge",
+     "2XL",
+     "3XL",
+     "4XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48122182795479,
+    "title": "Black / Female / Small",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "Female",
+    "option3": "Small",
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 48122182828247,
+    "title": "Black / Female / Medium",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "Female",
+    "option3": "Medium",
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 48122182861015,
+    "title": "Black / Female / Large",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "Female",
+    "option3": "Large",
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 48122182893783,
+    "title": "Black / Female / XLarge",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "Female",
+    "option3": "XLarge",
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 48122182926551,
+    "title": "Black / Female / 2XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "Female",
+    "option3": "2XL",
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 48122182959319,
+    "title": "Black / Female / 3XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "Female",
+    "option3": "3XL",
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 48122182992087,
+    "title": "Black / Female / 4XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "Female",
+    "option3": "4XL",
+    "available": true,
+    "position": 7
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/maxi-dress-1.jpg",
+    "width": 4160,
+    "height": 6240,
+    "alt": "Maxi Dress",
+    "position": 1
+   },
+   {
+    "src": "/images/products/maxi-dress-2.jpg",
+    "width": 4160,
+    "height": 6240,
+    "alt": "Maxi Dress",
+    "position": 2
+   },
+   {
+    "src": "/images/products/maxi-dress-3.jpg",
+    "width": 4160,
+    "height": 6240,
+    "alt": "Maxi Dress",
+    "position": 3
+   }
+  ]
+ },
+ {
+  "shopifyId": 9137458118871,
+  "handle": "bucket-your-lifestyle",
+  "title": "Bucket Your Lifestyle",
+  "bodyHtml": "<p>Lifestyle Bucket Hat by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "Cap",
+  "tags": [
+   "Accessories",
+   "black",
+   "blue",
+   "green",
+   "grey",
+   "pink",
+   "red",
+   "Streetwear",
+   "Unisex",
+   "white"
+  ],
+  "publishedAt": "2025-12-19T06:17:20+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Black",
+     "White",
+     "Red",
+     "Pink"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48122170605783,
+    "title": "Black",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 48122170704087,
+    "title": "White",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 48122182566103,
+    "title": "Red",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 48122182598871,
+    "title": "Pink",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Pink",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 6
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/bucket-your-lifestyle-1.jpg",
+    "width": 4160,
+    "height": 6240,
+    "alt": "Bucket Your Lifestyle",
+    "position": 1
+   }
+  ]
+ },
+ {
+  "shopifyId": 9137457201367,
+  "handle": "lifestyle-core-crop",
+  "title": "Lifestyle Core Crop",
+  "bodyHtml": "<p>Cropped Tee by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Feminine",
+   "Size-Inclusive",
+   "Streetwear"
+  ],
+  "publishedAt": "2025-12-19T06:14:38+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Raglan"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48122166968535,
+    "title": "Raglan / S",
+    "sku": null,
+    "price": "300.00",
+    "compareAtPrice": null,
+    "option1": "Raglan",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 48122167001303,
+    "title": "Raglan / M",
+    "sku": null,
+    "price": "300.00",
+    "compareAtPrice": null,
+    "option1": "Raglan",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 48122167034071,
+    "title": "Raglan / L",
+    "sku": null,
+    "price": "300.00",
+    "compareAtPrice": null,
+    "option1": "Raglan",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 48122167066839,
+    "title": "Raglan / XL",
+    "sku": null,
+    "price": "300.00",
+    "compareAtPrice": null,
+    "option1": "Raglan",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 48122167099607,
+    "title": "Raglan / 2XL",
+    "sku": null,
+    "price": "300.00",
+    "compareAtPrice": null,
+    "option1": "Raglan",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 48122167132375,
+    "title": "Raglan / 3XL",
+    "sku": null,
+    "price": "300.00",
+    "compareAtPrice": null,
+    "option1": "Raglan",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 48122167165143,
+    "title": "Raglan / 4XL",
+    "sku": null,
+    "price": "300.00",
+    "compareAtPrice": null,
+    "option1": "Raglan",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 48122167197911,
+    "title": "Raglan / 5XL",
+    "sku": null,
+    "price": "300.00",
+    "compareAtPrice": null,
+    "option1": "Raglan",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 8
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/lifestyle-core-crop-1.jpg",
+    "width": 4160,
+    "height": 6240,
+    "alt": "Lifestyle Core Crop",
+    "position": 1
+   },
+   {
+    "src": "/images/products/lifestyle-core-crop-2.jpg",
+    "width": 4160,
+    "height": 6240,
+    "alt": "Lifestyle Core Crop",
+    "position": 2
+   },
+   {
+    "src": "/images/products/lifestyle-core-crop-3.jpg",
+    "width": 6240,
+    "height": 4160,
+    "alt": "Lifestyle Core Crop",
+    "position": 3
+   }
+  ]
+ },
+ {
+  "shopifyId": 9136873537751,
+  "handle": "lifestyle-signature-tee",
+  "title": "Lifestyle Signature Tee",
+  "bodyHtml": "<p>Lifestyle Signature Tee Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing</p>\n<p> </p>\n<p data-start=\"307\" data-end=\"618\" class=\"\">Made from high-quality cotton or cotton-blend fabrics, they offer a soft touch, breathable feel, and a flattering fit that works for any look. Whether you're dressing up or down, these tees are your go-to essential.</p>\n<ul data-start=\"620\" data-end=\"810\">\n<li data-start=\"620\" data-end=\"660\" class=\"\">\n<p data-start=\"622\" data-end=\"660\" class=\"\">Material: 100% cotton </p>\n</li>\n<li data-start=\"661\" data-end=\"718\" class=\"\">\n<p data-start=\"663\" data-end=\"718\" class=\"\">Fit: R Oversized (customize per style)</p>\n</li>\n<li data-start=\"719\" data-end=\"769\" class=\"\">\n<p data-start=\"721\" data-end=\"769\" class=\"\">Features: Crew neck, short sleeves, pre-shrung</p>\n</li>\n</ul>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex"
+  ],
+  "publishedAt": "2025-12-18T05:25:16+02:00",
+  "options": [
+   {
+    "name": "Size",
+    "position": 1,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48119459872983,
+    "title": "S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "S",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 48119459905751,
+    "title": "M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "M",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 48119459938519,
+    "title": "L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "L",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 48119459971287,
+    "title": "XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "XL",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 48119460004055,
+    "title": "2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "2XL",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 48119460036823,
+    "title": "3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "3XL",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 48119460069591,
+    "title": "4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "4XL",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 48119460102359,
+    "title": "5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "5XL",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 8
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/lifestyle-signature-tee-1.jpg",
+    "width": 4160,
+    "height": 6240,
+    "alt": "Lifestyle Signature Tee",
+    "position": 1
+   },
+   {
+    "src": "/images/products/lifestyle-signature-tee-2.jpg",
+    "width": 4160,
+    "height": 6240,
+    "alt": "Lifestyle Signature Tee",
+    "position": 2
+   },
+   {
+    "src": "/images/products/lifestyle-signature-tee-3.jpg",
+    "width": 4160,
+    "height": 6240,
+    "alt": "Lifestyle Signature Tee",
+    "position": 3
+   }
+  ]
+ },
+ {
+  "shopifyId": 9131462820055,
+  "handle": "day2day-shorts",
+  "title": "Day2Day Shorts",
+  "bodyHtml": "<p><span>Meet your new go-to summer essential. These shorts are crafted from premium bonded micro active material, giving you a smooth, lightweight feel that stays breathable even on the hottest days. The fabric has a sleek finish, soft touch, and moves effortlessly with your body — perfect for everyday wear or active moments.</span></p>\n<p> </p>\n<p><span>Designed with a clean elastic waistband (no drawstring) for a modern, minimal look that still locks in comfort and flexibility. The fit sits just right: not too tight, not too loose, and made to compliment every body type.</span></p>\n<p> </p>\n<p><span>Completed with the signature Lifestyle logo on the leg and pocket, these shorts bring that street-ready confidence with a polished edge.</span></p>\n<p> </p>\n<p><span>Key Features:</span></p>\n<p> </p>\n<ul>\n<li><span>Bonded micro active fabric for comfort &amp; durability</span></li>\n<li><span>Smooth, lightweight, breathable feel</span></li>\n<li><span>Elastic waistband with no string for a clean, minimal look</span></li>\n<li><span>Lifestyle logo detailing</span></li>\n<li><span>Versatile everyday fit</span></li>\n</ul>\n<p> </p>\n<p> </p>\n<p><span>Perfect for warm days, chilled weekends, or leveling up your summer drip.</span></p>",
+  "vendor": "LIfestyle Clothingza",
+  "productType": "Shorts",
+  "tags": [
+   "black",
+   "Essentials",
+   "Outerwear",
+   "red",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex"
+  ],
+  "publishedAt": "2025-12-10T11:03:21+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Red",
+     "Black"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 2,
+    "values": [
+     "Small",
+     "Medium",
+     "Large",
+     "XL",
+     "XXL",
+     "3XL",
+     "4XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 48096762200279,
+    "title": "Red / Small",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "Small",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 48096762233047,
+    "title": "Black / Small",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "Small",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 48096762921175,
+    "title": "Red / Medium",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "Medium",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 48096762953943,
+    "title": "Red / Large",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "Large",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 48096762986711,
+    "title": "Red / XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 48096763019479,
+    "title": "Red / XXL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "XXL",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 48096763052247,
+    "title": "Red / 3XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 48096763085015,
+    "title": "Red / 4XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 8
+   },
+   {
+    "shopifyId": 48096763117783,
+    "title": "Black / Medium",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "Medium",
+    "option3": null,
+    "available": true,
+    "position": 9
+   },
+   {
+    "shopifyId": 48096763150551,
+    "title": "Black / Large",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "Large",
+    "option3": null,
+    "available": true,
+    "position": 10
+   },
+   {
+    "shopifyId": 48096763183319,
+    "title": "Black / XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 11
+   },
+   {
+    "shopifyId": 48096763216087,
+    "title": "Black / XXL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "XXL",
+    "option3": null,
+    "available": true,
+    "position": 12
+   },
+   {
+    "shopifyId": 48096763248855,
+    "title": "Black / 3XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 13
+   },
+   {
+    "shopifyId": 48096763281623,
+    "title": "Black / 4XL",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 14
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/day2day-shorts-1.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Day2Day Shorts",
+    "position": 1
+   },
+   {
+    "src": "/images/products/day2day-shorts-2.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Day2Day Shorts",
+    "position": 2
+   },
+   {
+    "src": "/images/products/day2day-shorts-3.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Day2Day Shorts",
+    "position": 3
+   },
+   {
+    "src": "/images/products/day2day-shorts-4.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Day2Day Shorts",
+    "position": 4
+   }
+  ]
+ },
+ {
+  "shopifyId": 9035656724695,
+  "handle": "copy-lifstl-motorsports",
+  "title": "LIFSTL BIKER TSHIRT",
+  "bodyHtml": "<p><span>Step into bold confidence with our Lifestyle T-Shirt  — where streetwear edge meets everyday comfort. Crafted from premium single scuba fabric, this piece delivers a smooth, structured fit that flatters every body type while keeping you comfortable all day.</span></p>\n<p> </p>\n<ul>\n<li><span>Fabric: Single scuba – soft, stretchy, and durable</span></li>\n<li><span>Design: Striking red-and-black graphics with bold Lifestyle branding &amp; “Believe In Yourself. Be Real.” statement</span></li>\n<li><span>Fit: Relaxed yet structured silhouette — perfect as a dress or styled oversized</span></li>\n<li><span>Details: Long sleeves, checkerboard accents, and high-contrast detailing for a standout look</span></li>\n</ul>\n<p> </p>\n<p> </p>\n<p><span>This isn’t just a Tshirt . It’s a mindset you can wear.</span></p>",
+  "vendor": "LIfestyle Clothingza",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Feminine",
+   "Outerwear",
+   "Size-Inclusive",
+   "Streetwear",
+   "tops"
+  ],
+  "publishedAt": "2025-09-16T06:22:26+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White"
+    ]
+   },
+   {
+    "name": "Target gender",
+    "position": 2,
+    "values": [
+     "Female"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 3,
+    "values": [
+     "Small",
+     "Medium",
+     "Large",
+     "XLarge",
+     "2XL",
+     "3XL",
+     "4XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 47089296867543,
+    "title": "White / Female / Small",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "Small",
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 47089296900311,
+    "title": "White / Female / Medium",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "Medium",
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 47089296933079,
+    "title": "White / Female / Large",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "Large",
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 47089296965847,
+    "title": "White / Female / XLarge",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "XLarge",
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 47089296998615,
+    "title": "White / Female / 2XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "2XL",
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 47089297031383,
+    "title": "White / Female / 3XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "3XL",
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 47089297064151,
+    "title": "White / Female / 4XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "4XL",
+    "available": true,
+    "position": 7
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/copy-lifstl-motorsports-1.jpg",
+    "width": 4032,
+    "height": 3024,
+    "alt": "LIFSTL BIKER TSHIRT",
+    "position": 1
+   },
+   {
+    "src": "/images/products/copy-lifstl-motorsports-2.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "LIFSTL BIKER TSHIRT",
+    "position": 2
+   }
+  ]
+ },
+ {
+  "shopifyId": 9016032788695,
+  "handle": "premium-3d-cap",
+  "title": "Premium 3D Cap",
+  "bodyHtml": "<p>Lifestyle Cap by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "Cap",
+  "tags": [
+   "Accessories",
+   "black",
+   "blue",
+   "green",
+   "grey",
+   "pink",
+   "red",
+   "Streetwear",
+   "Unisex",
+   "white"
+  ],
+  "publishedAt": "2025-08-21T09:38:42+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Black",
+     "Khaki",
+     "Red"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 47007058264279,
+    "title": "Black",
+    "sku": null,
+    "price": "250.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 47007111020759,
+    "title": "Khaki",
+    "sku": null,
+    "price": "250.00",
+    "compareAtPrice": null,
+    "option1": "Khaki",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 48244837875927,
+    "title": "Red",
+    "sku": null,
+    "price": "250.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 4
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/premium-3d-cap-1.png",
+    "width": 2323,
+    "height": 2716,
+    "alt": "Premium 3D Cap",
+    "position": 1
+   },
+   {
+    "src": "/images/products/premium-3d-cap-2.png",
+    "width": 2313,
+    "height": 3131,
+    "alt": "Premium 3D Cap",
+    "position": 2
+   },
+   {
+    "src": "/images/products/premium-3d-cap-3.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Premium 3D Cap",
+    "position": 3
+   },
+   {
+    "src": "/images/products/premium-3d-cap-4.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Premium 3D Cap",
+    "position": 4
+   }
+  ]
+ },
+ {
+  "shopifyId": 9015996219607,
+  "handle": "lifstl-motorsports",
+  "title": "LIFSTL MOTORSPORTS",
+  "bodyHtml": "<p><span>Step into bold confidence with our Lifestyle T-Shirt Dress — where streetwear edge meets everyday comfort. Crafted from premium single scuba fabric, this piece delivers a smooth, structured fit that flatters every body type while keeping you comfortable all day.</span></p>\n<p> </p>\n<ul>\n<li><span>Fabric: Single scuba – soft, stretchy, and durable</span></li>\n<li><span>Design: Striking black-and-white graphics with bold Lifestyle branding &amp; “Believe In Yourself. Be Real.” statement</span></li>\n<li><span>Fit: Relaxed yet structured silhouette — perfect as a dress or styled oversized</span></li>\n<li><span>Details: Long sleeves, checkerboard accents, and high-contrast detailing for a standout look</span></li>\n</ul>\n<p> </p>\n<p> </p>\n<p><span>This isn’t just a dress. It’s a mindset you can wear.</span></p>",
+  "vendor": "LIfestyle Clothingza",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Feminine",
+   "Outerwear",
+   "Size-Inclusive",
+   "Streetwear",
+   "tops"
+  ],
+  "publishedAt": "2025-08-21T09:17:16+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White"
+    ]
+   },
+   {
+    "name": "Target gender",
+    "position": 2,
+    "values": [
+     "Female"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 3,
+    "values": [
+     "Small",
+     "Medium",
+     "Large",
+     "XLarge",
+     "2XL",
+     "3XL",
+     "4XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 47006948458711,
+    "title": "White / Female / Small",
+    "sku": null,
+    "price": "700.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "Small",
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 47006948491479,
+    "title": "White / Female / Medium",
+    "sku": null,
+    "price": "700.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "Medium",
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 47006948524247,
+    "title": "White / Female / Large",
+    "sku": null,
+    "price": "700.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "Large",
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 47006948557015,
+    "title": "White / Female / XLarge",
+    "sku": null,
+    "price": "700.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "XLarge",
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 47006948589783,
+    "title": "White / Female / 2XL",
+    "sku": null,
+    "price": "700.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "2XL",
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 47006948622551,
+    "title": "White / Female / 3XL",
+    "sku": null,
+    "price": "700.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "3XL",
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 47006948655319,
+    "title": "White / Female / 4XL",
+    "sku": null,
+    "price": "700.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "4XL",
+    "available": true,
+    "position": 7
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/lifstl-motorsports-1.jpg",
+    "width": 2400,
+    "height": 3600,
+    "alt": "LIFSTL MOTORSPORTS",
+    "position": 1
+   },
+   {
+    "src": "/images/products/lifstl-motorsports-2.jpg",
+    "width": 2400,
+    "height": 3600,
+    "alt": "LIFSTL MOTORSPORTS",
+    "position": 2
+   },
+   {
+    "src": "/images/products/lifstl-motorsports-3.jpg",
+    "width": 2400,
+    "height": 3600,
+    "alt": "LIFSTL MOTORSPORTS",
+    "position": 3
+   }
+  ]
+ },
+ {
+  "shopifyId": 8994244395223,
+  "handle": "east-rand-origin-2-0",
+  "title": "East Rand Origin 2.0",
+  "bodyHtml": "<p>East Rand Origin by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing</p>\n<meta charset=\"utf-8\">\n<p data-start=\"307\" data-end=\"618\" class=\"\">Made from high-quality cotton or cotton-blend fabrics, they offer a soft touch, breathable feel, and a flattering fit that works for any look. Whether you're dressing up or down, these tees are your go-to essential.</p>\n<ul data-start=\"620\" data-end=\"810\">\n<li data-start=\"620\" data-end=\"660\" class=\"\">\n<p data-start=\"622\" data-end=\"660\" class=\"\">Material: 100% cotton </p>\n</li>\n<li data-start=\"661\" data-end=\"718\" class=\"\">\n<p data-start=\"663\" data-end=\"718\" class=\"\">Fit: R Oversized (customize per style)</p>\n</li>\n<li data-start=\"719\" data-end=\"769\" class=\"\">\n<p data-start=\"721\" data-end=\"769\" class=\"\">Features: Crew neck, short sleeves, pre-shrung</p>\n</li>\n</ul>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex"
+  ],
+  "publishedAt": "2025-07-26T08:27:30+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White",
+     "Black",
+     "Green",
+     "Off White"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46928968089815,
+    "title": "White / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 46928968122583,
+    "title": "White / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 46928968155351,
+    "title": "White / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 46928968188119,
+    "title": "White / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 46928968220887,
+    "title": "White / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 46928968253655,
+    "title": "White / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 46928968286423,
+    "title": "White / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 46928968319191,
+    "title": "White / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 8
+   },
+   {
+    "shopifyId": 46928968351959,
+    "title": "Black / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 9
+   },
+   {
+    "shopifyId": 46928968384727,
+    "title": "Black / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 10
+   },
+   {
+    "shopifyId": 46928968417495,
+    "title": "Black / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 11
+   },
+   {
+    "shopifyId": 46928968450263,
+    "title": "Black / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 12
+   },
+   {
+    "shopifyId": 46928968483031,
+    "title": "Black / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 13
+   },
+   {
+    "shopifyId": 46928968515799,
+    "title": "Black / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 14
+   },
+   {
+    "shopifyId": 46928968548567,
+    "title": "Black / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 15
+   },
+   {
+    "shopifyId": 46928968581335,
+    "title": "Black / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 16
+   },
+   {
+    "shopifyId": 46928968614103,
+    "title": "Green / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 17
+   },
+   {
+    "shopifyId": 46928968646871,
+    "title": "Green / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 18
+   },
+   {
+    "shopifyId": 46928968679639,
+    "title": "Green / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 19
+   },
+   {
+    "shopifyId": 46928968712407,
+    "title": "Green / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 20
+   },
+   {
+    "shopifyId": 46928968745175,
+    "title": "Green / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 21
+   },
+   {
+    "shopifyId": 46928968777943,
+    "title": "Green / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 22
+   },
+   {
+    "shopifyId": 46928968810711,
+    "title": "Green / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 23
+   },
+   {
+    "shopifyId": 46928968843479,
+    "title": "Green / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 24
+   },
+   {
+    "shopifyId": 46928968876247,
+    "title": "Off White / S",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 25
+   },
+   {
+    "shopifyId": 46928968909015,
+    "title": "Off White / M",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 26
+   },
+   {
+    "shopifyId": 46928968941783,
+    "title": "Off White / L",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 27
+   },
+   {
+    "shopifyId": 46928968974551,
+    "title": "Off White / XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 28
+   },
+   {
+    "shopifyId": 46928969007319,
+    "title": "Off White / 2XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 29
+   },
+   {
+    "shopifyId": 46928969040087,
+    "title": "Off White / 3XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 30
+   },
+   {
+    "shopifyId": 46928969072855,
+    "title": "Off White / 4XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 31
+   },
+   {
+    "shopifyId": 46928969105623,
+    "title": "Off White / 5XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 32
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/east-rand-origin-2-0-1.png",
+    "width": 1080,
+    "height": 1350,
+    "alt": "East Rand Origin 2.0",
+    "position": 1
+   }
+  ]
+ },
+ {
+  "shopifyId": 8994243543255,
+  "handle": "365days-exclusive",
+  "title": "365days Exclusive",
+  "bodyHtml": "<p>Bee Kind by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing<meta charset=\"utf-8\"></p>\n<p data-start=\"307\" data-end=\"618\" class=\"\">Made from high-quality cotton or cotton-blend fabrics, they offer a soft touch, breathable feel, and a flattering fit that works for any look. Whether you're dressing up or down, these tees are your go-to essential.</p>\n<ul data-start=\"620\" data-end=\"810\">\n<li data-start=\"620\" data-end=\"660\" class=\"\">\n<p data-start=\"622\" data-end=\"660\" class=\"\">Material: 100% cotton </p>\n</li>\n<li data-start=\"661\" data-end=\"718\" class=\"\">\n<p data-start=\"663\" data-end=\"718\" class=\"\">Fit: R Oversized (customize per style)</p>\n</li>\n<li data-start=\"719\" data-end=\"769\" class=\"\">\n<p data-start=\"721\" data-end=\"769\" class=\"\">Features: Crew neck, short sleeves, pre-shrung<br></p>\n</li>\n</ul>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "Tshirt",
+  "tags": [
+   "Essentials",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex"
+  ],
+  "publishedAt": "2025-07-26T08:24:26+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White",
+     "Black",
+     "Green",
+     "Off White"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46928966058199,
+    "title": "White / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 46928966090967,
+    "title": "White / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 46928966123735,
+    "title": "White / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 46928966156503,
+    "title": "White / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 46928966189271,
+    "title": "White / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 46928966222039,
+    "title": "White / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 46928966254807,
+    "title": "White / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 46928966287575,
+    "title": "White / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 8
+   },
+   {
+    "shopifyId": 46928966320343,
+    "title": "Black / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 9
+   },
+   {
+    "shopifyId": 46928966353111,
+    "title": "Black / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 10
+   },
+   {
+    "shopifyId": 46928966385879,
+    "title": "Black / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 11
+   },
+   {
+    "shopifyId": 46928966418647,
+    "title": "Black / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 12
+   },
+   {
+    "shopifyId": 46928966451415,
+    "title": "Black / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 13
+   },
+   {
+    "shopifyId": 46928966484183,
+    "title": "Black / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 14
+   },
+   {
+    "shopifyId": 46928966516951,
+    "title": "Black / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 15
+   },
+   {
+    "shopifyId": 46928966549719,
+    "title": "Black / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 16
+   },
+   {
+    "shopifyId": 46928966582487,
+    "title": "Green / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 17
+   },
+   {
+    "shopifyId": 46928966615255,
+    "title": "Green / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 18
+   },
+   {
+    "shopifyId": 46928966648023,
+    "title": "Green / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 19
+   },
+   {
+    "shopifyId": 46928966680791,
+    "title": "Green / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 20
+   },
+   {
+    "shopifyId": 46928966713559,
+    "title": "Green / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 21
+   },
+   {
+    "shopifyId": 46928966746327,
+    "title": "Green / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 22
+   },
+   {
+    "shopifyId": 46928966779095,
+    "title": "Green / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 23
+   },
+   {
+    "shopifyId": 46928966811863,
+    "title": "Green / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 24
+   },
+   {
+    "shopifyId": 46928966844631,
+    "title": "Off White / S",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 25
+   },
+   {
+    "shopifyId": 46928966877399,
+    "title": "Off White / M",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 26
+   },
+   {
+    "shopifyId": 46928966910167,
+    "title": "Off White / L",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 27
+   },
+   {
+    "shopifyId": 46928966942935,
+    "title": "Off White / XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 28
+   },
+   {
+    "shopifyId": 46928966975703,
+    "title": "Off White / 2XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 29
+   },
+   {
+    "shopifyId": 46928967008471,
+    "title": "Off White / 3XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 30
+   },
+   {
+    "shopifyId": 46928967041239,
+    "title": "Off White / 4XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 31
+   },
+   {
+    "shopifyId": 46928967074007,
+    "title": "Off White / 5XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 32
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/365days-exclusive-1.png",
+    "width": 1080,
+    "height": 1350,
+    "alt": "365days Exclusive",
+    "position": 1
+   }
+  ]
+ },
+ {
+  "shopifyId": 8973695320279,
+  "handle": "prism-wind-breaker",
+  "title": "Prism Wind-Breaker",
+  "bodyHtml": "<p><span>The Prism windbreaker jacket is a must-have for any outdoor adventure! Stay protected from the elements with its water-resistant material and adjustable hood. The lightweight design allows for easy movement, while the vibrant colors add a touch of style. Never miss a moment of nature with this essential jacket.</span></p>",
+  "vendor": "LIfestyle Clothingza",
+  "productType": "Wind-Breaker",
+  "tags": [
+   "Essentials",
+   "Outerwear",
+   "Size-Inclusive",
+   "Streetwear",
+   "tops",
+   "Unisex",
+   "Wind-Breaker"
+  ],
+  "publishedAt": "2025-07-16T06:31:18+02:00",
+  "options": [
+   {
+    "name": "Title",
+    "position": 1,
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46645825175767,
+    "title": "Default Title",
+    "sku": null,
+    "price": "700.00",
+    "compareAtPrice": null,
+    "option1": "Default Title",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/prism-wind-breaker-1.jpg",
+    "width": 1440,
+    "height": 1440,
+    "alt": "Prism Wind-Breaker",
+    "position": 1
+   },
+   {
+    "src": "/images/products/prism-wind-breaker-2.jpg",
+    "width": 1440,
+    "height": 1440,
+    "alt": "Prism Wind-Breaker",
+    "position": 2
+   },
+   {
+    "src": "/images/products/prism-wind-breaker-3.jpg",
+    "width": 1440,
+    "height": 1440,
+    "alt": "Prism Wind-Breaker",
+    "position": 3
+   },
+   {
+    "src": "/images/products/prism-wind-breaker-4.jpg",
+    "width": 1440,
+    "height": 1440,
+    "alt": "Prism Wind-Breaker",
+    "position": 4
+   },
+   {
+    "src": "/images/products/prism-wind-breaker-5.jpg",
+    "width": 3168,
+    "height": 3960,
+    "alt": "Prism Wind-Breaker",
+    "position": 5
+   },
+   {
+    "src": "/images/products/prism-wind-breaker-6.jpg",
+    "width": 1440,
+    "height": 1440,
+    "alt": "Prism Wind-Breaker",
+    "position": 6
+   },
+   {
+    "src": "/images/products/prism-wind-breaker-7.jpg",
+    "width": 1440,
+    "height": 1440,
+    "alt": "Prism Wind-Breaker",
+    "position": 7
+   }
+  ]
+ },
+ {
+  "shopifyId": 8973669400791,
+  "handle": "lifstyl-t-shirts",
+  "title": "LIFSTYL T-shirts",
+  "bodyHtml": "<p data-start=\"307\" data-end=\"618\" class=\"\">Our classic t-shirts are designed for everyday comfort and effortless style. Made from high-quality cotton or cotton-blend fabrics, they offer a soft touch, breathable feel, and a flattering fit that works for any look. Whether you're dressing up or down, these tees are your go-to essential.</p>\n<ul data-start=\"620\" data-end=\"810\">\n<li data-start=\"620\" data-end=\"660\" class=\"\">\n<p data-start=\"622\" data-end=\"660\" class=\"\">Material: 100% cotton / cotton-blend</p>\n</li>\n<li data-start=\"661\" data-end=\"718\" class=\"\">\n<p data-start=\"663\" data-end=\"718\" class=\"\">Fit: Regular / Slim / Oversized (customize per style)</p>\n</li>\n<li data-start=\"719\" data-end=\"769\" class=\"\">\n<p data-start=\"721\" data-end=\"769\" class=\"\">Features: Crew neck, short sleeves, pre-shrunk</p>\n</li>\n<li data-start=\"770\" data-end=\"810\" class=\"\">\n<p data-start=\"772\" data-end=\"810\" class=\"\">Available in multiple colors and sizes</p>\n</li>\n</ul>",
+  "vendor": "LIfestyle Clothingza",
+  "productType": "Tshirt",
+  "tags": [
+   "caps",
+   "Essentials",
+   "hoodies",
+   "scarfs",
+   "Size-Inclusive",
+   "slouchy hats",
+   "Streetwear",
+   "t-shirt",
+   "tops",
+   "Unisex"
+  ],
+  "publishedAt": "2025-07-16T05:49:10+02:00",
+  "options": [
+   {
+    "name": "Size",
+    "position": 1,
+    "values": [
+     "XSmall",
+     "Small",
+     "Medium",
+     "Large",
+     "XLarge",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   },
+   {
+    "name": "Color",
+    "position": 2,
+    "values": [
+     "White",
+     "Black",
+     "Gray",
+     "Beige",
+     "Red"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46644240875735,
+    "title": "XSmall / White",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "XSmall",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 46644240908503,
+    "title": "Small / White",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Small",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 46644240941271,
+    "title": "Medium / White",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Medium",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 46644240974039,
+    "title": "Large / White",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Large",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 46644241006807,
+    "title": "XLarge / White",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "XLarge",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 46644241039575,
+    "title": "2XL / White",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "2XL",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 46644241072343,
+    "title": "3XL / White",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "3XL",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 46644241105111,
+    "title": "4XL / White",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "4XL",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 8
+   },
+   {
+    "shopifyId": 46644241137879,
+    "title": "5XL / White",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "5XL",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 9
+   },
+   {
+    "shopifyId": 46869318172887,
+    "title": "XSmall / Black",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "XSmall",
+    "option2": "Black",
+    "option3": null,
+    "available": true,
+    "position": 10
+   },
+   {
+    "shopifyId": 46869318205655,
+    "title": "XSmall / Gray",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "XSmall",
+    "option2": "Gray",
+    "option3": null,
+    "available": true,
+    "position": 11
+   },
+   {
+    "shopifyId": 46869318238423,
+    "title": "XSmall / Beige",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "XSmall",
+    "option2": "Beige",
+    "option3": null,
+    "available": true,
+    "position": 12
+   },
+   {
+    "shopifyId": 46869318271191,
+    "title": "XSmall / Red",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "XSmall",
+    "option2": "Red",
+    "option3": null,
+    "available": true,
+    "position": 13
+   },
+   {
+    "shopifyId": 46869318303959,
+    "title": "Small / Black",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Small",
+    "option2": "Black",
+    "option3": null,
+    "available": true,
+    "position": 14
+   },
+   {
+    "shopifyId": 46869318336727,
+    "title": "Small / Gray",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Small",
+    "option2": "Gray",
+    "option3": null,
+    "available": true,
+    "position": 15
+   },
+   {
+    "shopifyId": 46869318369495,
+    "title": "Small / Beige",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Small",
+    "option2": "Beige",
+    "option3": null,
+    "available": true,
+    "position": 16
+   },
+   {
+    "shopifyId": 46869318402263,
+    "title": "Small / Red",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Small",
+    "option2": "Red",
+    "option3": null,
+    "available": true,
+    "position": 17
+   },
+   {
+    "shopifyId": 46869318435031,
+    "title": "Medium / Black",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Medium",
+    "option2": "Black",
+    "option3": null,
+    "available": true,
+    "position": 18
+   },
+   {
+    "shopifyId": 46869318467799,
+    "title": "Medium / Gray",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Medium",
+    "option2": "Gray",
+    "option3": null,
+    "available": true,
+    "position": 19
+   },
+   {
+    "shopifyId": 46869318500567,
+    "title": "Medium / Beige",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Medium",
+    "option2": "Beige",
+    "option3": null,
+    "available": true,
+    "position": 20
+   },
+   {
+    "shopifyId": 46869318533335,
+    "title": "Medium / Red",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Medium",
+    "option2": "Red",
+    "option3": null,
+    "available": true,
+    "position": 21
+   },
+   {
+    "shopifyId": 46869318566103,
+    "title": "Large / Black",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Large",
+    "option2": "Black",
+    "option3": null,
+    "available": true,
+    "position": 22
+   },
+   {
+    "shopifyId": 46869318598871,
+    "title": "Large / Gray",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Large",
+    "option2": "Gray",
+    "option3": null,
+    "available": true,
+    "position": 23
+   },
+   {
+    "shopifyId": 46869318631639,
+    "title": "Large / Beige",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Large",
+    "option2": "Beige",
+    "option3": null,
+    "available": true,
+    "position": 24
+   },
+   {
+    "shopifyId": 46869318664407,
+    "title": "Large / Red",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Large",
+    "option2": "Red",
+    "option3": null,
+    "available": true,
+    "position": 25
+   },
+   {
+    "shopifyId": 46869318697175,
+    "title": "XLarge / Black",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "XLarge",
+    "option2": "Black",
+    "option3": null,
+    "available": true,
+    "position": 26
+   },
+   {
+    "shopifyId": 46869318729943,
+    "title": "XLarge / Gray",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "XLarge",
+    "option2": "Gray",
+    "option3": null,
+    "available": true,
+    "position": 27
+   },
+   {
+    "shopifyId": 46869318762711,
+    "title": "XLarge / Beige",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "XLarge",
+    "option2": "Beige",
+    "option3": null,
+    "available": true,
+    "position": 28
+   },
+   {
+    "shopifyId": 46869318795479,
+    "title": "XLarge / Red",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "XLarge",
+    "option2": "Red",
+    "option3": null,
+    "available": true,
+    "position": 29
+   },
+   {
+    "shopifyId": 46869318828247,
+    "title": "2XL / Black",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "2XL",
+    "option2": "Black",
+    "option3": null,
+    "available": true,
+    "position": 30
+   },
+   {
+    "shopifyId": 46869318861015,
+    "title": "2XL / Gray",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "2XL",
+    "option2": "Gray",
+    "option3": null,
+    "available": true,
+    "position": 31
+   },
+   {
+    "shopifyId": 46869318893783,
+    "title": "2XL / Beige",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "2XL",
+    "option2": "Beige",
+    "option3": null,
+    "available": true,
+    "position": 32
+   },
+   {
+    "shopifyId": 46869318926551,
+    "title": "2XL / Red",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "2XL",
+    "option2": "Red",
+    "option3": null,
+    "available": true,
+    "position": 33
+   },
+   {
+    "shopifyId": 46869318959319,
+    "title": "3XL / Black",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "3XL",
+    "option2": "Black",
+    "option3": null,
+    "available": true,
+    "position": 34
+   },
+   {
+    "shopifyId": 46869318992087,
+    "title": "3XL / Gray",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "3XL",
+    "option2": "Gray",
+    "option3": null,
+    "available": true,
+    "position": 35
+   },
+   {
+    "shopifyId": 46869319024855,
+    "title": "3XL / Beige",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "3XL",
+    "option2": "Beige",
+    "option3": null,
+    "available": true,
+    "position": 36
+   },
+   {
+    "shopifyId": 46869319057623,
+    "title": "3XL / Red",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "3XL",
+    "option2": "Red",
+    "option3": null,
+    "available": true,
+    "position": 37
+   },
+   {
+    "shopifyId": 46869319090391,
+    "title": "4XL / Black",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "4XL",
+    "option2": "Black",
+    "option3": null,
+    "available": true,
+    "position": 38
+   },
+   {
+    "shopifyId": 46869319123159,
+    "title": "4XL / Gray",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "4XL",
+    "option2": "Gray",
+    "option3": null,
+    "available": true,
+    "position": 39
+   },
+   {
+    "shopifyId": 46869319155927,
+    "title": "4XL / Beige",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "4XL",
+    "option2": "Beige",
+    "option3": null,
+    "available": true,
+    "position": 40
+   },
+   {
+    "shopifyId": 46869319188695,
+    "title": "4XL / Red",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "4XL",
+    "option2": "Red",
+    "option3": null,
+    "available": true,
+    "position": 41
+   },
+   {
+    "shopifyId": 46869319221463,
+    "title": "5XL / Black",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "5XL",
+    "option2": "Black",
+    "option3": null,
+    "available": true,
+    "position": 42
+   },
+   {
+    "shopifyId": 46869319254231,
+    "title": "5XL / Gray",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "5XL",
+    "option2": "Gray",
+    "option3": null,
+    "available": true,
+    "position": 43
+   },
+   {
+    "shopifyId": 46869319286999,
+    "title": "5XL / Beige",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "5XL",
+    "option2": "Beige",
+    "option3": null,
+    "available": true,
+    "position": 44
+   },
+   {
+    "shopifyId": 46869319319767,
+    "title": "5XL / Red",
+    "sku": null,
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "5XL",
+    "option2": "Red",
+    "option3": null,
+    "available": true,
+    "position": 45
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/lifstyl-t-shirts-1.png",
+    "width": 3508,
+    "height": 4961,
+    "alt": "LIFSTYL T-shirts",
+    "position": 1
+   }
+  ]
+ },
+ {
+  "shopifyId": 8887376740567,
+  "handle": "lifestyle-cap",
+  "title": "5 Panel Lifestyle Cap",
+  "bodyHtml": "<p>Lifestyle Cap by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "Cap",
+  "tags": [
+   "Accessories",
+   "Streetwear",
+   "Unisex"
+  ],
+  "publishedAt": "2025-07-16T05:42:13+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Black",
+     "Red",
+     "Hot Pink",
+     "Turquoise",
+     "Khaki",
+     "White"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46259988168919,
+    "title": "Black",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 46259988463831,
+    "title": "Red",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 48241536532695,
+    "title": "Hot Pink",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Hot Pink",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 48241536565463,
+    "title": "Turquoise",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Turquoise",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 48241536598231,
+    "title": "Khaki",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "Khaki",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 48241536630999,
+    "title": "White",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 6
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/lifestyle-cap-1.jpg",
+    "width": 1440,
+    "height": 1800,
+    "alt": "5 Panel Lifestyle Cap",
+    "position": 1
+   },
+   {
+    "src": "/images/products/lifestyle-cap-2.jpg",
+    "width": 1440,
+    "height": 1800,
+    "alt": "5 Panel Lifestyle Cap",
+    "position": 2
+   },
+   {
+    "src": "/images/products/lifestyle-cap-3.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "5 Panel Lifestyle Cap",
+    "position": 3
+   }
+  ]
+ },
+ {
+  "shopifyId": 8917312209111,
+  "handle": "believe-in-yourself-hoodie",
+  "title": "Believe in Yourself Fleece Hoodie – Soft & Stylish”",
+  "bodyHtml": "<p data-start=\"833\" data-end=\"1116\" class=\"\">Stay cozy and stylish with our premium hoodies, crafted for maximum comfort and durability. Featuring ultra-soft fleece lining, spacious front pockets, and adjustable drawstrings, they're perfect for layering in cooler weather or rocking solo for a laid-back vibe.</p>\n<ul data-start=\"1118\" data-end=\"1301\">\n<li data-start=\"1118\" data-end=\"1154\" class=\"\">\n<p data-start=\"1120\" data-end=\"1154\" class=\"\">Material: Cotton blend</p>\n</li>\n<li data-start=\"1155\" data-end=\"1194\" class=\"\">\n<p data-start=\"1157\" data-end=\"1194\" class=\"\">Fit: Relaxed / Standard</p>\n</li>\n<li data-start=\"1195\" data-end=\"1261\" class=\"\">\n<p data-start=\"1197\" data-end=\"1261\" class=\"\">Features: Kangaroo pocket, ribbed cuffs &amp; hem, drawstring hood</p>\n</li>\n<li data-start=\"1262\" data-end=\"1301\" class=\"\">\n<p data-start=\"1264\" data-end=\"1301\" class=\"\">Ideal for casual wear or street style</p>\n</li>\n</ul>",
+  "vendor": "My Store",
+  "productType": "Hoodie",
+  "tags": [
+   "Accessories",
+   "Essentials",
+   "Feminine",
+   "Outerwear",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex",
+   "Winterwear"
+  ],
+  "publishedAt": "2025-05-22T12:12:12+02:00",
+  "options": [
+   {
+    "name": "Title",
+    "position": 1,
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46349813350615,
+    "title": "Default Title",
+    "sku": "LC-TOP-BLK-3X",
+    "price": "580.00",
+    "compareAtPrice": null,
+    "option1": "Default Title",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/believe-in-yourself-hoodie-1.jpg",
+    "width": 720,
+    "height": 1018,
+    "alt": "Believe in Yourself Fleece Hoodie – Soft & Stylish”",
+    "position": 1
+   },
+   {
+    "src": "/images/products/believe-in-yourself-hoodie-2.webp",
+    "width": 720,
+    "height": 1280,
+    "alt": "Believe in Yourself Fleece Hoodie – Soft & Stylish”",
+    "position": 2
+   }
+  ]
+ },
+ {
+  "shopifyId": 8892414755031,
+  "handle": "untitled-21apr_20-51",
+  "title": "Silky Scarf",
+  "bodyHtml": "<p><span>Indulge in the luxurious feel of our Silky Scarf. Made from a smooth satin fabric, this summer accessory instantly elevates any outfit with a touch of sophistication. Enjoy the lightweight and airy feel of the scarf while staying stylish in the summer heat.</span></p>",
+  "vendor": "LIfestyle Clothingza",
+  "productType": "",
+  "tags": [
+   "Accessories",
+   "Essentials",
+   "Outerwear",
+   "Streetwear",
+   "Unisex"
+  ],
+  "publishedAt": "2025-04-21T21:14:02+02:00",
+  "options": [
+   {
+    "name": "Title",
+    "position": 1,
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46275434610903,
+    "title": "Default Title",
+    "sku": null,
+    "price": "120.00",
+    "compareAtPrice": null,
+    "option1": "Default Title",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/untitled-21apr_20-51-1.jpg",
+    "width": 1080,
+    "height": 1080,
+    "alt": "Silky Scarf",
+    "position": 1
+   },
+   {
+    "src": "/images/products/untitled-21apr_20-51-2.jpg",
+    "width": 720,
+    "height": 720,
+    "alt": "Silky Scarf",
+    "position": 2
+   }
+  ]
+ },
+ {
+  "shopifyId": 8892415017175,
+  "handle": "ungachaza-t-shirt",
+  "title": "Ungachazi T-Shirt",
+  "bodyHtml": "<p data-start=\"307\" data-end=\"618\" class=\"\">Our classic t-shirts are designed for everyday comfort and effortless style. Made from high-quality cotton or cotton-blend fabrics, they offer a soft touch, breathable feel, and a flattering fit that works for any look. Whether you're dressing up or down, these tees are your go-to essential.</p>\n<ul data-start=\"620\" data-end=\"810\">\n<li data-start=\"620\" data-end=\"660\" class=\"\">\n<p data-start=\"622\" data-end=\"660\" class=\"\">Material: 100% cotton / cotton-blend</p>\n</li>\n<li data-start=\"661\" data-end=\"718\" class=\"\">\n<p data-start=\"663\" data-end=\"718\" class=\"\">Fit: Regular / Slim / Oversized (customize per style)</p>\n</li>\n<li data-start=\"719\" data-end=\"769\" class=\"\">\n<p data-start=\"721\" data-end=\"769\" class=\"\">Features: Crew neck, short sleeves, pre-shrunk</p>\n</li>\n<li data-start=\"770\" data-end=\"810\" class=\"\">\n<p data-start=\"772\" data-end=\"810\" class=\"\">Available in multiple colors and sizes</p>\n</li>\n</ul>",
+  "vendor": "LIfestyle Clothingza",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex"
+  ],
+  "publishedAt": "2025-04-21T20:55:17+02:00",
+  "options": [
+   {
+    "name": "Size",
+    "position": 1,
+    "values": [
+     "XSmall",
+     "Small",
+     "Medium",
+     "Large",
+     "XLarge",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   },
+   {
+    "name": "Color",
+    "position": 2,
+    "values": [
+     "White"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46279650377943,
+    "title": "XSmall / White",
+    "sku": "",
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "XSmall",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 46279650410711,
+    "title": "Small / White",
+    "sku": "",
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Small",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 46279650443479,
+    "title": "Medium / White",
+    "sku": "",
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Medium",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 46279650476247,
+    "title": "Large / White",
+    "sku": "",
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Large",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 46279650509015,
+    "title": "XLarge / White",
+    "sku": "",
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "XLarge",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 46279650541783,
+    "title": "2XL / White",
+    "sku": "",
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "2XL",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 46279650574551,
+    "title": "3XL / White",
+    "sku": "",
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "3XL",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 46279650607319,
+    "title": "4XL / White",
+    "sku": "",
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "4XL",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 8
+   },
+   {
+    "shopifyId": 46279650640087,
+    "title": "5XL / White",
+    "sku": "",
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "5XL",
+    "option2": "White",
+    "option3": null,
+    "available": true,
+    "position": 9
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/ungachaza-t-shirt-1.jpg",
+    "width": 720,
+    "height": 720,
+    "alt": "Ungachazi T-Shirt",
+    "position": 1
+   },
+   {
+    "src": "/images/products/ungachaza-t-shirt-2.jpg",
+    "width": 720,
+    "height": 720,
+    "alt": "Ungachazi T-Shirt",
+    "position": 2
+   },
+   {
+    "src": "/images/products/ungachaza-t-shirt-3.jpg",
+    "width": 720,
+    "height": 720,
+    "alt": "Ungachazi T-Shirt",
+    "position": 3
+   }
+  ]
+ },
+ {
+  "shopifyId": 8887440703703,
+  "handle": "believe-oversized-tee",
+  "title": "Believe Oversized Tee",
+  "bodyHtml": "<p data-start=\"307\" data-end=\"618\" class=\"\">Our classic t-shirts are designed for everyday comfort and effortless style. Made from high-quality cotton or cotton-blend fabrics, they offer a soft touch, breathable feel, and a flattering fit that works for any look. Whether you're dressing up or down, these tees are your go-to essential.</p>\n<ul data-start=\"620\" data-end=\"810\">\n<li data-start=\"620\" data-end=\"660\" class=\"\">\n<p data-start=\"622\" data-end=\"660\" class=\"\">Material: 100% cotton </p>\n</li>\n<li data-start=\"661\" data-end=\"718\" class=\"\">\n<p data-start=\"663\" data-end=\"718\" class=\"\">Fit: Oversized (customize per style)</p>\n</li>\n<li data-start=\"719\" data-end=\"769\" class=\"\">\n<p data-start=\"721\" data-end=\"769\" class=\"\">Features: Crew neck, short sleeves, pre-shrunk</p>\n</li>\n<li data-start=\"770\" data-end=\"810\" class=\"\">\n<p data-start=\"772\" data-end=\"810\" class=\"\">Available in multiple colors and sizes</p>\n</li>\n</ul>",
+  "vendor": "LIfestyle Clothingza",
+  "productType": "Tshirt",
+  "tags": [],
+  "publishedAt": "2025-04-15T17:09:19+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White"
+    ]
+   },
+   {
+    "name": "Target gender",
+    "position": 2,
+    "values": [
+     "Female"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 3,
+    "values": [
+     "Small",
+     "Medium",
+     "Large",
+     "XLarge",
+     "2XL",
+     "3XL",
+     "4XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46279618101463,
+    "title": "White / Female / Small",
+    "sku": "",
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "Small",
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 46279618134231,
+    "title": "White / Female / Medium",
+    "sku": "",
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "Medium",
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 46279618166999,
+    "title": "White / Female / Large",
+    "sku": "",
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "Large",
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 46279618199767,
+    "title": "White / Female / XLarge",
+    "sku": "",
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "XLarge",
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 46279618232535,
+    "title": "White / Female / 2XL",
+    "sku": "",
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "2XL",
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 46279618265303,
+    "title": "White / Female / 3XL",
+    "sku": "",
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "3XL",
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 46279618298071,
+    "title": "White / Female / 4XL",
+    "sku": "",
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "Female",
+    "option3": "4XL",
+    "available": true,
+    "position": 7
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/believe-oversized-tee-1.jpg",
+    "width": 1200,
+    "height": 1600,
+    "alt": "Believe Oversized Tee",
+    "position": 1
+   },
+   {
+    "src": "/images/products/believe-oversized-tee-2.jpg",
+    "width": 1200,
+    "height": 1600,
+    "alt": "Believe Oversized Tee",
+    "position": 2
+   },
+   {
+    "src": "/images/products/believe-oversized-tee-3.jpg",
+    "width": 4500,
+    "height": 3000,
+    "alt": "Believe Oversized Tee",
+    "position": 3
+   }
+  ]
+ },
+ {
+  "shopifyId": 8887440015575,
+  "handle": "believe-tshirts",
+  "title": "Believe Tshirts",
+  "bodyHtml": "<p data-start=\"307\" data-end=\"618\" class=\"\">Our classic t-shirts are designed for everyday comfort and effortless style. Made from high-quality cotton or cotton-blend fabrics, they offer a soft touch, breathable feel, and a flattering fit that works for any look. Whether you're dressing up or down, these tees are your go-to essential.</p>\n<ul data-start=\"620\" data-end=\"810\">\n<li data-start=\"620\" data-end=\"660\" class=\"\">\n<p data-start=\"622\" data-end=\"660\" class=\"\">Material: 100% cotton / cotton-blend</p>\n</li>\n<li data-start=\"661\" data-end=\"718\" class=\"\">\n<p data-start=\"663\" data-end=\"718\" class=\"\">Fit: Regular / Slim / Oversized (customize per style)</p>\n</li>\n<li data-start=\"719\" data-end=\"769\" class=\"\">\n<p data-start=\"721\" data-end=\"769\" class=\"\">Features: Crew neck, short sleeves, pre-shrunk</p>\n</li>\n<li data-start=\"770\" data-end=\"810\" class=\"\">\n<p data-start=\"772\" data-end=\"810\" class=\"\">Available in multiple colors and sizes</p>\n</li>\n</ul>",
+  "vendor": "LIfestyle Clothingza",
+  "productType": "",
+  "tags": [],
+  "publishedAt": "2025-04-15T17:05:50+02:00",
+  "options": [
+   {
+    "name": "Title",
+    "position": 1,
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46260166656215,
+    "title": "Default Title",
+    "sku": "",
+    "price": "350.00",
+    "compareAtPrice": null,
+    "option1": "Default Title",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/believe-tshirts-1.jpg",
+    "width": 2000,
+    "height": 3000,
+    "alt": "Believe Tshirts",
+    "position": 1
+   },
+   {
+    "src": "/images/products/believe-tshirts-2.jpg",
+    "width": 2000,
+    "height": 3000,
+    "alt": "Believe Tshirts",
+    "position": 2
+   }
+  ]
+ },
+ {
+  "shopifyId": 8887376707799,
+  "handle": "everyday-socks",
+  "title": "Everyday Socks",
+  "bodyHtml": "<p>Everyday Socks by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Accessories",
+   "Essentials",
+   "Unisex"
+  ],
+  "publishedAt": "2025-04-15T12:36:27+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46259988136151,
+    "title": "White",
+    "sku": null,
+    "price": "150.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/everyday-socks-1.jpg",
+    "width": 2048,
+    "height": 1365,
+    "alt": "Everyday Socks",
+    "position": 1
+   }
+  ]
+ },
+ {
+  "shopifyId": 8887376675031,
+  "handle": "ladies-puffy-jacket",
+  "title": "Ladies Puffy Jacket",
+  "bodyHtml": "<p>Ladies Puffy Jacket by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Feminine",
+   "Outerwear",
+   "Size-Inclusive",
+   "Winterwear"
+  ],
+  "publishedAt": "2025-04-15T12:36:25+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Red",
+     "Green",
+     "Black"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46259987611863,
+    "title": "Red / S",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 46259987644631,
+    "title": "Red / M",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 46259987677399,
+    "title": "Red / L",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 46259987710167,
+    "title": "Red / XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 46259987742935,
+    "title": "Red / 2XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 46259987775703,
+    "title": "Red / 3XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 46259987808471,
+    "title": "Red / 4XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 46259987841239,
+    "title": "Red / 5XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 8
+   },
+   {
+    "shopifyId": 46259987874007,
+    "title": "Green / S",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 9
+   },
+   {
+    "shopifyId": 46259987906775,
+    "title": "Green / M",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 10
+   },
+   {
+    "shopifyId": 46259987939543,
+    "title": "Green / L",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 11
+   },
+   {
+    "shopifyId": 46259987972311,
+    "title": "Green / XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 12
+   },
+   {
+    "shopifyId": 46259988005079,
+    "title": "Green / 2XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 13
+   },
+   {
+    "shopifyId": 46259988037847,
+    "title": "Green / 3XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 14
+   },
+   {
+    "shopifyId": 46259988070615,
+    "title": "Green / 4XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 15
+   },
+   {
+    "shopifyId": 46259988103383,
+    "title": "Green / 5XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 16
+   },
+   {
+    "shopifyId": 46260113998039,
+    "title": "Black / S",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 17
+   },
+   {
+    "shopifyId": 46260114030807,
+    "title": "Black / M",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 18
+   },
+   {
+    "shopifyId": 46260114063575,
+    "title": "Black / L",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 19
+   },
+   {
+    "shopifyId": 46260114096343,
+    "title": "Black / XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 20
+   },
+   {
+    "shopifyId": 46260114129111,
+    "title": "Black / 2XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 21
+   },
+   {
+    "shopifyId": 46260114161879,
+    "title": "Black / 3XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 22
+   },
+   {
+    "shopifyId": 46260114194647,
+    "title": "Black / 4XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 23
+   },
+   {
+    "shopifyId": 46260114227415,
+    "title": "Black / 5XL",
+    "sku": null,
+    "price": "800.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 24
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/ladies-puffy-jacket-1.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Ladies Puffy Jacket",
+    "position": 1
+   },
+   {
+    "src": "/images/products/ladies-puffy-jacket-2.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Ladies Puffy Jacket",
+    "position": 2
+   }
+  ]
+ },
+ {
+  "shopifyId": 8887376642263,
+  "handle": "cropped-tee",
+  "title": "Cropped Tee",
+  "bodyHtml": "<p>Cropped Tee by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Feminine",
+   "Size-Inclusive",
+   "Streetwear"
+  ],
+  "publishedAt": "2025-04-15T12:36:24+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White",
+     "Black"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46259987087575,
+    "title": "White / S",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 46259987120343,
+    "title": "White / M",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 46259987153111,
+    "title": "White / L",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 46259987185879,
+    "title": "White / XL",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 46259987218647,
+    "title": "White / 2XL",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 46259987251415,
+    "title": "White / 3XL",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 46259987284183,
+    "title": "White / 4XL",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 46259987316951,
+    "title": "White / 5XL",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 8
+   },
+   {
+    "shopifyId": 46259987349719,
+    "title": "Black / S",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 9
+   },
+   {
+    "shopifyId": 46259987382487,
+    "title": "Black / M",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 10
+   },
+   {
+    "shopifyId": 46259987415255,
+    "title": "Black / L",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 11
+   },
+   {
+    "shopifyId": 46259987448023,
+    "title": "Black / XL",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 12
+   },
+   {
+    "shopifyId": 46259987480791,
+    "title": "Black / 2XL",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 13
+   },
+   {
+    "shopifyId": 46259987513559,
+    "title": "Black / 3XL",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 14
+   },
+   {
+    "shopifyId": 46259987546327,
+    "title": "Black / 4XL",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 15
+   },
+   {
+    "shopifyId": 46259987579095,
+    "title": "Black / 5XL",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 16
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/cropped-tee-1.jpg",
+    "width": 2160,
+    "height": 3840,
+    "alt": "Cropped Tee",
+    "position": 1
+   },
+   {
+    "src": "/images/products/cropped-tee-2.jpg",
+    "width": 2160,
+    "height": 3840,
+    "alt": "Cropped Tee",
+    "position": 2
+   },
+   {
+    "src": "/images/products/cropped-tee-3.jpg",
+    "width": 2160,
+    "height": 3840,
+    "alt": "Cropped Tee",
+    "position": 3
+   },
+   {
+    "src": "/images/products/cropped-tee-4.jpg",
+    "width": 2268,
+    "height": 4032,
+    "alt": "Cropped Tee",
+    "position": 4
+   },
+   {
+    "src": "/images/products/cropped-tee-5.jpg",
+    "width": 1080,
+    "height": 1440,
+    "alt": "Cropped Tee",
+    "position": 5
+   }
+  ]
+ },
+ {
+  "shopifyId": 8887376609495,
+  "handle": "basic-beanie",
+  "title": "Basic Beanie",
+  "bodyHtml": "<p>Basic Beanie by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Accessories",
+   "Unisex",
+   "Winterwear"
+  ],
+  "publishedAt": "2025-04-15T12:36:23+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Black",
+     "White",
+     "Sky Blue",
+     "grey"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46259986989271,
+    "title": "Black",
+    "sku": null,
+    "price": "100.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 46259987022039,
+    "title": "White",
+    "sku": null,
+    "price": "100.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 46259987054807,
+    "title": "Sky Blue",
+    "sku": null,
+    "price": "100.00",
+    "compareAtPrice": null,
+    "option1": "Sky Blue",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 46260157612247,
+    "title": "grey",
+    "sku": null,
+    "price": "100.00",
+    "compareAtPrice": null,
+    "option1": "grey",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 4
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/basic-beanie-1.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Basic Beanie",
+    "position": 1
+   },
+   {
+    "src": "/images/products/basic-beanie-2.jpg",
+    "width": 4032,
+    "height": 3024,
+    "alt": "Basic Beanie",
+    "position": 2
+   }
+  ]
+ },
+ {
+  "shopifyId": 8887376576727,
+  "handle": "slouchy-beanie",
+  "title": "Unisex Slouchy Beanie Hat – Cozy, Stylish & Stretchy",
+  "bodyHtml": "<p>Slouchy Beanie by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>\n<ul data-end=\"1334\" data-start=\"1147\">\n<li data-end=\"1169\" data-start=\"1147\">\n<p data-end=\"1169\" data-start=\"1149\">Slouchy beanie hat</p>\n</li>\n<li data-end=\"1192\" data-start=\"1170\">\n<p data-end=\"1192\" data-start=\"1172\">Unisex slouchy hat</p>\n</li>\n<li data-end=\"1224\" data-start=\"1193\">\n<p data-end=\"1224\" data-start=\"1195\">Oversized beanie for winter</p>\n</li>\n<li data-end=\"1247\" data-start=\"1225\">\n<p data-end=\"1247\" data-start=\"1227\">Cotton slouchy hat</p>\n</li>\n<li data-end=\"1279\" data-start=\"1248\">\n<p data-end=\"1279\" data-start=\"1250\">Trendy beanie for men/women</p>\n</li>\n<li data-end=\"1306\" data-start=\"1280\">\n<p data-end=\"1306\" data-start=\"1282\">Breathable slouchy cap</p>\n</li>\n<li data-end=\"1334\" data-start=\"1307\">\n<p data-end=\"1334\" data-start=\"1309\">Lightweight slouchy hat</p>\n</li>\n<li data-end=\"1334\" data-start=\"1307\">Molteno Fleece Fabric </li>\n</ul>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "BEANIE",
+  "tags": [
+   "Accessories",
+   "Essentials",
+   "Feminine",
+   "Outerwear",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex",
+   "Winterwear"
+  ],
+  "publishedAt": "2025-04-15T12:36:22+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "Black",
+     "Green",
+     "Red",
+     "Khaki"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46259986890967,
+    "title": "Black",
+    "sku": "",
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 46259986923735,
+    "title": "Green",
+    "sku": "",
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 46259986956503,
+    "title": "Red",
+    "sku": "",
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "Red",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 46470654132439,
+    "title": "Khaki",
+    "sku": null,
+    "price": "200.00",
+    "compareAtPrice": null,
+    "option1": "Khaki",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 4
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/slouchy-beanie-1.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Unisex Slouchy Beanie Hat – Cozy, Stylish & Stretchy",
+    "position": 1
+   },
+   {
+    "src": "/images/products/slouchy-beanie-2.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Unisex Slouchy Beanie Hat – Cozy, Stylish & Stretchy",
+    "position": 2
+   },
+   {
+    "src": "/images/products/slouchy-beanie-3.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Unisex Slouchy Beanie Hat – Cozy, Stylish & Stretchy",
+    "position": 3
+   },
+   {
+    "src": "/images/products/slouchy-beanie-4.jpg",
+    "width": 868,
+    "height": 1280,
+    "alt": "Unisex Slouchy Beanie Hat – Cozy, Stylish & Stretchy",
+    "position": 4
+   },
+   {
+    "src": "/images/products/slouchy-beanie-5.jpg",
+    "width": 642,
+    "height": 1280,
+    "alt": "Unisex Slouchy Beanie Hat – Cozy, Stylish & Stretchy",
+    "position": 5
+   },
+   {
+    "src": "/images/products/slouchy-beanie-6.jpg",
+    "width": 960,
+    "height": 1280,
+    "alt": "Unisex Slouchy Beanie Hat – Cozy, Stylish & Stretchy",
+    "position": 6
+   }
+  ]
+ },
+ {
+  "shopifyId": 8887376543959,
+  "handle": "signature-hoodie",
+  "title": "Bhavu Mantra Hoodie",
+  "bodyHtml": "<p>Bhavu Mantra Stay cozy and stylish with our premium hoodies, crafted for maximum comfort and durability. Featuring ultra-soft fleece lining, spacious front pockets, and adjustable drawstrings, they're perfect for layering in cooler weather or rocking solo for a laid-back vibe.</p>\n<ul data-start=\"1118\" data-end=\"1301\">\n<li data-start=\"1118\" data-end=\"1154\" class=\"\">\n<p data-start=\"1120\" data-end=\"1154\" class=\"\">Material: Cotton</p>\n</li>\n<li data-start=\"1155\" data-end=\"1194\" class=\"\">\n<p data-start=\"1157\" data-end=\"1194\" class=\"\">Fit: Relaxed / Oversized</p>\n</li>\n<li data-start=\"1195\" data-end=\"1261\" class=\"\">\n<p data-start=\"1197\" data-end=\"1261\" class=\"\">Features: Kangaroo pocket, ribbed cuffs &amp; hem, drawstring hood</p>\n</li>\n<li data-start=\"1262\" data-end=\"1301\" class=\"\">\n<p data-start=\"1264\" data-end=\"1301\" class=\"\">Ideal for casual wear or street style</p>\n</li>\n</ul>\n<p> </p>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex",
+   "Winterwear"
+  ],
+  "publishedAt": "2025-04-15T12:36:20+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White",
+     "Black"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46259986104535,
+    "title": "White / S",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 46259986137303,
+    "title": "White / M",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 46259986170071,
+    "title": "White / L",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 46259986202839,
+    "title": "White / XL",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 46259986235607,
+    "title": "White / 2XL",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 46259986268375,
+    "title": "White / 3XL",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 46259986301143,
+    "title": "White / 4XL",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 46259986333911,
+    "title": "White / 5XL",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 8
+   },
+   {
+    "shopifyId": 46261075509463,
+    "title": "Black / S",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 9
+   },
+   {
+    "shopifyId": 46261075542231,
+    "title": "Black / M",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 10
+   },
+   {
+    "shopifyId": 46261075574999,
+    "title": "Black / L",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 11
+   },
+   {
+    "shopifyId": 46261075607767,
+    "title": "Black / XL",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 12
+   },
+   {
+    "shopifyId": 46261075640535,
+    "title": "Black / 2XL",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 13
+   },
+   {
+    "shopifyId": 46261075673303,
+    "title": "Black / 3XL",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 14
+   },
+   {
+    "shopifyId": 46261075706071,
+    "title": "Black / 4XL",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 15
+   },
+   {
+    "shopifyId": 46261075738839,
+    "title": "Black / 5XL",
+    "sku": null,
+    "price": "400.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 16
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/signature-hoodie-1.jpg",
+    "width": 720,
+    "height": 900,
+    "alt": "Bhavu Mantra Hoodie",
+    "position": 1
+   },
+   {
+    "src": "/images/products/signature-hoodie-2.jpg",
+    "width": 720,
+    "height": 900,
+    "alt": "Bhavu Mantra Hoodie",
+    "position": 2
+   },
+   {
+    "src": "/images/products/signature-hoodie-3.jpg",
+    "width": 720,
+    "height": 900,
+    "alt": "Bhavu Mantra Hoodie",
+    "position": 3
+   },
+   {
+    "src": "/images/products/signature-hoodie-4.jpg",
+    "width": 720,
+    "height": 900,
+    "alt": "Bhavu Mantra Hoodie",
+    "position": 4
+   },
+   {
+    "src": "/images/products/signature-hoodie-5.jpg",
+    "width": 1533,
+    "height": 1600,
+    "alt": "Bhavu Mantra Hoodie",
+    "position": 5
+   },
+   {
+    "src": "/images/products/signature-hoodie-6.jpg",
+    "width": 1533,
+    "height": 1600,
+    "alt": "Bhavu Mantra Hoodie",
+    "position": 6
+   }
+  ]
+ },
+ {
+  "shopifyId": 8887376511191,
+  "handle": "classic-t-shirt",
+  "title": "Bee Kind T-Shirt",
+  "bodyHtml": "<p>Bee Kind by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing<meta charset=\"utf-8\"></p>\n<p data-start=\"307\" data-end=\"618\" class=\"\">Made from high-quality cotton or cotton-blend fabrics, they offer a soft touch, breathable feel, and a flattering fit that works for any look. Whether you're dressing up or down, these tees are your go-to essential.</p>\n<ul data-start=\"620\" data-end=\"810\">\n<li data-start=\"620\" data-end=\"660\" class=\"\">\n<p data-start=\"622\" data-end=\"660\" class=\"\">Material: 100% cotton </p>\n</li>\n<li data-start=\"661\" data-end=\"718\" class=\"\">\n<p data-start=\"663\" data-end=\"718\" class=\"\">Fit: R Oversized (customize per style)</p>\n</li>\n<li data-start=\"719\" data-end=\"769\" class=\"\">\n<p data-start=\"721\" data-end=\"769\" class=\"\">Features: Crew neck, short sleeves, pre-shrung<br></p>\n</li>\n</ul>",
+  "vendor": "Lifestyle Clothing",
+  "productType": "",
+  "tags": [
+   "Essentials",
+   "Size-Inclusive",
+   "Streetwear",
+   "Unisex"
+  ],
+  "publishedAt": "2025-04-15T12:36:19+02:00",
+  "options": [
+   {
+    "name": "Color",
+    "position": 1,
+    "values": [
+     "White",
+     "Black",
+     "Green",
+     "Off White"
+    ]
+   },
+   {
+    "name": "Size",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46259984793815,
+    "title": "White / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 1
+   },
+   {
+    "shopifyId": 46259984826583,
+    "title": "White / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 2
+   },
+   {
+    "shopifyId": 46259984859351,
+    "title": "White / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 3
+   },
+   {
+    "shopifyId": 46259984892119,
+    "title": "White / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 4
+   },
+   {
+    "shopifyId": 46259984924887,
+    "title": "White / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 5
+   },
+   {
+    "shopifyId": 46259984957655,
+    "title": "White / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 6
+   },
+   {
+    "shopifyId": 46259984990423,
+    "title": "White / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 7
+   },
+   {
+    "shopifyId": 46259985023191,
+    "title": "White / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 8
+   },
+   {
+    "shopifyId": 46259985055959,
+    "title": "Black / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 9
+   },
+   {
+    "shopifyId": 46259985088727,
+    "title": "Black / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 10
+   },
+   {
+    "shopifyId": 46259985121495,
+    "title": "Black / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 11
+   },
+   {
+    "shopifyId": 46259985154263,
+    "title": "Black / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 12
+   },
+   {
+    "shopifyId": 46259985187031,
+    "title": "Black / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 13
+   },
+   {
+    "shopifyId": 46259985219799,
+    "title": "Black / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 14
+   },
+   {
+    "shopifyId": 46259985252567,
+    "title": "Black / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 15
+   },
+   {
+    "shopifyId": 46259985285335,
+    "title": "Black / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Black",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 16
+   },
+   {
+    "shopifyId": 46259985318103,
+    "title": "Green / S",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 17
+   },
+   {
+    "shopifyId": 46259985350871,
+    "title": "Green / M",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 18
+   },
+   {
+    "shopifyId": 46259985383639,
+    "title": "Green / L",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 19
+   },
+   {
+    "shopifyId": 46259985416407,
+    "title": "Green / XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 20
+   },
+   {
+    "shopifyId": 46259985449175,
+    "title": "Green / 2XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 21
+   },
+   {
+    "shopifyId": 46259985481943,
+    "title": "Green / 3XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 22
+   },
+   {
+    "shopifyId": 46259985514711,
+    "title": "Green / 4XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 23
+   },
+   {
+    "shopifyId": 46259985547479,
+    "title": "Green / 5XL",
+    "sku": null,
+    "price": "450.00",
+    "compareAtPrice": null,
+    "option1": "Green",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 24
+   },
+   {
+    "shopifyId": 46259985580247,
+    "title": "Off White / S",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "S",
+    "option3": null,
+    "available": true,
+    "position": 25
+   },
+   {
+    "shopifyId": 46259985613015,
+    "title": "Off White / M",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "M",
+    "option3": null,
+    "available": true,
+    "position": 26
+   },
+   {
+    "shopifyId": 46259985645783,
+    "title": "Off White / L",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "L",
+    "option3": null,
+    "available": true,
+    "position": 27
+   },
+   {
+    "shopifyId": 46259985678551,
+    "title": "Off White / XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "XL",
+    "option3": null,
+    "available": true,
+    "position": 28
+   },
+   {
+    "shopifyId": 46259985711319,
+    "title": "Off White / 2XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "2XL",
+    "option3": null,
+    "available": true,
+    "position": 29
+   },
+   {
+    "shopifyId": 46259985744087,
+    "title": "Off White / 3XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "3XL",
+    "option3": null,
+    "available": true,
+    "position": 30
+   },
+   {
+    "shopifyId": 46259985776855,
+    "title": "Off White / 4XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "4XL",
+    "option3": null,
+    "available": true,
+    "position": 31
+   },
+   {
+    "shopifyId": 46259985809623,
+    "title": "Off White / 5XL",
+    "sku": null,
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Off White",
+    "option2": "5XL",
+    "option3": null,
+    "available": true,
+    "position": 32
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/classic-t-shirt-1.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Bee Kind T-Shirt",
+    "position": 1
+   },
+   {
+    "src": "/images/products/classic-t-shirt-2.jpg",
+    "width": 683,
+    "height": 1024,
+    "alt": "Bee Kind T-Shirt",
+    "position": 2
+   },
+   {
+    "src": "/images/products/classic-t-shirt-3.jpg",
+    "width": 683,
+    "height": 1024,
+    "alt": "Bee Kind T-Shirt",
+    "position": 3
+   },
+   {
+    "src": "/images/products/classic-t-shirt-4.jpg",
+    "width": 3024,
+    "height": 4032,
+    "alt": "Bee Kind T-Shirt",
+    "position": 4
+   },
+   {
+    "src": "/images/products/classic-t-shirt-5.jpg",
+    "width": 1536,
+    "height": 2048,
+    "alt": "Bee Kind T-Shirt",
+    "position": 5
+   }
+  ]
+ },
+ {
+  "shopifyId": 8887368843479,
+  "handle": "rose-effect-hoodies",
+  "title": "Rose Effect Hoodies",
+  "bodyHtml": "<p data-start=\"833\" data-end=\"1116\" class=\"\">Stay cozy and stylish with our premium hoodies, crafted for maximum comfort and durability. Featuring ultra-soft fleece lining, spacious front pockets, and adjustable drawstrings, they're perfect for layering in cooler weather or rocking solo for a laid-back vibe.</p>\n<ul data-start=\"1118\" data-end=\"1301\">\n<li data-start=\"1118\" data-end=\"1154\" class=\"\">\n<p data-start=\"1120\" data-end=\"1154\" class=\"\">Material: Cotton blend</p>\n</li>\n<li data-start=\"1155\" data-end=\"1194\" class=\"\">\n<p data-start=\"1157\" data-end=\"1194\" class=\"\">Fit: Relaxed / Standard</p>\n</li>\n<li data-start=\"1195\" data-end=\"1261\" class=\"\">\n<p data-start=\"1197\" data-end=\"1261\" class=\"\">Features: Kangaroo pocket, ribbed cuffs &amp; hem, drawstring hood</p>\n</li>\n<li data-start=\"1262\" data-end=\"1301\" class=\"\">\n<p data-start=\"1264\" data-end=\"1301\" class=\"\">Ideal for casual wear or street style</p>\n</li>\n</ul>",
+  "vendor": "My Store",
+  "productType": "",
+  "tags": [],
+  "publishedAt": "2025-04-15T12:18:25+02:00",
+  "options": [
+   {
+    "name": "Title",
+    "position": 1,
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "variants": [
+   {
+    "shopifyId": 46259963592919,
+    "title": "Default Title",
+    "sku": "",
+    "price": "500.00",
+    "compareAtPrice": null,
+    "option1": "Default Title",
+    "option2": null,
+    "option3": null,
+    "available": true,
+    "position": 1
+   }
+  ],
+  "images": [
+   {
+    "src": "/images/products/rose-effect-hoodies-1.jpg",
+    "width": 2000,
+    "height": 3000,
+    "alt": "Rose Effect Hoodies",
+    "position": 1
+   },
+   {
+    "src": "/images/products/rose-effect-hoodies-2.jpg",
+    "width": 2000,
+    "height": 3000,
+    "alt": "Rose Effect Hoodies",
+    "position": 2
+   },
+   {
+    "src": "/images/products/rose-effect-hoodies-3.jpg",
+    "width": 2000,
+    "height": 3000,
+    "alt": "Rose Effect Hoodies",
+    "position": 3
+   },
+   {
+    "src": "/images/products/rose-effect-hoodies-4.jpg",
+    "width": 2000,
+    "height": 3000,
+    "alt": "Rose Effect Hoodies",
+    "position": 4
+   }
+  ]
+ }
+]

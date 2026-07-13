@@ -1,0 +1,133 @@
+[
+ {
+  "shopifyId": 479374966999,
+  "handle": "jewellery",
+  "title": "Accessories",
+  "descriptionHtml": "<p><span>Accessories are an essential extension of the Lifestyle Clothing identity—carefully curated pieces designed to elevate, refine, and complete every look. Far from being optional, they serve as powerful style statements that enhance both form and function across our collections.</span></p>\n<p> </p>\n<p><span>From timeless jewellery and statement bags to precision-crafted belts, scarves, headwear, and sunglasses, each accessory is created to complement our garments while allowing individuality to stand out. At the same time, our functional pieces—such as premium socks and everyday essentials—are designed with comfort, durability, and effortless wear in mind.</span></p>\n<p> </p>\n<p><span>At Lifestyle Clothing, accessories are not an after thought —they are a defining detail. They bring intention to every outfit, confidence to every step, and a seamless balance between style and purpose.</span></p>",
+  "image": "/images/collections/jewellery.png",
+  "publishedAt": "2025-12-18T05:48:44+02:00",
+  "productHandles": [
+   "lifestyle-legacy-pendant"
+  ]
+ },
+ {
+  "shopifyId": 460591071447,
+  "handle": "croppie-tee",
+  "title": "Croppie Tee",
+  "descriptionHtml": "<div class=\"product__description rte quick-add-hidden\">\n<p>Cropped Tee by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.   <button class=\"share-button__button\"><span class=\"svg-wrapper\"><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" class=\"icon icon-share\" viewbox=\"0 0 13 12\"><path stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M1.625 8.125v2.167a1.083 1.083 0 0 0 1.083 1.083h7.584a1.083 1.083 0 0 0 1.083-1.083V8.125\"></path><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M6.148 1.271a.5.5 0 0 1 .707 0L9.563 3.98a.5.5 0 0 1-.707.707L6.501 2.332 4.147 4.687a.5.5 0 1 1-.708-.707z\" clip-rule=\"evenodd\"></path><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M6.5 1.125a.5.5 0 0 1 .5.5v6.5a.5.5 0 0 1-1 0v-6.5a.5.5 0 0 1 .5-.5\" clip-rule=\"evenodd\"></path></svg></span></button></p>\n</div>",
+  "image": "/images/collections/croppie-tee.jpg",
+  "publishedAt": "2025-05-22T19:27:16+02:00",
+  "productHandles": [
+   "cropped-tee",
+   "lifestyle-core-crop"
+  ]
+ },
+ {
+  "shopifyId": 460591202519,
+  "handle": "everyday-summer-socks",
+  "title": "Everyday Summer Socks",
+  "descriptionHtml": "<p><meta charset=\"utf-8\"><span>Everyday Socks by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing</span></p>",
+  "image": "/images/collections/everyday-summer-socks.jpg",
+  "publishedAt": "2025-05-22T19:34:07+02:00",
+  "productHandles": [
+   "everyday-socks"
+  ]
+ },
+ {
+  "shopifyId": 460589891799,
+  "handle": "5-panel-caps",
+  "title": "Headwear",
+  "descriptionHtml": "<p>Lifestyle Clothing Headwear</p>",
+  "image": "/images/collections/5-panel-caps.jpg",
+  "publishedAt": "2025-05-22T18:43:36+02:00",
+  "productHandles": [
+   "lifestyle-cap",
+   "runner-cap",
+   "bucket-your-lifestyle",
+   "premium-3d-cap"
+  ]
+ },
+ {
+  "shopifyId": 485654397143,
+  "handle": "dresses",
+  "title": "Lifestyle Skirts",
+  "descriptionHtml": "<p><span>Step into bold confidence with our Lifestyle Maxi Skirt — where streetwear edge meets everyday comfort. Crafted from premium fabric, this piece delivers a smooth, structured fit that flatters every body type while keeping you comfortable all day.</span></p>",
+  "image": null,
+  "publishedAt": "2026-03-18T05:55:27+02:00",
+  "productHandles": [
+   "maxi-dress"
+  ]
+ },
+ {
+  "shopifyId": 460590809303,
+  "handle": "short-sleeve-t-shirts",
+  "title": "Lifestyle T-shirts",
+  "descriptionHtml": "<p data-start=\"307\" data-end=\"618\" class=\"\">Our classic t-shirts are designed for everyday comfort and effortless style. Made from high-quality cotton or cotton-blend fabrics, they offer a soft touch, breathable feel, and a flattering fit that works for any look. Whether you're dressing up or down, these tees are your go-to essential.</p>\n<p> </p>",
+  "image": "/images/collections/short-sleeve-t-shirts.jpg",
+  "publishedAt": "2025-05-22T19:21:26+02:00",
+  "productHandles": [
+   "lifestyle-premium-tee-copy",
+   "ungachazi-silky-shirt",
+   "lifestyle-premium-tee",
+   "chubby-lifestyle-croppie-tee",
+   "lifestyle-signature-tee",
+   "copy-lifstl-motorsports",
+   "lifstl-motorsports",
+   "east-rand-origin-2-0",
+   "365days-exclusive",
+   "lifstyl-t-shirts",
+   "ungachaza-t-shirt",
+   "believe-tshirts",
+   "believe-oversized-tee",
+   "classic-t-shirt"
+  ]
+ },
+ {
+  "shopifyId": 460590645463,
+  "handle": "hoodie-collection",
+  "title": "Premium Hoodie",
+  "descriptionHtml": "<p data-start=\"212\" data-end=\"577\">Stay effortlessly stylish while wrapped in all-day comfort. Our premium hoodies are expertly crafted from high-quality, breathable cotton-blend fabric, designed to offer warmth without the bulk. Featuring a soft fleece interior, functional front kangaroo pocket, and adjustable drawstrings, this piece blends everyday practicality with elevated streetwear appeal.</p>\n<p data-start=\"579\" data-end=\"758\">Whether you're layering up or wearing it solo, this hoodie delivers the perfect balance of comfort, durability, and signature style — making it a go-to essential for every season.</p>",
+  "image": "/images/collections/hoodie-collection.jpg",
+  "publishedAt": "2025-05-22T19:16:51+02:00",
+  "productHandles": [
+   "believe-in-yourself-hoodie",
+   "rose-effect-hoodies",
+   "signature-hoodie"
+  ]
+ },
+ {
+  "shopifyId": 478702010583,
+  "handle": "shorts",
+  "title": "Shorts",
+  "descriptionHtml": "<p><span>Lightweight. Sleek. Comfortable.</span></p>\n<p><span>These new micro active shorts are built for the heat — smooth feel, breathable fit, and a clean elastic waistband with no string for that modern minimal look.</span></p>\n<p> </p>\n<p><span>Perfect for chilling, moving, flexing… basically your whole summer.</span></p>\n<p><span>Logo sitting clean on the pocket &amp; leg.</span></p>\n<p><span>Comfort sitting even cleaner on you.</span></p>",
+  "image": "/images/collections/shorts.heic",
+  "publishedAt": "2025-12-10T11:14:41+02:00",
+  "productHandles": [
+   "day2day-shorts"
+  ]
+ },
+ {
+  "shopifyId": 460591235287,
+  "handle": "summer-silky-scarfs",
+  "title": "Summer Silky Scarfs",
+  "descriptionHtml": "<p><meta charset=\"utf-8\"><span>Indulge in the luxurious feel of our Silky Scarf. Made from a smooth satin fabric, this summer accessory instantly elevates any outfit with a touch of sophistication. Enjoy the lightweight and airy feel of the scarf while staying stylish in the summer heat.</span></p>",
+  "image": "/images/collections/summer-silky-scarfs.jpg",
+  "publishedAt": "2025-05-22T19:38:57+02:00",
+  "productHandles": [
+   "untitled-21apr_20-51"
+  ]
+ },
+ {
+  "shopifyId": 460590219479,
+  "handle": "slouchy-hats",
+  "title": "Winter Hats",
+  "descriptionHtml": "<p><meta charset=\"utf-8\">Slouchy Beanie by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>",
+  "image": "/images/collections/slouchy-hats.jpg",
+  "publishedAt": "2025-05-22T18:54:42+02:00",
+  "productHandles": [
+   "slouchy-beanie",
+   "unisex-beanie-hat-cozy-stylish-stretchy",
+   "unisex-beanie-hat-faux-pearls-copy"
+  ]
+ }
+]

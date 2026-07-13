@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lifestyle Clothing ZA
 
-## Getting Started
+Custom-coded rebuild of [lifestyleclothingza.com](https://lifestyleclothingza.com/) — migrated off Shopify with all content, products, collections, articles, and SEO metadata preserved.
 
-First, run the development server:
+**Stack:** Next.js (App Router, SSR/SSG) · TypeScript · Tailwind CSS v4 · PostgreSQL · Prisma · custom CMS admin.
+
+## Getting started
+
+Requires Node ≥ 20 (`.nvmrc` pins v24) and PostgreSQL.
 
 ```bash
+nvm use
+npm install
+createdb lifestyle_clothing        # once
+npm run db:push                    # create tables
+npm run db:seed                    # import migrated Shopify content + admin user
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Storefront: http://localhost:3000 · Admin: http://localhost:3000/admin
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment (`.env`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Purpose |
+| --- | --- |
+| `DATABASE_URL` | PostgreSQL connection string |
+| `DATA_SOURCE` | `db` (default) or `content` — serve straight from the JSON archive without a database |
+| `NEXT_PUBLIC_SITE_URL` | Absolute origin for canonicals, sitemap, OG tags |
+| `ADMIN_EMAIL` / `ADMIN_PASSWORD` | Initial admin credentials consumed by `db:seed` — **change the password after first login** |
+| `AUTH_SECRET` | Session secret — set a strong value in production |
 
-## Learn More
+## Content migration
 
-To learn more about Next.js, take a look at the following resources:
+`/content` holds the full snapshot pulled from the live Shopify store (July 2026):
+34 products (381 variants), 10 collections, 7 pages, 1 blog article, homepage section copy,
+navigation, announcements, and social links. All images were downloaded to `/public/images`
+so nothing depends on the Shopify CDN. `npm run db:seed` is idempotent — it upserts by handle.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**URL parity with Shopify** (rankings preserved):
+`/products/:handle`, `/collections/:handle`, `/collections/all`, `/blogs/news/:handle`, `/pages/:handle`.
+Legacy variants (e.g. `/collections/x/Tag`, `/policies/*`) 301-redirect in `next.config.ts`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture
 
-## Deploy on Vercel
+```
+content/            JSON content archive (source of truth for the seed)
+prisma/             schema.prisma + seed.ts
+src/
+  app/(storefront)/ homepage, collections, products, blogs, pages, cart, checkout, search
+  app/admin/        session-guarded CMS (products, orders, articles, pages, media, messages)
+  app/sitemap.ts    dynamic XML sitemap        app/robots.ts   robots.txt
+  components/       ui/ (design system) · layout/ · home/ · product/ · cart/ · admin/ · seo/
+  lib/data/         data layer — Prisma source with JSON-archive fallback (DATA_SOURCE)
+  lib/actions/      server actions (cart, checkout, newsletter, contact, admin CRUD, auth)
+  lib/seo.ts        metadata + JSON-LD builders (Product, Article, FAQ, Breadcrumb, Organization)
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **SEO:** SSR/SSG everywhere, canonical tags, Open Graph/Twitter cards, JSON-LD structured
+  data, dynamic sitemap.xml, robots.txt, 301s for legacy URLs, `next/image` AVIF/WebP.
+- **Design system:** tokens in `src/app/globals.css` (`@theme`) — bone/ink/clay palette,
+  fluid type scale, Inter + Archivo. WCAG AA: focus rings, skip link, aria labels,
+  reduced-motion support, semantic landmarks.
+- **Checkout** records orders in PostgreSQL (status: PENDING → PAID → FULFILLED). Payment is
+  currently settled off-platform; wire PayFast/Yoco/Paystack into
+  `src/lib/actions/checkout.ts` when ready.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploying to Netlify
+
+`netlify.toml` is already configured (Node 24, `@netlify/plugin-nextjs`, long-cache image headers).
+
+1. **Hosted PostgreSQL** — create a database on Neon, Supabase, or Netlify DB and grab the
+   **pooled** connection string (serverless functions open many short-lived connections).
+2. **Schema + content** — push and seed from your machine against the hosted DB:
+   ```bash
+   DATABASE_URL="<hosted-url>" npm run db:push
+   DATABASE_URL="<hosted-url>" ADMIN_EMAIL="you@…" ADMIN_PASSWORD="strong-password" npm run db:seed
+   ```
+3. **Environment variables** on the Netlify site: `DATABASE_URL`, `NEXT_PUBLIC_SITE_URL`,
+   `AUTH_SECRET` (e.g. `openssl rand -hex 32`), and optionally `DATA_SOURCE=content` to launch
+   the storefront before the DB is ready (see `.env.example`).
+4. **Deploy** — connect the git repo in the Netlify UI, or from the CLI:
+   ```bash
+   netlify init && netlify deploy --build --prod
+   ```
+
+Serverless caveats:
+
+- **Admin media uploads** write to the local filesystem, which is ephemeral on Netlify —
+  uploads will 200 but vanish on the next deploy. Migrated catalog images in `/public/images`
+  are unaffected (they ship with the build). Move uploads to Netlify Blobs/S3/Cloudinary
+  before relying on that feature in production.
+- Prisma is generated with the `rhel-openssl-3.0.x` engine for Netlify's Lambda runtime
+  (see `prisma/schema.prisma`).
+- Once DNS for lifestyleclothingza.com points at Netlify, keep `NEXT_PUBLIC_SITE_URL` set to
+  the apex domain so canonicals/sitemap stay correct.
+
+## Scripts
+
+| Command | |
+| --- | --- |
+| `npm run dev` / `build` / `start` | Next.js |
+| `npm run db:push` | apply Prisma schema |
+| `npm run db:seed` | seed from `/content` (safe to re-run) |
+| `npm run db:studio` | browse data |
+| `npm run lint` | ESLint |
