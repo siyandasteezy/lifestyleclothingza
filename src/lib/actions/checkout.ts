@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { resolveCart, writeCartLines } from "@/lib/cart";
+import { payfastConfigured } from "@/lib/payments/payfast";
+import { quoteShipping } from "@/lib/shipping/courier-guy";
 
 const checkoutSchema = z.object({
   email: z.string().email("Enter a valid email address."),
@@ -24,9 +26,6 @@ export interface CheckoutState {
   fieldErrors?: Record<string, string>;
 }
 
-const FREE_SHIPPING_THRESHOLD_CENTS = 50000;
-const FLAT_SHIPPING_CENTS = 9900;
-
 export async function placeOrder(
   _prev: CheckoutState,
   formData: FormData,
@@ -46,19 +45,31 @@ export async function placeOrder(
   }
 
   const data = parsed.data;
-  const shippingCents =
-    subtotalCents >= FREE_SHIPPING_THRESHOLD_CENTS ? 0 : FLAT_SHIPPING_CENTS;
+  const shipping = await quoteShipping(
+    {
+      name: data.name,
+      address1: data.address1,
+      address2: data.address2,
+      city: data.city,
+      province: data.province,
+      postalCode: data.postalCode,
+      phone: data.phone,
+      email: data.email,
+    },
+    subtotalCents,
+  );
 
-  let orderNumber: number;
+  let order: { id: string; number: number };
   try {
-    const order = await prisma.order.create({
+    order = await prisma.order.create({
       data: {
         email: data.email.toLowerCase(),
         phone: data.phone || null,
         subtotalCents,
-        shippingCents,
-        totalCents: subtotalCents + shippingCents,
+        shippingCents: shipping.cents,
+        totalCents: subtotalCents + shipping.cents,
         shippingName: data.name,
+        shippingMethod: shipping.method,
         shippingAddress: {
           address1: data.address1,
           address2: data.address2 ?? "",
@@ -66,8 +77,10 @@ export async function placeOrder(
           province: data.province,
           postalCode: data.postalCode,
           country: data.country,
+          serviceLevelCode: shipping.serviceLevelCode ?? "",
         },
         note: data.note || null,
+        paymentMethod: payfastConfigured() ? "payfast" : "manual",
         items: {
           create: await Promise.all(
             lines.map(async (line) => {
@@ -91,12 +104,15 @@ export async function placeOrder(
           ),
         },
       },
+      select: { id: true, number: true },
     });
-    orderNumber = order.number;
   } catch {
     return { status: "error", message: "We couldn't place your order. Please try again." };
   }
 
   await writeCartLines([]);
-  redirect(`/checkout/confirmation?order=${orderNumber}`);
+  if (payfastConfigured()) {
+    redirect(`/checkout/pay/${order.id}`);
+  }
+  redirect(`/checkout/confirmation?order=${order.number}`);
 }

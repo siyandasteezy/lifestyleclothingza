@@ -129,6 +129,16 @@ model Order {
   shippingName    String?
   shippingAddress Json?
   note          String?
+
+  // Payments (PayFast)
+  paymentMethod String? // "payfast"
+  paymentId     String? // PayFast pf_payment_id
+
+  // Delivery (The Courier Guy via Shiplogic)
+  shippingMethod    String? // e.g. "The Courier Guy — Economy" or "Standard delivery"
+  shipmentId        String? // Shiplogic shipment id
+  trackingReference String?
+
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   items         OrderItem[]

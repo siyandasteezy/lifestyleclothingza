@@ -60,9 +60,39 @@ src/
 - **Design system:** tokens in `src/app/globals.css` (`@theme`) — bone/ink/clay palette,
   fluid type scale, Inter + Archivo. WCAG AA: focus rings, skip link, aria labels,
   reduced-motion support, semantic landmarks.
-- **Checkout** records orders in PostgreSQL (status: PENDING → PAID → FULFILLED). Payment is
-  currently settled off-platform; wire PayFast/Yoco/Paystack into
-  `src/lib/actions/checkout.ts` when ready.
+- **Checkout** records orders in PostgreSQL (status: PENDING → PAID → FULFILLED).
+
+## Payments — PayFast
+
+`src/lib/payments/payfast.ts` implements the redirect flow: placing an order sends the
+customer to a signed PayFast payment page; PayFast's ITN webhook
+(`/api/payfast/notify`) verifies the signature, confirms the notification with PayFast's
+validate endpoint, checks the amount, and marks the order **PAID** (or CANCELLED).
+The signature algorithm mirrors PayFast's reference implementation exactly.
+
+Setup:
+1. Sandbox: create a free account at https://sandbox.payfast.co.za → copy Merchant ID +
+   Merchant Key, set a Salt Passphrase under Settings. (PayFast's old shared test
+   credentials no longer accept posts — you need your own sandbox.)
+2. Fill `PAYFAST_MERCHANT_ID`, `PAYFAST_MERCHANT_KEY`, `PAYFAST_PASSPHRASE`,
+   `PAYFAST_MODE=sandbox` in the environment.
+3. Go live: swap in your production credentials from payfast.io and `PAYFAST_MODE=live`.
+
+With no credentials set, checkout falls back to recording orders for manual/EFT settlement.
+The ITN webhook needs a public HTTPS origin (`NEXT_PUBLIC_SITE_URL`) — it can't be
+tested on localhost.
+
+## Delivery — The Courier Guy
+
+`src/lib/shipping/courier-guy.ts` integrates via the Shiplogic API:
+- **Checkout** quotes the cheapest live rate for the customer's address (orders ≥ R500
+  ship free; without an API key the flat R99 rate applies).
+- **Admin → order page** has a one-click **Book Courier Guy shipment** button once an
+  order is paid — it creates the shipment, stores the tracking reference, links to the
+  tracking page, and moves the order to FULFILLED.
+
+Set `COURIER_GUY_API_KEY` (from your Courier Guy / Shiplogic account) and the
+`COURIER_GUY_COLLECTION_*` pickup address variables to enable it.
 
 ## Deploying to Netlify
 

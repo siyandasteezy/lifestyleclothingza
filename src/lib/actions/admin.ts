@@ -93,6 +93,44 @@ export async function updateOrderStatus(formData: FormData): Promise<void> {
   revalidatePath("/admin/orders");
 }
 
+// ---------- Shipments (The Courier Guy) ----------
+
+export async function bookCourierShipment(formData: FormData): Promise<void> {
+  await assertAdmin();
+  const id = String(formData.get("id"));
+  const order = await prisma.order.findUnique({ where: { id } });
+  if (!order || order.trackingReference) return;
+
+  const address = order.shippingAddress as Record<string, string> | null;
+  if (!address) return;
+
+  const { bookShipment } = await import("@/lib/shipping/courier-guy");
+  const shipment = await bookShipment({
+    address: {
+      name: order.shippingName ?? "",
+      address1: address.address1 ?? "",
+      address2: address.address2,
+      city: address.city ?? "",
+      province: address.province ?? "",
+      postalCode: address.postalCode ?? "",
+      phone: order.phone ?? undefined,
+      email: order.email,
+    },
+    orderNumber: order.number,
+    serviceLevelCode: address.serviceLevelCode || undefined,
+    declaredValueCents: order.subtotalCents,
+  });
+  await prisma.order.update({
+    where: { id },
+    data: {
+      shipmentId: shipment.shipmentId,
+      trackingReference: shipment.trackingReference,
+      status: order.status === "PAID" ? "FULFILLED" : order.status,
+    },
+  });
+  revalidatePath(`/admin/orders/${id}`);
+}
+
 // ---------- Articles ----------
 
 const articleSchema = z.object({

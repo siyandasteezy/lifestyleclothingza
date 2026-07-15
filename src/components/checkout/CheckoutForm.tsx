@@ -40,7 +40,7 @@ function Field({
   );
 }
 
-export function CheckoutForm() {
+export function CheckoutForm({ payfastEnabled = false }: { payfastEnabled?: boolean }) {
   const [state, formAction, pending] = useActionState(placeOrder, initialState);
   const errors = state.fieldErrors ?? {};
 
@@ -75,13 +75,18 @@ export function CheckoutForm() {
         <button
           type="submit"
           disabled={pending}
-          className="h-13 w-full rounded-full bg-ink px-8 text-base font-semibold tracking-wide text-bone transition hover:bg-clay disabled:pointer-events-none disabled:opacity-50 sm:w-auto"
+          className="h-13 w-full rounded-(--radius-card) bg-ink px-9 text-sm tracking-[0.08em] uppercase text-bone transition hover:bg-clay disabled:pointer-events-none disabled:opacity-50 sm:w-auto"
         >
-          {pending ? "Placing order…" : "Place order"}
+          {pending
+            ? "Placing order…"
+            : payfastEnabled
+              ? "Continue to payment"
+              : "Place order"}
         </button>
         <p className="mt-3 text-xs text-stone">
-          Payment is settled via EFT / payment link after your order is confirmed. A payment
-          gateway (PayFast, Yoco, Paystack…) can be connected here later.
+          {payfastEnabled
+            ? "You'll be redirected to PayFast to pay securely by card, EFT, or SnapScan. Delivery by The Courier Guy."
+            : "Payment is settled via EFT / payment link after your order is confirmed."}
         </p>
         <p aria-live="polite" className="mt-2 min-h-5 text-sm text-clay">
           {state.status === "error" && state.message}

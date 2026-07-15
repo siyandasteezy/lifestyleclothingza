@@ -2,7 +2,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { formatMoney } from "@/lib/money";
-import { updateOrderStatus } from "@/lib/actions/admin";
+import { bookCourierShipment, updateOrderStatus } from "@/lib/actions/admin";
+import { courierGuyConfigured, trackingUrl } from "@/lib/shipping/courier-guy";
 import { adminInput, AdminCard, AdminHeading, StatusBadge } from "@/components/admin/ui";
 
 export const dynamic = "force-dynamic";
@@ -86,6 +87,55 @@ export default async function AdminOrderDetail({
                 Save
               </button>
             </form>
+          </AdminCard>
+
+          <AdminCard>
+            <h2 className="mb-3 font-display text-base font-bold">Payment & delivery</h2>
+            <dl className="space-y-1.5 text-sm">
+              <div className="flex justify-between gap-3">
+                <dt className="text-stone">Payment</dt>
+                <dd>{order.paymentMethod === "payfast" ? "PayFast" : "Manual / EFT"}</dd>
+              </div>
+              {order.paymentId && (
+                <div className="flex justify-between gap-3">
+                  <dt className="text-stone">PayFast ID</dt>
+                  <dd className="font-mono text-xs">{order.paymentId}</dd>
+                </div>
+              )}
+              {order.shippingMethod && (
+                <div className="flex justify-between gap-3">
+                  <dt className="text-stone">Shipping</dt>
+                  <dd className="text-right">{order.shippingMethod}</dd>
+                </div>
+              )}
+            </dl>
+            {order.trackingReference ? (
+              <p className="mt-3 text-sm">
+                Tracking:{" "}
+                <a
+                  href={trackingUrl(order.trackingReference)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-clay underline underline-offset-2"
+                >
+                  {order.trackingReference}
+                </a>
+              </p>
+            ) : courierGuyConfigured() ? (
+              <form action={bookCourierShipment} className="mt-4">
+                <input type="hidden" name="id" value={order.id} />
+                <button
+                  type="submit"
+                  className="h-10 w-full rounded-full bg-ink px-5 text-sm font-semibold text-bone hover:bg-clay"
+                >
+                  Book Courier Guy shipment
+                </button>
+              </form>
+            ) : (
+              <p className="mt-3 text-xs text-stone">
+                Connect The Courier Guy (set COURIER_GUY_API_KEY) to book shipments from here.
+              </p>
+            )}
           </AdminCard>
 
           <AdminCard>

@@ -5,6 +5,8 @@ import { Price } from "@/components/ui/Price";
 import { resolveCart } from "@/lib/cart";
 import { formatMoney } from "@/lib/money";
 import { buildMetadata } from "@/lib/seo";
+import { payfastConfigured } from "@/lib/payments/payfast";
+import { FLAT_SHIPPING_CENTS, FREE_SHIPPING_THRESHOLD_CENTS } from "@/lib/shipping/courier-guy";
 import { CheckoutForm } from "@/components/checkout/CheckoutForm";
 
 export const metadata: Metadata = buildMetadata({
@@ -18,13 +20,16 @@ export default async function CheckoutPage() {
   const { lines, subtotalCents } = await resolveCart();
   if (lines.length === 0) redirect("/cart");
 
-  const shippingCents = subtotalCents >= 50000 ? 0 : 9900;
+  // Estimate shown pre-address; the final rate is quoted from The Courier Guy
+  // (or the flat rate) when the order is placed.
+  const shippingCents =
+    subtotalCents >= FREE_SHIPPING_THRESHOLD_CENTS ? 0 : FLAT_SHIPPING_CENTS;
 
   return (
     <Container className="py-10 md:py-14">
       <h1 className="mb-8 font-display text-display-md">Checkout</h1>
       <div className="grid gap-10 lg:grid-cols-[1fr_24rem] lg:items-start">
-        <CheckoutForm />
+        <CheckoutForm payfastEnabled={payfastConfigured()} />
         <aside className="rounded-card border border-line bg-paper p-6 lg:order-last" aria-label="Order summary">
           <h2 className="font-display text-lg">Your order</h2>
           <ul className="mt-4 divide-y divide-line">
@@ -47,7 +52,7 @@ export default async function CheckoutPage() {
               <dd>{formatMoney(subtotalCents)}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-stone">Shipping</dt>
+              <dt className="text-stone">Shipping (estimated)</dt>
               <dd>{shippingCents === 0 ? "Free" : formatMoney(shippingCents)}</dd>
             </div>
             <div className="flex justify-between border-t border-line pt-2 text-base font-semibold">
