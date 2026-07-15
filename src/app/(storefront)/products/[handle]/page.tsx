@@ -6,7 +6,7 @@ import { ProductForm } from "@/components/product/ProductForm";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getCollections, getProduct, getProducts } from "@/lib/data";
+import { getCollections, getPage, getProduct, getProducts } from "@/lib/data";
 import { breadcrumbJsonLd, buildMetadata, descriptionFromHtml, productJsonLd } from "@/lib/seo";
 
 export const revalidate = 300;
@@ -50,6 +50,9 @@ export default async function ProductPage({ params }: Props) {
         .slice(0, 4)
     : [];
 
+  // Size & fit guidance rendered at the point of decision
+  const sizeFit = await getPage("faqs-on-size-fit");
+
   return (
     <>
       <JsonLd
@@ -63,10 +66,10 @@ export default async function ProductPage({ params }: Props) {
         ]}
       />
       <Container className="py-8 md:py-12">
-        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-stone">
+        <nav aria-label="Breadcrumb" className="mb-8 text-xs tracking-[0.08em] text-stone">
           <ol className="flex flex-wrap items-center gap-1.5">
             <li>
-              <Link href="/" className="hover:text-ink hover:underline">
+              <Link href="/" className="hover:text-clay">
                 Home
               </Link>
             </li>
@@ -74,7 +77,7 @@ export default async function ProductPage({ params }: Props) {
               <>
                 <li aria-hidden>/</li>
                 <li>
-                  <Link href={`/collections/${home.handle}`} className="hover:text-ink hover:underline">
+                  <Link href={`/collections/${home.handle}`} className="hover:text-clay">
                     {home.title}
                   </Link>
                 </li>
@@ -89,31 +92,68 @@ export default async function ProductPage({ params }: Props) {
 
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <ProductGallery images={product.images} title={product.title} />
-          <div>
+
+          {/* Buy column stays in view while the gallery scrolls */}
+          <div className="lg:sticky lg:top-28 lg:self-start">
             <h1 className="font-display text-display-md leading-[1.1] text-balance">
               {product.title}
             </h1>
             {product.vendor && (
-              <p className="mt-2 text-sm tracking-wide text-stone uppercase">{product.vendor}</p>
+              <p className="mt-2 font-display text-[10px] tracking-[0.25em] text-stone uppercase">
+                {product.vendor}
+              </p>
             )}
-            <div className="mt-5">
+            <div className="mt-6">
               <ProductForm product={product} />
             </div>
+
+            <p className="mt-5 border-t border-line pt-4 text-xs tracking-[0.06em] text-stone">
+              PayFast secure checkout · Delivery by The Courier Guy · 2–5 business days
+            </p>
+
+            {sizeFit && (
+              <details className="group mt-4 border-t border-line pt-4">
+                <summary className="cursor-pointer list-none font-display text-[11px] tracking-[0.2em] text-ink uppercase hover:text-clay [&::-webkit-details-marker]:hidden">
+                  Size &amp; fit
+                  <span aria-hidden className="ml-2 inline-block transition group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <div
+                  className="prose mt-4 text-sm"
+                  dangerouslySetInnerHTML={{ __html: sizeFit.bodyHtml }}
+                />
+              </details>
+            )}
+
             {product.bodyHtml && (
-              <div
-                className="prose mt-8 border-t border-line pt-8"
-                dangerouslySetInnerHTML={{ __html: product.bodyHtml }}
-              />
+              <details className="group mt-4 border-t border-b border-line py-4" open>
+                <summary className="cursor-pointer list-none font-display text-[11px] tracking-[0.2em] text-ink uppercase hover:text-clay [&::-webkit-details-marker]:hidden">
+                  Details &amp; care
+                  <span aria-hidden className="ml-2 inline-block transition group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <div
+                  className="prose mt-4 text-sm"
+                  dangerouslySetInnerHTML={{ __html: product.bodyHtml }}
+                />
+              </details>
             )}
           </div>
         </div>
 
         {related.length > 0 && (
-          <section aria-labelledby="related-heading" className="mt-20">
-            <h2 id="related-heading" className="mb-8 font-display text-display-sm">
-              You may also like
-            </h2>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:grid-cols-4">
+          <section aria-labelledby="related-heading" className="mt-24">
+            <div className="mb-10 flex items-baseline gap-4 border-b border-line pb-4">
+              <h2
+                id="related-heading"
+                className="font-display text-[10px] tracking-[0.3em] text-stone uppercase"
+              >
+                You may also like
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
               {related.map((p) => (
                 <ProductCard key={p.handle} product={p} />
               ))}

@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ButtonLink } from "@/components/ui/Button";
 
 export interface Slide {
   eyebrow: string;
@@ -15,12 +15,11 @@ export interface Slide {
 const INTERVAL_MS = 6500;
 
 /**
- * Editorial carousel matching the original theme's slideshow: light canvas,
- * neighbouring slides peeking at the edges, prev/next arrows, and a frosted
- * white text card with dark type. Scroll-snap based, so it swipes natively.
+ * Chapter i — the Cover. Full-bleed single look, text set directly on the
+ * image, serif-italic slide counter, slow Ken Burns drift. Sits underneath
+ * the transparent header.
  */
 export function Slideshow({ slides }: { slides: Slide[] }) {
-  const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const reducedMotion = useRef(false);
@@ -29,34 +28,10 @@ export function Slideshow({ slides }: { slides: Slide[] }) {
     reducedMotion.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }, []);
 
-  const scrollToSlide = useCallback((i: number) => {
-    const track = trackRef.current;
-    const slide = track?.children[i] as HTMLElement | undefined;
-    if (!track || !slide) return;
-    track.scrollTo({
-      left: slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2,
-      behavior: reducedMotion.current ? "auto" : "smooth",
-    });
-  }, []);
-
   const step = useCallback(
-    (dir: 1 | -1) => {
-      const next = (active + dir + slides.length) % slides.length;
-      scrollToSlide(next);
-    },
-    [active, slides.length, scrollToSlide],
+    (dir: 1 | -1) => setActive((i) => (i + dir + slides.length) % slides.length),
+    [slides.length],
   );
-
-  // Keep `active` in sync while the user swipes
-  const onScroll = useCallback(() => {
-    const track = trackRef.current;
-    if (!track || track.children.length === 0) return;
-    const slideWidth = (track.children[0] as HTMLElement).clientWidth;
-    const gap = 16;
-    setActive(
-      Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / (slideWidth + gap)))),
-    );
-  }, [slides.length]);
 
   useEffect(() => {
     if (paused || reducedMotion.current) return;
@@ -68,103 +43,117 @@ export function Slideshow({ slides }: { slides: Slide[] }) {
     <section
       aria-roledescription="carousel"
       aria-label="Featured"
-      className="bg-bone py-4 sm:py-6"
+      className="relative h-[min(94svh,58rem)] min-h-[34rem] overflow-hidden bg-bone"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
-      onTouchStart={() => setPaused(true)}
     >
-      <div
-        ref={trackRef}
-        onScroll={onScroll}
-        className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-[5vw] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {slides.map((slide, i) => (
-          <div
-            key={slide.heading}
-            role="group"
-            aria-roledescription="slide"
-            aria-label={`${i + 1} of ${slides.length}`}
-            className="relative w-[90vw] shrink-0 snap-center overflow-hidden bg-white sm:w-[86vw]"
-          >
-            <div className="relative h-[72svh] min-h-[28rem] sm:h-[min(82svh,50rem)]">
-              <Image
-                src={slide.image}
-                alt=""
-                fill
-                priority={i === 0}
-                loading={i === 0 ? "eager" : "lazy"}
-                sizes="90vw"
-                className="object-cover object-top"
-              />
+      {slides.map((slide, i) => (
+        <div
+          key={slide.heading}
+          role="group"
+          aria-roledescription="slide"
+          aria-label={`${i + 1} of ${slides.length}`}
+          aria-hidden={i !== active}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-(--ease-lux) ${
+            i === active ? "z-10 opacity-100" : "z-0 opacity-0"
+          }`}
+        >
+          <div className="absolute inset-0 overflow-hidden">
+            <Image
+              src={slide.image}
+              alt=""
+              fill
+              priority={i === 0}
+              loading={i === 0 ? "eager" : "lazy"}
+              sizes="100vw"
+              className={`object-cover object-top ${i === active ? "motion-safe:animate-kenburns" : ""}`}
+            />
+          </div>
+          {/* Measured scrim — enough for AA text, light enough to keep the sun in */}
+          <div className="absolute inset-0 bg-linear-to-t from-ink/70 via-ink/35 to-ink/10" />
 
-              {/* Frosted text card */}
-              <div className="absolute bottom-4 left-1/2 w-[92%] -translate-x-1/2 sm:top-1/2 sm:bottom-auto sm:left-[6%] sm:w-[24rem] sm:-translate-x-0 sm:-translate-y-1/2">
-                {/* Prev / next arrows */}
-                <div className="absolute -top-11 left-0 flex" role="group" aria-label="Slide controls">
-                  <button
-                    type="button"
-                    aria-label="Previous slide"
-                    onClick={() => step(-1)}
-                    className="flex h-11 w-14 items-center justify-center bg-ink text-bone transition hover:bg-clay"
-                    tabIndex={i === active ? 0 : -1}
-                  >
-                    <svg width="20" height="12" viewBox="0 0 20 12" fill="none" aria-hidden>
-                      <path d="M7 1L2 6l5 5M2 6h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
-                  <button
-                    type="button"
-                    aria-label="Next slide"
-                    onClick={() => step(1)}
-                    className="flex h-11 w-14 items-center justify-center bg-ink text-bone transition hover:bg-clay"
-                    tabIndex={i === active ? 0 : -1}
-                  >
-                    <svg width="20" height="12" viewBox="0 0 20 12" fill="none" aria-hidden>
-                      <path d="M13 1l5 5-5 5M18 6H0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
-                </div>
-
-                <div className="bg-white/75 p-6 text-center text-ink backdrop-blur-[2px] sm:p-9">
-                  <p className="text-[11px] tracking-[0.25em] uppercase text-ink-soft">
-                    {slide.eyebrow}
-                  </p>
-                  <h2 className="mt-4 font-display text-xl leading-snug tracking-[0.06em] uppercase text-balance sm:text-2xl">
-                    {slide.heading}
-                  </h2>
-                  <p className="mt-4 hidden text-sm leading-relaxed font-light text-ink-soft sm:block">
-                    {slide.body}
-                  </p>
-                  <Link
+          <div className="absolute inset-x-0 bottom-0 pb-16 sm:pb-20">
+            <div className="mx-auto w-full max-w-[100rem] px-4 sm:px-6 lg:px-10">
+              <div className="max-w-3xl text-bone">
+                <p className="font-accent text-base italic opacity-90 sm:text-lg">
+                  {slide.eyebrow}
+                </p>
+                <h2 className="mt-4 font-display text-[length:clamp(2.5rem,6vw,6.75rem)] leading-[0.98] tracking-[0.02em] text-balance uppercase">
+                  {slide.heading}
+                </h2>
+                <p className="mt-5 line-clamp-3 max-w-xl text-sm leading-relaxed font-light opacity-90 sm:text-base">
+                  {slide.body}
+                </p>
+                <div className={i === active ? "mt-8" : "mt-8 invisible"}>
+                  <ButtonLink
                     href={slide.cta.href}
+                    variant="inverse"
+                    size="lg"
                     tabIndex={i === active ? 0 : -1}
-                    className="mt-5 inline-flex items-center gap-3 border-b border-ink pb-1 text-sm tracking-wide hover:border-clay hover:text-clay sm:mt-6"
                   >
                     {slide.cta.label}
-                    <span aria-hidden>→</span>
-                  </Link>
+                  </ButtonLink>
                 </div>
               </div>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
 
-      <div className="mt-4 flex justify-center gap-2.5">
-        {slides.map((slide, i) => (
+      {/* Light veil under the transparent header so ink nav stays legible */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 z-20 h-36 bg-linear-to-b from-bone/80 via-bone/30 to-transparent"
+      />
+
+      {/* Folio counter + controls */}
+      <div className="absolute right-4 bottom-5 z-20 flex items-center gap-5 text-bone sm:right-6 lg:right-10">
+        <span className="font-accent text-lg italic tabular-nums" aria-live="polite">
+          {String(active + 1).padStart(2, "0")}
+          <span className="mx-2 opacity-60">—</span>
+          <span className="opacity-60">{String(slides.length).padStart(2, "0")}</span>
+        </span>
+        <span className="flex" role="group" aria-label="Slide controls">
           <button
-            key={slide.heading}
             type="button"
-            aria-label={`Go to slide ${i + 1}`}
-            aria-current={i === active}
-            onClick={() => scrollToSlide(i)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === active ? "w-8 bg-ink" : "w-2 bg-ink/25 hover:bg-ink/50"
-            }`}
-          />
-        ))}
+            aria-label="Previous slide"
+            onClick={() => step(-1)}
+            className="flex h-10 w-11 items-center justify-center border border-bone/40 transition hover:bg-bone hover:text-ink"
+          >
+            <svg width="16" height="10" viewBox="0 0 20 12" fill="none" aria-hidden>
+              <path d="M7 1L2 6l5 5M2 6h18" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            aria-label="Next slide"
+            onClick={() => step(1)}
+            className="-ml-px flex h-10 w-11 items-center justify-center border border-bone/40 transition hover:bg-bone hover:text-ink"
+          >
+            <svg width="16" height="10" viewBox="0 0 20 12" fill="none" aria-hidden>
+              <path d="M13 1l5 5-5 5M18 6H0" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            aria-pressed={paused}
+            aria-label={paused ? "Play slideshow" : "Pause slideshow"}
+            onClick={() => setPaused((p) => !p)}
+            className="-ml-px flex h-10 w-11 items-center justify-center border border-bone/40 transition hover:bg-bone hover:text-ink"
+          >
+            {paused ? (
+              <svg width="10" height="12" viewBox="0 0 10 12" aria-hidden>
+                <path d="M1 1l8 5-8 5z" fill="currentColor" />
+              </svg>
+            ) : (
+              <svg width="10" height="12" viewBox="0 0 10 12" aria-hidden>
+                <path d="M1 1h2.6v10H1zM6.4 1H9v10H6.4z" fill="currentColor" />
+              </svg>
+            )}
+          </button>
+        </span>
       </div>
     </section>
   );

@@ -1,14 +1,43 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
-import { Container } from "@/components/ui/Container";
+import { cn } from "@/lib/cn";
 import { CartLink } from "@/components/cart/CartLink";
 import { MobileMenu } from "./MobileMenu";
 
+/**
+ * Transparent over the homepage cover, solid plaster after 40px of scroll.
+ * Everywhere else it is always solid.
+ */
 export function Header() {
+  const pathname = usePathname();
+  const overCover = pathname === "/";
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!overCover) return;
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [overCover]);
+
+  const transparent = overCover && !scrolled;
+
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bone/90 backdrop-blur supports-backdrop-filter:bg-bone/75">
-      <Container className="flex h-16 items-center justify-between gap-4 md:h-20">
+    <header
+      className={cn(
+        "sticky top-0 z-40 transition-colors duration-350",
+        transparent
+          ? "border-b border-transparent bg-transparent"
+          : "border-b border-line bg-bone/92 backdrop-blur supports-backdrop-filter:bg-bone/80",
+      )}
+    >
+      <div className="mx-auto flex h-16 w-full max-w-[100rem] items-center justify-between gap-4 px-4 sm:px-6 md:h-20 lg:px-10">
         <div className="flex items-center gap-2 md:hidden">
           <MobileMenu menu={site.mainMenu} />
         </div>
@@ -20,47 +49,66 @@ export function Header() {
             width={44}
             height={44}
             priority
-            className="h-10 w-10 rounded-full object-contain md:h-11 md:w-11"
+            className="h-9 w-9 object-contain md:h-10 md:w-10"
           />
-          <span className="font-display text-lg tracking-tight max-[380px]:hidden">
+          <span className="font-display text-lg tracking-[0.08em] max-[380px]:hidden">
             {site.name}
           </span>
         </Link>
 
         <nav aria-label="Main menu" className="hidden md:block">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-7">
             {site.mainMenu.map((item) =>
               item.children ? (
                 <li key={item.label} className="group relative">
                   <Link
                     href={item.href}
-                    className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium hover:bg-ink/5"
+                    className="flex items-center gap-1.5 py-2 font-display text-[11px] tracking-[0.2em] uppercase hover:text-clay"
                   >
                     {item.label}
-                    <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden className="mt-px">
-                      <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                    <svg width="9" height="6" viewBox="0 0 10 6" aria-hidden className="mt-px">
+                      <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.25" />
                     </svg>
                   </Link>
-                  <div className="invisible absolute left-0 pt-2 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-                    <ul className="w-72 rounded-card border border-line bg-paper p-2 shadow-lift">
-                      {item.children.map((child) => (
-                        <li key={child.href}>
+                  <div className="invisible absolute left-1/2 -translate-x-1/2 pt-4 opacity-0 transition duration-350 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                    <div className="flex w-[34rem] border border-line bg-paper shadow-lift">
+                      <ul className="flex-1 p-5">
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              className="block py-1.5 text-sm text-ink-soft hover:text-clay"
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                        <li className="mt-3 border-t border-line pt-3">
                           <Link
-                            href={child.href}
-                            className="block rounded-lg px-3 py-2 text-sm text-ink-soft hover:bg-bone hover:text-ink"
+                            href={item.href}
+                            className="font-display text-[11px] tracking-[0.2em] uppercase text-ink hover:text-clay"
                           >
-                            {child.label}
+                            Shop all →
                           </Link>
                         </li>
-                      ))}
-                    </ul>
+                      </ul>
+                      <div className="relative hidden w-44 lg:block">
+                        <Image
+                          src="/images/home/99EFD2A4-043C-410B-931E-67F30A62530F.png"
+                          alt=""
+                          fill
+                          sizes="176px"
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </li>
               ) : (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="rounded-full px-4 py-2 text-sm font-medium hover:bg-ink/5"
+                    className="py-2 font-display text-[11px] tracking-[0.2em] uppercase hover:text-clay"
                   >
                     {item.label}
                   </Link>
@@ -71,19 +119,15 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-1">
-          <Link
-            href="/search"
-            aria-label="Search"
-            className="rounded-full p-2.5 hover:bg-ink/5"
-          >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-              <circle cx="9" cy="9" r="6.5" stroke="currentColor" strokeWidth="1.5" />
-              <path d="M14 14l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          <Link href="/search" aria-label="Search" className="p-2.5 hover:text-clay">
+            <svg width="19" height="19" viewBox="0 0 20 20" fill="none" aria-hidden>
+              <circle cx="9" cy="9" r="6.5" stroke="currentColor" strokeWidth="1.25" />
+              <path d="M14 14l4 4" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
             </svg>
           </Link>
           <CartLink />
         </div>
-      </Container>
+      </div>
     </header>
   );
 }

@@ -13,7 +13,7 @@ export function Price({ cents, maxCents, compareAtCents, className }: PriceProps
   const onSale = compareAtCents != null && compareAtCents > cents;
   return (
     <span className={cn("inline-flex items-baseline gap-2", className)}>
-      <span className={cn(onSale && "text-clay")}>
+      <span className={cn(onSale && "text-signal")}>
         {range ? `From ${formatMoney(cents)}` : formatMoney(cents)}
       </span>
       {onSale && (

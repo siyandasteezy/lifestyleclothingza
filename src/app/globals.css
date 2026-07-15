@@ -1,21 +1,22 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Lifestyle Clothing ZA — design tokens
-   Warm, premium, editorial. Bone canvas, ink typography, clay accent.
+   Lifestyle Clothing ZA — "The Quiet Flex" design tokens
+   Plaster, ink, oxblood. Light-first: dark moments are rationed.
+   80% neutrals · 15% ink · 4% oxblood · 1% signal.
 --------------------------------------------------------------------------- */
 
 @theme {
-  /* Palette — matched to the original theme's color schemes:
-     bg 243,243,243 · warm white 255,248,246 · fg near-black · burgundy accent 79,15,31 */
-  --color-bone: #f3f3f3;
-  --color-paper: #fff8f6;
-  --color-ink: #1a1b18;
-  --color-ink-soft: #3c3d3a;
-  --color-stone: #5d5e5a;
-  --color-line: #e2e2e0;
-  --color-clay: #6e1729;
-  --color-clay-deep: #4f0f1f;
+  /* Palette */
+  --color-bone: #f2efe9;      /* plaster — page ground */
+  --color-paper: #fbfaf6;     /* porcelain — surfaces */
+  --color-ink: #16130f;
+  --color-ink-soft: #47413a;  /* body copy */
+  --color-stone: #7c766b;     /* captions ≥14px, labels only */
+  --color-line: #e3dfd6;
+  --color-clay: #5e1e20;      /* oxblood — the only interactive accent */
+  --color-clay-deep: #47161a;
+  --color-signal: #c2401f;    /* cart badge + sale price. Nothing else. */
   --color-moss: #4a5240;
   --color-gold: #b98a2f;
 
@@ -23,30 +24,38 @@
   --color-background: var(--color-bone);
   --color-foreground: var(--color-ink);
 
-  /* Typography — same families as the original theme */
+  /* Typography — Tenor Sans display · Outfit body · Fraunces italic accent */
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-tenor), var(--font-outfit), ui-sans-serif, sans-serif;
+  --font-accent: var(--font-fraunces), "Georgia", serif;
 
-  /* Type scale (fluid) */
-  --text-display-xl: clamp(2.5rem, 1.5rem + 5vw, 4.75rem);
-  --text-display-lg: clamp(1.875rem, 1.25rem + 3vw, 3.25rem);
-  --text-display-md: clamp(1.5rem, 1.1rem + 2vw, 2.25rem);
-  --text-display-sm: clamp(1.25rem, 1.05rem + 1vw, 1.625rem);
+  /* Type scale (fluid) — display moments run much larger than before */
+  --text-display-xl: clamp(2.75rem, 1.5rem + 6.5vw, 8.5rem);
+  --text-display-lg: clamp(2.25rem, 1.4rem + 4vw, 5rem);
+  --text-display-md: clamp(1.75rem, 1.25rem + 2.4vw, 3rem);
+  --text-display-sm: clamp(1.35rem, 1.1rem + 1.2vw, 1.9rem);
 
-  /* Rhythm */
-  --spacing-section: clamp(3.5rem, 2rem + 6vw, 7rem);
+  /* Rhythm — whitespace is the luxury good */
+  --spacing-section: clamp(6rem, 4rem + 7vw, 10rem);
 
-  /* Elevation */
-  --shadow-card: 0 1px 2px rgb(26 27 24 / 0.05), 0 8px 24px -12px rgb(26 27 24 / 0.1);
-  --shadow-lift: 0 2px 4px rgb(26 27 24 / 0.06), 0 16px 40px -16px rgb(26 27 24 / 0.18);
+  /* Shape — hairlines and square corners; elevation retires */
+  --radius-card: 0px;
+  --shadow-card: none;
+  --shadow-lift: 0 24px 60px -30px rgb(22 19 15 / 0.25);
 
-  --radius-card: 4px;
+  /* Motion — one easing for the whole site */
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --animate-marquee: marquee 32s linear infinite;
+  --animate-marquee: marquee 36s linear infinite;
+  --animate-kenburns: kenburns 7s var(--ease-lux) forwards;
 
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+  }
+  @keyframes kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.06); }
   }
 }
 
@@ -54,15 +63,19 @@ body {
   background: var(--color-bone);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  font-weight: 300; /* Outfit Light — matches the original theme's body weight */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Tenor Sans ships a single 400 weight — neutralise bolding on display type */
-.font-display {
-  font-weight: 400;
-  letter-spacing: 0.01em;
+/* 2% film grain — kills the flat template sheen without darkening the page */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection {
@@ -73,7 +86,7 @@ body {
 /* Visible focus for keyboard users (WCAG 2.4.7) */
 :focus-visible {
   outline: 2px solid var(--color-clay);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -94,11 +107,13 @@ body {
   color: var(--color-ink-soft);
   line-height: 1.75;
   font-size: 1rem;
+  max-width: 66ch;
 }
 .prose > * + * { margin-top: 1em; }
 .prose h1, .prose h2, .prose h3, .prose h4 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   color: var(--color-ink);
   line-height: 1.2;
   margin-top: 1.75em;
@@ -107,19 +122,28 @@ body {
 .prose h2 { font-size: 1.5rem; }
 .prose h3 { font-size: 1.25rem; }
 .prose h1:first-child, .prose h2:first-child, .prose h3:first-child { margin-top: 0; }
-.prose strong { color: var(--color-ink); font-weight: 650; }
+.prose strong { color: var(--color-ink); font-weight: 500; }
 .prose a { color: var(--color-clay); text-decoration: underline; text-underline-offset: 3px; }
 .prose a:hover { color: var(--color-clay-deep); }
 .prose ul, .prose ol { padding-left: 1.5rem; }
 .prose ul { list-style: disc; }
 .prose ol { list-style: decimal; }
 .prose li + li { margin-top: 0.35em; }
-.prose img { border-radius: var(--radius-card); margin-inline: auto; }
+.prose img { margin-inline: auto; }
 .prose blockquote {
-  border-left: 3px solid var(--color-clay);
+  border-left: 2px solid var(--color-clay);
   padding-left: 1.25rem;
+  font-family: var(--font-accent);
   font-style: italic;
-  color: var(--color-stone);
+  color: var(--color-ink);
 }
 .prose table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
-.prose th, .prose td { border: 1px solid var(--color-line); padding: 0.5rem 0.75rem; text-align: left; }
+.prose th, .prose td { border-bottom: 1px solid var(--color-line); padding: 0.5rem 0.75rem; text-align: left; }
+
+/* Folio numerals — serif italic, the editorial signature */
+.folio {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-ink);
+}

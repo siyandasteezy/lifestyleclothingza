@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import { Slideshow, type Slide } from "@/components/home/Slideshow";
 import {
-  Collage,
-  CollectionList,
-  FaqSection,
-  FeaturedCollection,
-  Guarantees,
-  ImageBanner,
-  ImagesWithText,
-  ImageWithText,
-  ImageWithTextOverlay,
-  RichTextSection,
-  MediaBanner,
+  CampaignSpread,
+  CloseBand,
+  CollectionsIndex,
+  Manifesto,
+  ObjectSpotlight,
+  TheEdit,
 } from "@/components/home/sections";
-import { getCollectionProducts, getProduct } from "@/lib/data";
+import {
+  getArticles,
+  getCollectionProducts,
+  getCollections,
+  getProduct,
+} from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
 import { homepage, site } from "@/lib/site";
 
@@ -26,61 +26,84 @@ export const metadata: Metadata = buildMetadata({
 });
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
+const sections = homepage.sections as any[];
+const byType = (type: string) => sections.find((s) => s.type === type);
+
+/**
+ * The seven-chapter homepage ("The Quiet Flex"). All copy comes verbatim
+ * from content/homepage.json — this file only decides the staging.
+ */
 export default async function HomePage() {
-  const sections = homepage.sections as any[];
-  const rendered = await Promise.all(
-    sections.map(async (section, i) => {
-      switch (section.type) {
-        case "slideshow":
-          return <Slideshow key={i} slides={section.slides as Slide[]} />;
-        case "richText":
-          return <RichTextSection key={i} {...section} />;
-        case "imageWithTextOverlay":
-          return <ImageWithTextOverlay key={i} {...section} />;
-        case "featuredCollection": {
-          const products = await getCollectionProducts(section.collectionHandle);
-          return (
-            <FeaturedCollection
-              key={i}
-              heading={section.heading}
-              products={products}
-              collectionHandle={section.collectionHandle}
-            />
-          );
-        }
-        case "guarantees":
-          return <Guarantees key={i} {...section} />;
-        case "collectionList":
-          return <CollectionList key={i} {...section} />;
-        case "mediaBanner":
-          return <MediaBanner key={i} {...section} />;
-        case "imageBanner":
-          return <ImageBanner key={i} {...section} />;
-        case "imageWithText":
-          return <ImageWithText key={i} {...section} />;
-        case "imagesWithText":
-          return <ImagesWithText key={i} {...section} />;
-        case "collage": {
-          const productItem = section.items.find((it: any) => it.kind === "product");
-          const collectionItem = section.items.find((it: any) => it.kind === "collection");
-          const imageItem = section.items.find((it: any) => it.kind === "image");
-          const product = productItem ? await getProduct(productItem.handle) : null;
-          return (
-            <Collage
-              key={i}
-              product={product}
-              collection={collectionItem}
-              image={imageItem.image}
-            />
-          );
-        }
-        case "faq":
-          return <FaqSection key={i} {...section} />;
-        default:
-          return null;
-      }
-    }),
+  const slideshow = byType("slideshow");
+  const richText = byType("richText");
+  const bucket = byType("imageWithTextOverlay"); // "Bucket Your Lifestyle."
+  const undeniable = byType("imageBanner"); // "Undeniable Quality."
+  const story = byType("imageWithText"); // "Simplicity Done Right."
+  const more = byType("imagesWithText"); // "Made to Fit You"
+  const campaign = byType("mediaBanner"); // "LOOK GOOD WITH US"
+  const featured = byType("featuredCollection"); // eyebrow copy for the object
+  const guarantees = byType("guarantees");
+  const tiles = byType("collectionList").collections as {
+    handle: string;
+    title: string;
+    image: string;
+  }[];
+
+  const [collections, tees, pendant, articles] = await Promise.all([
+    getCollections(),
+    getCollectionProducts("short-sleeve-t-shirts"),
+    getProduct("lifestyle-legacy-pendant"),
+    getArticles("news"),
+  ]);
+
+  // The assurance line keeps three of the seven guarantees on the homepage;
+  // the full list lives on Orders & Payment.
+  const keep = ["Fast Delivery", "SECURE CHECKOUT", "Proudly South African"];
+  const assurances = (guarantees.items as { title: string; body: string }[]).filter((g) =>
+    keep.includes(g.title),
   );
 
-  return <>{rendered}</>;
+  const headwearTile = tiles.find((t) => t.handle === "5-panel-caps")!;
+  const hoodieTile = tiles.find((t) => t.handle === "hoodie-collection")!;
+
+  return (
+    <>
+      {/* i — Cover (pulled under the transparent header) */}
+      <div className="-mt-16 md:-mt-20">
+        <Slideshow slides={slideshow.slides as Slide[]} />
+      </div>
+
+      {/* ii — Manifesto */}
+      <Manifesto
+        heading={richText.heading}
+        paragraphs={richText.paragraphs}
+        cta={richText.cta}
+      />
+
+      {/* iii — Collections index (carries the headwear + hoodie campaign copy) */}
+      <CollectionsIndex
+        collections={collections}
+        headwear={headwearTile}
+        hoodie={hoodieTile}
+        bucket={bucket}
+        undeniable={undeniable}
+      />
+
+      {/* iv — The Edit */}
+      <TheEdit products={tees} story={story} more={more} />
+
+      {/* v — Campaign spread */}
+      <CampaignSpread heading={campaign.heading} image={campaign.image} />
+
+      {/* vi — Object spotlight */}
+      {pendant && <ObjectSpotlight eyebrow={featured.heading} product={pendant} />}
+
+      {/* vii — Assurance · Journal · Newsletter */}
+      <CloseBand
+        assurances={assurances}
+        article={articles[0] ?? null}
+        popup={site.popup}
+      />
+    </>
+  );
 }

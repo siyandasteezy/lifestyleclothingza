@@ -35,7 +35,7 @@ export default async function SearchPage({ searchParams }: Props) {
         <label htmlFor="search-input" className="sr-only">
           Search products
         </label>
-        <div className="flex overflow-hidden rounded-full border border-line bg-paper focus-within:border-ink">
+        <div className="flex overflow-hidden border border-line bg-paper focus-within:border-ink">
           <input
             id="search-input"
             type="search"
@@ -46,7 +46,7 @@ export default async function SearchPage({ searchParams }: Props) {
           />
           <button
             type="submit"
-            className="shrink-0 bg-ink px-6 text-sm font-semibold text-bone transition hover:bg-clay"
+            className="shrink-0 bg-ink px-6 font-display text-[11px] tracking-[0.2em] uppercase text-bone transition hover:bg-clay"
           >
             Search
           </button>

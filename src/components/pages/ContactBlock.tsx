@@ -6,7 +6,7 @@ import { sendContactMessage, type ContactState } from "@/lib/actions/contact";
 const initialState: ContactState = { status: "idle" };
 
 const inputClass =
-  "w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm focus:border-ink focus:outline-none";
+  "w-full border-0 border-b border-line bg-transparent px-0 py-3 text-[15px] text-ink placeholder:font-light placeholder:text-stone transition-colors focus:border-clay focus:outline-none";
 
 /** Contact form replacing the old Shopify/hCaptcha embed. Messages land in the CMS. */
 export function ContactBlock() {
@@ -45,7 +45,7 @@ export function ContactBlock() {
       <button
         type="submit"
         disabled={pending}
-        className="h-12 rounded-full bg-ink px-8 text-sm font-semibold tracking-wide text-bone transition hover:bg-clay disabled:pointer-events-none disabled:opacity-50"
+        className="h-13 border border-ink bg-ink px-9 font-display text-[11px] tracking-[0.2em] uppercase text-bone transition-colors duration-350 hover:bg-transparent hover:text-ink disabled:pointer-events-none disabled:opacity-50"
       >
         {pending ? "Sending…" : "Send message"}
       </button>

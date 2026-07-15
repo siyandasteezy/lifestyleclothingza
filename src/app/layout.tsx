@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Outfit, Tenor_Sans } from "next/font/google";
+import { Fraunces, Outfit, Tenor_Sans } from "next/font/google";
 import { site, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-// Same families as the original Shopify theme: Outfit (body) + Tenor Sans (headings).
+// Brand faces: Outfit (body) + Tenor Sans (display),
+// plus Fraunces italic as the editorial accent (eyebrows, folios, pull lines).
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
@@ -13,6 +14,14 @@ const outfit = Outfit({
 const tenorSans = Tenor_Sans({
   variable: "--font-tenor",
   weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  style: ["italic"],
+  weight: ["400"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -39,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${tenorSans.variable} h-full antialiased`}>
+    <html lang="en" className={`${outfit.variable} ${tenorSans.variable} ${fraunces.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );

@@ -8,7 +8,7 @@ export function ProductGallery({ images, title }: { images: ProductImageVM[]; ti
   const [active, setActive] = useState(0);
   if (images.length === 0) {
     return (
-      <div className="flex aspect-4/5 items-center justify-center rounded-card bg-paper text-stone">
+      <div className="flex aspect-4/5 items-center justify-center bg-paper text-stone">
         No image
       </div>
     );
@@ -16,7 +16,7 @@ export function ProductGallery({ images, title }: { images: ProductImageVM[]; ti
   const current = images[Math.min(active, images.length - 1)];
   return (
     <div>
-      <div className="relative aspect-4/5 overflow-hidden rounded-card bg-paper shadow-card">
+      <div className="relative aspect-4/5 overflow-hidden bg-paper">
         <Image
           key={current.src}
           src={current.src}
@@ -36,8 +36,8 @@ export function ProductGallery({ images, title }: { images: ProductImageVM[]; ti
                 onClick={() => setActive(i)}
                 aria-label={`View image ${i + 1} of ${images.length}`}
                 aria-current={i === active}
-                className={`relative block h-20 w-16 overflow-hidden rounded-lg border-2 transition ${
-                  i === active ? "border-ink" : "border-transparent opacity-70 hover:opacity-100"
+                className={`relative block h-20 w-16 overflow-hidden border transition ${
+                  i === active ? "border-ink" : "border-line opacity-70 hover:opacity-100"
                 }`}
               >
                 <Image src={img.src} alt="" fill sizes="64px" className="object-cover" />

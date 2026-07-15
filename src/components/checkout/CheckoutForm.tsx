@@ -6,7 +6,7 @@ import { placeOrder, type CheckoutState } from "@/lib/actions/checkout";
 const initialState: CheckoutState = { status: "idle" };
 
 const inputClass =
-  "w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm focus:border-ink focus:outline-none";
+  "w-full border-0 border-b border-line bg-transparent px-0 py-3 text-[15px] text-ink placeholder:font-light placeholder:text-stone transition-colors focus:border-clay focus:outline-none";
 
 function Field({
   label,
@@ -75,7 +75,7 @@ export function CheckoutForm({ payfastEnabled = false }: { payfastEnabled?: bool
         <button
           type="submit"
           disabled={pending}
-          className="h-13 w-full rounded-(--radius-card) bg-ink px-9 text-sm tracking-[0.08em] uppercase text-bone transition hover:bg-clay disabled:pointer-events-none disabled:opacity-50 sm:w-auto"
+          className="h-14 w-full border border-ink bg-ink px-10 font-display text-xs tracking-[0.2em] uppercase text-bone transition-colors duration-350 hover:bg-transparent hover:text-ink disabled:pointer-events-none disabled:opacity-50 sm:w-auto"
         >
           {pending
             ? "Placing order…"

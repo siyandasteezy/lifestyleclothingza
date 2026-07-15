@@ -59,19 +59,25 @@ export default async function CollectionPage({ params }: Props) {
           { name: collection.title, path: `/collections/${handle}` },
         ])}
       />
-      <Container className="py-10 md:py-14">
-        <header className="mb-10 max-w-3xl">
-          <h1 className="font-display text-display-lg leading-[1.05] text-balance">
+      <Container className="py-12 md:py-16">
+        <header className="mb-12 max-w-3xl">
+          <p className="folio text-lg text-stone" aria-label={`${products.length} pieces`}>
+            {String(products.length).padStart(2, "0")}
+            <span className="ml-2 font-display text-[10px] tracking-[0.25em] uppercase not-italic">
+              piece{products.length === 1 ? "" : "s"}
+            </span>
+          </p>
+          <h1 className="mt-3 font-display text-display-lg leading-[1.05] text-balance uppercase">
             {collection.title}
           </h1>
           {collection.descriptionHtml && (
             <div
-              className="prose mt-4"
+              className="prose mt-6 font-light"
               dangerouslySetInnerHTML={{ __html: collection.descriptionHtml }}
             />
           )}
         </header>
-        <ProductGrid products={products} priorityCount={4} />
+        <ProductGrid products={products} priorityCount={4} editorial />
       </Container>
     </>
   );

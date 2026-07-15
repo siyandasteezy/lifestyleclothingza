@@ -3,8 +3,16 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getPage, getPages } from "@/lib/data";
-import { breadcrumbJsonLd, buildMetadata, descriptionFromHtml } from "@/lib/seo";
+import { breadcrumbJsonLd, buildMetadata, descriptionFromHtml, faqJsonLd } from "@/lib/seo";
 import { ContactBlock } from "@/components/pages/ContactBlock";
+import { Accordion } from "@/components/ui/Accordion";
+import { homepage } from "@/lib/site";
+
+// The storefront FAQ moved here from the homepage (approved direction);
+// the copy still lives verbatim in content/homepage.json.
+const faq = (homepage.sections as { type: string; heading?: string; items?: { question: string; answer: string }[] }[]).find(
+  (s) => s.type === "faq",
+);
 
 export const revalidate = 300;
 
@@ -48,6 +56,15 @@ export default async function StaticPage({ params }: Props) {
           </h1>
           <div className="prose mt-8" dangerouslySetInnerHTML={{ __html: page.bodyHtml }} />
           {handle === "contact" && <ContactBlock />}
+          {handle === "orders-payments" && faq?.items && (
+            <section aria-labelledby="faq-heading" className="mt-14">
+              <JsonLd data={faqJsonLd(faq.items)} />
+              <h2 id="faq-heading" className="mb-6 font-display text-display-sm">
+                {faq.heading}
+              </h2>
+              <Accordion items={faq.items} />
+            </section>
+          )}
         </div>
       </Container>
     </>

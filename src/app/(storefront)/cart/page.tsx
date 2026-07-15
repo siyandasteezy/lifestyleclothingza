@@ -35,14 +35,14 @@ export default async function CartPage() {
     <Container className="py-10 md:py-14">
       <h1 className="mb-8 font-display text-display-md">Your cart</h1>
       <div className="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-start">
-        <ul className="divide-y divide-line rounded-card border border-line bg-paper">
+        <ul className="divide-y divide-line border border-line bg-paper">
           {lines.map((line) => {
             const image = line.product.images[0];
             return (
               <li key={`${line.productHandle}-${line.variantKey}`} className="flex gap-4 p-4 sm:p-5">
                 <Link
                   href={`/products/${line.productHandle}`}
-                  className="relative block h-28 w-22 shrink-0 overflow-hidden rounded-lg bg-bone"
+                  className="relative block h-28 w-22 shrink-0 overflow-hidden bg-bone"
                 >
                   {image && (
                     <Image src={image.src} alt={image.alt} fill sizes="88px" className="object-cover" />
@@ -77,7 +77,7 @@ export default async function CartPage() {
                         min={0}
                         max={99}
                         defaultValue={line.quantity}
-                        className="h-9 w-16 rounded-full border border-line bg-bone px-3 text-center text-sm"
+                        className="h-9 w-16 border border-line bg-bone px-3 text-center text-sm"
                       />
                       <button type="submit" className="text-sm text-stone underline underline-offset-2 hover:text-ink">
                         Update
@@ -98,8 +98,31 @@ export default async function CartPage() {
           })}
         </ul>
 
-        <aside className="rounded-card border border-line bg-paper p-6" aria-label="Order summary">
+        <aside className="border border-line bg-paper p-6" aria-label="Order summary">
           <h2 className="font-display text-lg">Summary</h2>
+          {subtotalCents < 50000 ? (
+            <div className="mt-4">
+              <p className="text-xs text-ink-soft">
+                <strong className="text-ink">{formatMoney(50000 - subtotalCents)}</strong> away from
+                free delivery
+              </p>
+              <div
+                className="mt-2 h-px w-full bg-line"
+                role="progressbar"
+                aria-valuenow={Math.round((subtotalCents / 50000) * 100)}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-label="Progress toward free delivery"
+              >
+                <div
+                  className="h-px bg-clay transition-[width] duration-700 ease-(--ease-lux)"
+                  style={{ width: `${Math.min(100, (subtotalCents / 50000) * 100)}%` }}
+                />
+              </div>
+            </div>
+          ) : (
+            <p className="mt-4 text-xs text-moss">✓ This order ships free</p>
+          )}
           <dl className="mt-4 space-y-2 text-sm">
             <div className="flex justify-between">
               <dt className="text-stone">Subtotal</dt>

@@ -15,9 +15,9 @@ export function ProductCard({
   return (
     <Link
       href={`/products/${product.handle}`}
-      className="group block rounded-card focus-visible:outline-2"
+      className="group block focus-visible:outline-2 focus-visible:outline-offset-4"
     >
-      <div className="relative aspect-4/5 overflow-hidden rounded-card bg-paper">
+      <div className="relative aspect-4/5 overflow-hidden bg-paper">
         {image ? (
           <>
             <Image
@@ -26,7 +26,7 @@ export function ProductCard({
               fill
               priority={priority}
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-              className="object-cover transition duration-500 group-hover:scale-[1.03]"
+              className="object-cover transition duration-700 ease-(--ease-lux) group-hover:scale-[1.03]"
             />
             {hoverImage && (
               <Image
@@ -34,7 +34,7 @@ export function ProductCard({
                 alt=""
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover opacity-0 transition duration-500 group-hover:opacity-100"
+                className="object-cover opacity-0 transition duration-700 ease-(--ease-lux) group-hover:scale-[1.03] group-hover:opacity-100"
               />
             )}
           </>
@@ -42,19 +42,17 @@ export function ProductCard({
           <div className="flex h-full items-center justify-center text-stone">No image</div>
         )}
         {soldOut && (
-          <span className="absolute top-3 left-3 rounded-full bg-ink/85 px-3 py-1 text-xs font-medium tracking-wide text-bone">
+          <span className="absolute top-3 left-3 bg-ink/85 px-3 py-1 font-display text-[10px] tracking-[0.18em] text-bone uppercase">
             Sold out
           </span>
         )}
       </div>
       <div className="pt-3 pb-1 text-center">
-        <h3 className="text-sm font-normal text-ink group-hover:text-clay sm:text-base">
-          {product.title}
-        </h3>
+        <h3 className="text-sm text-ink group-hover:text-clay sm:text-[15px]">{product.title}</h3>
         <Price
           cents={product.minPriceCents}
           maxCents={product.maxPriceCents}
-          className="mt-1 justify-center text-sm font-light text-ink-soft"
+          className="mt-1 justify-center text-[13px] font-light text-ink-soft tabular-nums"
         />
       </div>
     </Link>
