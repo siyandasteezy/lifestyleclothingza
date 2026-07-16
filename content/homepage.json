@@ -4,18 +4,18 @@
       "type": "slideshow",
       "slides": [
         {
-          "eyebrow": "POSE® Streetwear – Just Dropped",
-          "heading": "Bold, original, unforgettable.",
-          "body": "Our latest collection fuses signature urban energy with high‑quality construction. From head‑to‑toe outfits that scream attitude to styles built for confidence and comfort, each piece is a statement. Ready to set your vibe?",
-          "cta": { "label": "Shop The Drop", "href": "/collections/all" },
-          "image": "/images/home/IMG_1849.jpg"
-        },
-        {
           "eyebrow": "Not Just a Brand — It’s a Lifestyle.",
           "heading": "Be seen, Be heard, Be unforgettable.",
           "body": "We’re more than clothing — We’re a culture of bold voices and unapologetic expression. From our classic staples to the next big thing, every piece reflects a mindset. Join the tribe. Wear the movement.",
           "cta": { "label": "Join The Movement", "href": "/collections/all" },
           "image": "/images/home/IMG_1834-Edit-v2.jpg"
+        },
+        {
+          "eyebrow": "POSE® Streetwear – Just Dropped",
+          "heading": "Bold, original, unforgettable.",
+          "body": "Our latest collection fuses signature urban energy with high‑quality construction. From head‑to‑toe outfits that scream attitude to styles built for confidence and comfort, each piece is a statement. Ready to set your vibe?",
+          "cta": { "label": "Shop The Drop", "href": "/collections/all" },
+          "image": "/images/home/IMG_1849.jpg"
         },
         {
           "eyebrow": "Timeless tees, hoodies & matching sets.",
