@@ -16,12 +16,9 @@ interface Cta {
 
 const container = "mx-auto w-full max-w-[100rem] px-4 sm:px-6 lg:px-10";
 
-function ChapterHead({ folio, label }: { folio: string; label: string }) {
+function ChapterHead({ label }: { label: string }) {
   return (
-    <div className="mb-10 flex items-baseline gap-4 border-b border-line pb-4 md:mb-14">
-      <span aria-hidden className="folio text-2xl">
-        {folio}
-      </span>
+    <div className="mb-10 border-b border-line pb-4 md:mb-14">
       <span className="font-display text-[10px] tracking-[0.3em] uppercase text-stone">
         {label}
       </span>
@@ -29,7 +26,7 @@ function ChapterHead({ folio, label }: { folio: string; label: string }) {
   );
 }
 
-/* ---------- Chapter ii — Manifesto ---------- */
+/* ---------- Manifesto ---------- */
 
 export function Manifesto({
   heading,
@@ -43,7 +40,7 @@ export function Manifesto({
   return (
     <section className="bg-paper py-(--spacing-section)">
       <div className={container}>
-        <ChapterHead folio="ii" label="The house" />
+        <ChapterHead label="The house" />
         <div className="lg:grid lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-9">
             <h2 className="font-display text-display-lg leading-[1.05] text-balance">
@@ -68,7 +65,7 @@ export function Manifesto({
   );
 }
 
-/* ---------- Chapter iii — Collections index ---------- */
+/* ---------- Collections index ---------- */
 
 interface EditorialTile {
   handle: string;
@@ -100,7 +97,7 @@ export function CollectionsIndex({
   return (
     <section className="py-(--spacing-section)">
       <div className={container}>
-        <ChapterHead folio="iii" label="Collections" />
+        <ChapterHead label="Collections" />
 
         {/* Spread A — headwear */}
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
@@ -165,18 +162,16 @@ export function CollectionsIndex({
           </Reveal>
         </div>
 
-        {/* The index — every collection, typographically */}
+        {/* The index — every collection, typographically. Alphabetical, not a
+            sequence, so the rows carry no numbering. */}
         <Reveal className="mt-24">
-          <ol className="border-t border-line">
-            {collections.map((c, i) => (
+          <ul className="border-t border-line">
+            {collections.map((c) => (
               <li key={c.handle}>
                 <Link
                   href={`/collections/${c.handle}`}
                   className="group flex items-baseline gap-5 border-b border-line py-4 transition-colors hover:bg-paper sm:gap-8 sm:py-5"
                 >
-                  <span aria-hidden className="folio w-8 shrink-0 text-sm text-stone">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
                   <span className="flex-1 font-display text-lg tracking-[0.04em] group-hover:text-clay sm:text-2xl">
                     {c.title}
                   </span>
@@ -192,14 +187,14 @@ export function CollectionsIndex({
                 </Link>
               </li>
             ))}
-          </ol>
+          </ul>
         </Reveal>
       </div>
     </section>
   );
 }
 
-/* ---------- Chapter iv — The Edit ---------- */
+/* ---------- The Edit ---------- */
 
 export function TheEdit({
   products,
@@ -213,7 +208,7 @@ export function TheEdit({
   return (
     <section className="bg-paper py-(--spacing-section)">
       <div className={container}>
-        <ChapterHead folio="iv" label="The edit" />
+        <ChapterHead label="The edit" />
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-32">
@@ -269,7 +264,7 @@ export function TheEdit({
   );
 }
 
-/* ---------- Chapter v — Campaign spread ---------- */
+/* ---------- Campaign spread ---------- */
 
 export function CampaignSpread({ heading, image }: { heading: string; image: string }) {
   return (
@@ -288,14 +283,14 @@ export function CampaignSpread({ heading, image }: { heading: string; image: str
   );
 }
 
-/* ---------- Chapter vi — Object spotlight ---------- */
+/* ---------- Object spotlight ---------- */
 
 export function ObjectSpotlight({ eyebrow, product }: { eyebrow: string; product: ProductVM }) {
   const image = product.images[0];
   return (
     <section className="bg-paper py-(--spacing-section)">
       <div className={container}>
-        <ChapterHead folio="vi" label="The object" />
+        <ChapterHead label="The object" />
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
             <p className="font-accent text-lg italic text-ink-soft">{eyebrow}</p>
@@ -332,7 +327,7 @@ export function ObjectSpotlight({ eyebrow, product }: { eyebrow: string; product
   );
 }
 
-/* ---------- Chapter vii — Assurance · Journal · Newsletter ---------- */
+/* ---------- Assurance · Journal · Newsletter ---------- */
 
 export function CloseBand({
   assurances,
@@ -346,7 +341,7 @@ export function CloseBand({
   return (
     <section className="py-(--spacing-section)">
       <div className={container}>
-        <ChapterHead folio="vii" label="In closing" />
+        <ChapterHead label="In closing" />
 
         <ul className="grid gap-8 border-b border-line pb-14 sm:grid-cols-3">
           {assurances.map((a, i) => (
