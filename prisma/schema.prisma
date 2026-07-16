@@ -9,7 +9,10 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  // Pooled connection for serverless runtime queries…
+  url       = env("DATABASE_URL")
+  // …direct connection for migrations / db push (Neon provides both).
+  directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 // ---------- Commerce ----------

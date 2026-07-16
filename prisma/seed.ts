@@ -189,6 +189,17 @@ async function seedAdmin() {
 }
 
 async function main() {
+  // SEED_IF_EMPTY guards the build-time seed on Vercel: it populates the
+  // database on the first deploy, then skips on every later deploy so admin
+  // edits are never overwritten. The manual `npm run db:seed` (no flag)
+  // always performs a full upsert.
+  if (process.env.SEED_IF_EMPTY === "true") {
+    const existing = await prisma.product.count();
+    if (existing > 0) {
+      console.log(`↷ SEED_IF_EMPTY: ${existing} products already present — skipping seed`);
+      return;
+    }
+  }
   await seedProducts();
   await seedCollections();
   await seedPages();

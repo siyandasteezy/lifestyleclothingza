@@ -10,7 +10,8 @@
     "db:push": "prisma db push",
     "db:seed": "tsx prisma/seed.ts",
     "db:studio": "prisma studio",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "vercel-build": "prisma db push --skip-generate && tsx prisma/seed.ts && next build"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
