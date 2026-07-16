@@ -38,20 +38,31 @@ export async function destroySession(): Promise<void> {
   jar.delete(SESSION_COOKIE);
 }
 
-/** Returns the logged-in admin or null. Cached per request. */
+/** True when a database is configured (admin, checkout, and forms need it). */
+export function dbConfigured(): boolean {
+  return Boolean(process.env.DATABASE_URL);
+}
+
+/** Returns the logged-in admin or null. Cached per request; never throws. */
 export const getAdmin = cache(async () => {
+  if (!dbConfigured()) return null;
   const jar = await cookies();
   const token = jar.get(SESSION_COOKIE)?.value;
   if (!token) return null;
-  const session = await prisma.adminSession.findUnique({
-    where: { token },
-    include: { user: true },
-  });
-  if (!session || session.expiresAt < new Date()) {
-    if (session) await prisma.adminSession.delete({ where: { id: session.id } });
+  try {
+    const session = await prisma.adminSession.findUnique({
+      where: { token },
+      include: { user: true },
+    });
+    if (!session || session.expiresAt < new Date()) {
+      if (session) await prisma.adminSession.delete({ where: { id: session.id } });
+      return null;
+    }
+    return session.user;
+  } catch {
+    // Database unreachable — treat as signed out rather than crashing the page.
     return null;
   }
-  return session.user;
 });
 
 /** Guard for admin pages — redirects to the login screen when signed out. */
