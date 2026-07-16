@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Outfit, Tenor_Sans } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { site, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -42,6 +43,11 @@ export const metadata: Metadata = {
   },
 };
 
+// Google Analytics 4. Loaded via @next/third-parties so gtag is deferred and
+// route changes are tracked automatically. Set NEXT_PUBLIC_GA_ID to enable —
+// left unset locally so development traffic never reaches the property.
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,6 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${tenorSans.variable} ${fraunces.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">{children}</body>
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }
