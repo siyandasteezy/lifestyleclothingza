@@ -1,5 +1,5 @@
 // PostgreSQL data source (Prisma). The production path once `npm run db:seed` has run.
-import { prisma } from "@/lib/db";
+import { prisma, withRetry } from "@/lib/db";
 import type { ArticleVM, CollectionVM, PageVM, ProductVM } from "@/lib/types";
 import type { DataSource } from "./source";
 import type { Prisma } from "@prisma/client";
@@ -54,7 +54,7 @@ function toProductVM(p: ProductWithRelations): ProductVM {
 
 const productInclude = { options: true, variants: true, images: true } as const;
 
-export const dbSource: DataSource = {
+const reads: DataSource = {
   async getProducts() {
     const rows = await prisma.product.findMany({
       where: { status: "ACTIVE" },
@@ -189,3 +189,22 @@ export const dbSource: DataSource = {
     };
   },
 };
+
+/**
+ * Every storefront read, retried on transient connection failures.
+ *
+ * Neon suspends its compute when idle, so a query can land mid cold-start and
+ * throw P1001. At build time that aborts the whole prerender (and the deploy);
+ * at runtime it would 500 a real shopper. Wrapping the source in one place
+ * means new reads get the same protection for free.
+ */
+const withRetries = <T extends object>(source: T): T =>
+  Object.fromEntries(
+    Object.entries(source).map(([name, fn]) => [
+      name,
+      (...args: unknown[]) =>
+        withRetry(() => (fn as (...a: unknown[]) => Promise<unknown>).apply(source, args)),
+    ]),
+  ) as T;
+
+export const dbSource: DataSource = withRetries(reads);
