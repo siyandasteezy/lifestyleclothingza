@@ -62,25 +62,24 @@ src/
   reduced-motion support, semantic landmarks.
 - **Checkout** records orders in PostgreSQL (status: PENDING → PAID → FULFILLED).
 
-## Payments — PayFast
+## Payments — Yoco
 
-`src/lib/payments/payfast.ts` implements the redirect flow: placing an order sends the
-customer to a signed PayFast payment page; PayFast's ITN webhook
-(`/api/payfast/notify`) verifies the signature, confirms the notification with PayFast's
-validate endpoint, checks the amount, and marks the order **PAID** (or CANCELLED).
-The signature algorithm mirrors PayFast's reference implementation exactly.
+`src/lib/payments/yoco.ts` implements the hosted-checkout redirect flow: placing an order
+creates a Yoco checkout server-side and redirects the customer to Yoco's payment page.
+Yoco's webhook (`/api/yoco/webhook`) verifies the signature (Svix-style HMAC-SHA256 over
+`id.timestamp.body`, with a 3-minute replay window), checks the amount, and marks the
+order **PAID** (or CANCELLED). The success redirect is UX only — the webhook is the source
+of truth.
 
 Setup:
-1. Sandbox: create a free account at https://sandbox.payfast.co.za → copy Merchant ID +
-   Merchant Key, set a Salt Passphrase under Settings. (PayFast's old shared test
-   credentials no longer accept posts — you need your own sandbox.)
-2. Fill `PAYFAST_MERCHANT_ID`, `PAYFAST_MERCHANT_KEY`, `PAYFAST_PASSPHRASE`,
-   `PAYFAST_MODE=sandbox` in the environment.
-3. Go live: swap in your production credentials from payfast.io and `PAYFAST_MODE=live`.
+1. In the Yoco dashboard (https://portal.yoco.co.za) → **Sell Online → Payment Gateway**,
+   copy your secret key. `sk_test_…` to trial, `sk_live_…` for production.
+2. Set `YOCO_SECRET_KEY` and `NEXT_PUBLIC_SITE_URL` in the environment.
+3. Register the webhook: `npm run yoco:register-webhook`. It prints a `whsec_…` secret —
+   paste it into `YOCO_WEBHOOK_SECRET`.
 
-With no credentials set, checkout falls back to recording orders for manual/EFT settlement.
-The ITN webhook needs a public HTTPS origin (`NEXT_PUBLIC_SITE_URL`) — it can't be
-tested on localhost.
+With no key set, checkout falls back to recording orders for manual/EFT settlement.
+The webhook needs a public HTTPS origin — it can't be exercised on localhost.
 
 ## Delivery — The Courier Guy
 

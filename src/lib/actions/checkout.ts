@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { resolveCart, writeCartLines } from "@/lib/cart";
-import { payfastConfigured } from "@/lib/payments/payfast";
+import { createYocoCheckout, yocoConfigured } from "@/lib/payments/yoco";
 import { quoteShipping } from "@/lib/shipping/courier-guy";
 
 const checkoutSchema = z.object({
@@ -80,7 +80,7 @@ export async function placeOrder(
           serviceLevelCode: shipping.serviceLevelCode ?? "",
         },
         note: data.note || null,
-        paymentMethod: payfastConfigured() ? "payfast" : "manual",
+        paymentMethod: yocoConfigured() ? "yoco" : "manual",
         items: {
           create: await Promise.all(
             lines.map(async (line) => {
@@ -111,8 +111,54 @@ export async function placeOrder(
   }
 
   await writeCartLines([]);
-  if (payfastConfigured()) {
-    redirect(`/checkout/pay/${order.id}`);
+
+  // Hand off to Yoco when configured; otherwise the order is placed for
+  // manual/EFT settlement and we go straight to the confirmation page.
+  let redirectTo = `/checkout/confirmation?order=${order.number}`;
+  if (yocoConfigured()) {
+    try {
+      const checkout = await createYocoCheckout({
+        orderId: order.id,
+        orderNumber: order.number,
+        amountCents: subtotalCents + shipping.cents,
+      });
+      await prisma.order.update({
+        where: { id: order.id },
+        data: { paymentId: checkout.id },
+      });
+      redirectTo = checkout.redirectUrl;
+    } catch {
+      // Payment couldn't be initialised — the order is saved as PENDING, so
+      // send the shopper to the cancelled page where they can retry.
+      redirect(`/checkout/cancelled?order=${order.id}&failed=1`);
+    }
   }
-  redirect(`/checkout/confirmation?order=${order.number}`);
+
+  redirect(redirectTo);
+}
+
+/** Re-initiates payment for an existing PENDING order (cancelled-page retry). */
+export async function retryPayment(formData: FormData): Promise<void> {
+  const orderId = String(formData.get("orderId") ?? "");
+  const order = await prisma.order.findUnique({
+    where: { id: orderId },
+    select: { id: true, number: true, status: true, totalCents: true },
+  });
+  if (!order || order.status !== "PENDING" || !yocoConfigured()) {
+    redirect("/cart");
+  }
+
+  let redirectTo: string;
+  try {
+    const checkout = await createYocoCheckout({
+      orderId: order!.id,
+      orderNumber: order!.number,
+      amountCents: order!.totalCents,
+    });
+    await prisma.order.update({ where: { id: order!.id }, data: { paymentId: checkout.id } });
+    redirectTo = checkout.redirectUrl;
+  } catch {
+    redirect(`/checkout/cancelled?order=${order!.id}&failed=1`);
+  }
+  redirect(redirectTo);
 }

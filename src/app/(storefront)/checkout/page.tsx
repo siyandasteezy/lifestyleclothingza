@@ -5,7 +5,7 @@ import { Price } from "@/components/ui/Price";
 import { resolveCart } from "@/lib/cart";
 import { formatMoney } from "@/lib/money";
 import { buildMetadata } from "@/lib/seo";
-import { payfastConfigured } from "@/lib/payments/payfast";
+import { yocoConfigured } from "@/lib/payments/yoco";
 import { FLAT_SHIPPING_CENTS, FREE_SHIPPING_THRESHOLD_CENTS } from "@/lib/shipping/courier-guy";
 import { CheckoutForm } from "@/components/checkout/CheckoutForm";
 
@@ -29,7 +29,7 @@ export default async function CheckoutPage() {
     <Container className="py-10 md:py-14">
       <h1 className="mb-8 font-display text-display-md">Checkout</h1>
       <div className="grid gap-10 lg:grid-cols-[1fr_24rem] lg:items-start">
-        <CheckoutForm payfastEnabled={payfastConfigured()} />
+        <CheckoutForm paymentEnabled={yocoConfigured()} />
         <aside className="rounded-card border border-line bg-paper p-6 lg:order-last" aria-label="Order summary">
           <h2 className="font-display text-lg">Your order</h2>
           <ul className="mt-4 divide-y divide-line">

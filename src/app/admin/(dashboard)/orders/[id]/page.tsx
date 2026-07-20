@@ -94,11 +94,11 @@ export default async function AdminOrderDetail({
             <dl className="space-y-1.5 text-sm">
               <div className="flex justify-between gap-3">
                 <dt className="text-stone">Payment</dt>
-                <dd>{order.paymentMethod === "payfast" ? "PayFast" : "Manual / EFT"}</dd>
+                <dd>{order.paymentMethod === "yoco" ? "Yoco" : "Manual / EFT"}</dd>
               </div>
               {order.paymentId && (
                 <div className="flex justify-between gap-3">
-                  <dt className="text-stone">PayFast ID</dt>
+                  <dt className="text-stone">Yoco ID</dt>
                   <dd className="font-mono text-xs">{order.paymentId}</dd>
                 </div>
               )}

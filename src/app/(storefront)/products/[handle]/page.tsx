@@ -108,7 +108,7 @@ export default async function ProductPage({ params }: Props) {
             </div>
 
             <p className="mt-5 border-t border-line pt-4 text-xs tracking-[0.06em] text-stone">
-              PayFast secure checkout · Delivery by The Courier Guy · 2–5 business days
+              Yoco secure checkout · Delivery by The Courier Guy · 2–5 business days
             </p>
 
             {sizeFit && (

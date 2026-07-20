@@ -40,7 +40,7 @@ function Field({
   );
 }
 
-export function CheckoutForm({ payfastEnabled = false }: { payfastEnabled?: boolean }) {
+export function CheckoutForm({ paymentEnabled = false }: { paymentEnabled?: boolean }) {
   const [state, formAction, pending] = useActionState(placeOrder, initialState);
   const errors = state.fieldErrors ?? {};
 
@@ -79,13 +79,13 @@ export function CheckoutForm({ payfastEnabled = false }: { payfastEnabled?: bool
         >
           {pending
             ? "Placing order…"
-            : payfastEnabled
+            : paymentEnabled
               ? "Continue to payment"
               : "Place order"}
         </button>
         <p className="mt-3 text-xs text-stone">
-          {payfastEnabled
-            ? "You'll be redirected to PayFast to pay securely by card, EFT, or SnapScan. Delivery by The Courier Guy."
+          {paymentEnabled
+            ? "You'll be redirected to Yoco to pay securely by card. Delivery by The Courier Guy."
             : "Payment is settled via EFT / payment link after your order is confirmed."}
         </p>
         <p aria-live="polite" className="mt-2 min-h-5 text-sm text-clay">

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { prisma } from "@/lib/db";
+import { retryPayment } from "@/lib/actions/checkout";
 import { buildMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
@@ -33,9 +33,15 @@ export default async function CancelledPage({
       </p>
       <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
         {order && order.status === "PENDING" && (
-          <ButtonLink href={`/checkout/pay/${order.id}`} size="lg">
-            Try payment again
-          </ButtonLink>
+          <form action={retryPayment}>
+            <input type="hidden" name="orderId" value={order.id} />
+            <button
+              type="submit"
+              className="inline-flex h-14 items-center border border-ink bg-ink px-10 font-display text-xs tracking-[0.2em] uppercase text-bone transition-colors duration-350 hover:bg-transparent hover:text-ink"
+            >
+              Try payment again
+            </button>
+          </form>
         )}
         <Link
           href="/collections/all"
