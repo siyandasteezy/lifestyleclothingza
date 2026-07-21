@@ -15,7 +15,13 @@ export function Footer() {
             <ul className="space-y-2.5">
               {site.mainMenu.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-sm text-ink-soft hover:text-clay">
+                  <Link
+                    href={item.href}
+                    {...(item.href.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className="text-sm text-ink-soft hover:text-clay"
+                  >
                     {item.label}
                   </Link>
                 </li>

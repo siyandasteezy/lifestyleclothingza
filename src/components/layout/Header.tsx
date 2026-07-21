@@ -42,18 +42,15 @@ export function Header() {
           <MobileMenu menu={site.mainMenu} />
         </div>
 
-        <Link href="/" className="flex shrink-0 items-center gap-3" aria-label={`${site.name} — home`}>
+        <Link href="/" className="flex shrink-0 items-center" aria-label={`${site.name} — home`}>
           <Image
             src={site.logo}
-            alt=""
-            width={44}
-            height={44}
+            alt={site.name}
+            width={48}
+            height={48}
             priority
-            className="h-9 w-9 object-contain md:h-10 md:w-10"
+            className="h-10 w-10 object-contain md:h-12 md:w-12"
           />
-          <span className="font-display text-lg tracking-[0.08em] max-[380px]:hidden">
-            {site.name}
-          </span>
         </Link>
 
         <nav aria-label="Main menu" className="hidden md:block">
@@ -108,6 +105,9 @@ export function Header() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
+                    {...(item.href.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                     className="py-2 font-display text-[11px] tracking-[0.2em] uppercase hover:text-clay"
                   >
                     {item.label}

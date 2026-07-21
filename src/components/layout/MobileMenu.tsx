@@ -77,7 +77,13 @@ export function MobileMenu({ menu }: { menu: MenuItem[] }) {
                     </ul>
                   </details>
                 ) : (
-                  <Link href={item.href} className="block rounded-lg px-3 py-3 font-medium hover:bg-ink/5">
+                  <Link
+                    href={item.href}
+                    {...(item.href.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className="block rounded-lg px-3 py-3 font-medium hover:bg-ink/5"
+                  >
                     {item.label}
                   </Link>
                 )}
