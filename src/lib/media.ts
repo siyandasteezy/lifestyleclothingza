@@ -19,9 +19,16 @@ export interface SavedUpload {
 
 export class UploadError extends Error {}
 
-/** True when durable blob storage is configured (Vercel Blob). */
+/**
+ * True when durable blob storage is configured (Vercel Blob).
+ * Accepts either the classic RW token or the newer OIDC pairing (store id +
+ * OIDC token, injected automatically on Vercel-linked deployments).
+ */
 export function blobConfigured(): boolean {
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+  return Boolean(
+    process.env.BLOB_READ_WRITE_TOKEN ||
+      (process.env.BLOB_STORE_ID && process.env.VERCEL_OIDC_TOKEN),
+  );
 }
 
 /**
