@@ -20,6 +20,17 @@ export default async function AdminPages() {
             </tr>
           </thead>
           <tbody>
+            <tr className="border-b border-line hover:bg-bone">
+              <td className="px-5 py-3">
+                <Link href="/admin/homepage" className="font-medium text-clay hover:underline">
+                  Homepage
+                </Link>
+              </td>
+              <td className="px-5 py-3 text-stone">/</td>
+              <td className="px-5 py-3">
+                <StatusBadge status="PUBLISHED" />
+              </td>
+            </tr>
             {pages.map((p) => (
               <tr key={p.id} className="border-b border-line last:border-0 hover:bg-bone">
                 <td className="px-5 py-3">

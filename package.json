@@ -17,6 +17,12 @@
   "dependencies": {
     "@next/third-parties": "^16.2.10",
     "@prisma/client": "^6.19.3",
+    "@tiptap/extension-image": "^3.28.0",
+    "@tiptap/extension-link": "^3.28.0",
+    "@tiptap/pm": "^3.28.0",
+    "@tiptap/react": "^3.28.0",
+    "@tiptap/starter-kit": "^3.28.0",
+    "@vercel/blob": "^2.6.1",
     "bcryptjs": "^3.0.3",
     "next": "16.2.10",
     "prisma": "^6.19.3",

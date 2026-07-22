@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { updatePage, type AdminActionState } from "@/lib/actions/admin";
 import { adminInput, AdminCard, Label, SaveButton } from "@/components/admin/ui";
+import { RichTextEditor } from "@/components/admin/RichTextEditor";
 
 interface PageInput {
   id: string;
@@ -28,14 +29,8 @@ export function PageEditForm({ page }: { page: PageInput }) {
           <input id="pg-title" name="title" defaultValue={page.title} required className={adminInput} />
         </div>
         <div>
-          <Label htmlFor="pg-body">Body (HTML)</Label>
-          <textarea
-            id="pg-body"
-            name="bodyHtml"
-            defaultValue={page.bodyHtml}
-            rows={18}
-            className={`${adminInput} font-mono text-xs`}
-          />
+          <Label htmlFor="pg-body">Body</Label>
+          <RichTextEditor name="bodyHtml" defaultValue={page.bodyHtml} ariaLabel="Page body" />
         </div>
       </AdminCard>
 

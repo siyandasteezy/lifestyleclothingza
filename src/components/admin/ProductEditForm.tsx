@@ -1,9 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useActionState } from "react";
 import { updateProduct, type AdminActionState } from "@/lib/actions/admin";
 import { adminInput, AdminCard, Label, SaveButton } from "@/components/admin/ui";
+import { RichTextEditor } from "@/components/admin/RichTextEditor";
+import { ProductImagesField } from "@/components/admin/ProductImagesField";
 
 interface ProductInput {
   id: string;
@@ -42,14 +43,8 @@ export function ProductEditForm({ product }: { product: ProductInput }) {
             <input id="p-title" name="title" defaultValue={product.title} required className={adminInput} />
           </div>
           <div>
-            <Label htmlFor="p-body">Description (HTML)</Label>
-            <textarea
-              id="p-body"
-              name="bodyHtml"
-              defaultValue={product.bodyHtml}
-              rows={10}
-              className={`${adminInput} font-mono text-xs`}
-            />
+            <Label htmlFor="p-body">Description</Label>
+            <RichTextEditor name="bodyHtml" defaultValue={product.bodyHtml} ariaLabel="Product description" />
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
             <div>
@@ -132,13 +127,7 @@ export function ProductEditForm({ product }: { product: ProductInput }) {
 
         <AdminCard>
           <h2 className="mb-3 font-display text-base font-bold">Images</h2>
-          <ul className="flex flex-wrap gap-3">
-            {product.images.map((img) => (
-              <li key={img.id} className="relative h-24 w-20 overflow-hidden rounded-lg bg-bone">
-                <Image src={img.src} alt={img.alt} fill sizes="80px" className="object-cover" />
-              </li>
-            ))}
-          </ul>
+          <ProductImagesField initial={product.images.map((img) => img.src)} />
         </AdminCard>
       </div>
 

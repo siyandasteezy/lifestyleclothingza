@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "lifestyleclothingza.com" },
       { protocol: "https", hostname: "cdn.shopify.com" },
+      // Admin image uploads (Vercel Blob)
+      { protocol: "https", hostname: "*.public.blob.vercel-storage.com" },
     ],
   },
   async redirects() {

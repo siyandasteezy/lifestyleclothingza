@@ -6,15 +6,12 @@ import { getPage, getPages } from "@/lib/data";
 import { breadcrumbJsonLd, buildMetadata, descriptionFromHtml, faqJsonLd } from "@/lib/seo";
 import { ContactBlock } from "@/components/pages/ContactBlock";
 import { Accordion } from "@/components/ui/Accordion";
-import { homepage } from "@/lib/site";
-
-// The storefront FAQ moved here from the homepage (approved direction);
-// the copy still lives verbatim in content/homepage.json.
-const faq = (homepage.sections as { type: string; heading?: string; items?: { question: string; answer: string }[] }[]).find(
-  (s) => s.type === "faq",
-);
+import { getHomepage } from "@/lib/homepage";
 
 export const revalidate = 300;
+
+// The storefront FAQ moved here from the homepage (approved direction).
+type FaqSection = { type: string; heading?: string; items?: { question: string; answer: string }[] };
 
 interface Props {
   params: Promise<{ handle: string }>;
@@ -40,6 +37,11 @@ export default async function StaticPage({ params }: Props) {
   const { handle } = await params;
   const page = await getPage(handle);
   if (!page) notFound();
+
+  const faq =
+    handle === "orders-payments"
+      ? ((await getHomepage()).sections as FaqSection[]).find((s) => s.type === "faq")
+      : undefined;
 
   return (
     <>

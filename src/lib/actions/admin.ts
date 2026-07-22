@@ -7,6 +7,7 @@ import path from "path";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { getAdmin } from "@/lib/auth";
+import { saveUpload, UploadError } from "@/lib/media";
 
 async function assertAdmin() {
   const admin = await getAdmin();
@@ -77,6 +78,23 @@ export async function updateProduct(
     });
   }
 
+  // Images arrive as image-0, image-1, … in display order. Reconcile by
+  // replacing the set (nothing else references ProductImage; order snapshots
+  // store their own image URL, so recreating rows is safe).
+  const imageUrls: string[] = [];
+  for (let i = 0; formData.has(`image-${i}`); i++) {
+    const url = String(formData.get(`image-${i}`) ?? "").trim();
+    if (url) imageUrls.push(url);
+  }
+  if (formData.has("image-0") || imageUrls.length > 0) {
+    await prisma.productImage.deleteMany({ where: { productId: id } });
+    if (imageUrls.length > 0) {
+      await prisma.productImage.createMany({
+        data: imageUrls.map((src, i) => ({ productId: id, src, alt: d.title, position: i + 1 })),
+      });
+    }
+  }
+
   revalidateStorefront();
   return { status: "success", message: "Product saved." };
 }
@@ -91,6 +109,43 @@ export async function updateOrderStatus(formData: FormData): Promise<void> {
     .parse(formData.get("status"));
   await prisma.order.update({ where: { id }, data: { status } });
   revalidatePath("/admin/orders");
+}
+
+// ---------- Homepage ----------
+
+export async function updateHomepage(
+  _prev: AdminActionState,
+  formData: FormData,
+): Promise<AdminActionState> {
+  await assertAdmin();
+  let config: unknown;
+  try {
+    config = JSON.parse(String(formData.get("config") ?? ""));
+  } catch {
+    return { status: "error", message: "Couldn't read the homepage content." };
+  }
+  if (
+    !config ||
+    typeof config !== "object" ||
+    !Array.isArray((config as { sections?: unknown }).sections)
+  ) {
+    return { status: "error", message: "Invalid homepage content." };
+  }
+  await prisma.setting.upsert({
+    where: { key: "homepage" },
+    create: { key: "homepage", value: config as object },
+    update: { value: config as object },
+  });
+  revalidateStorefront();
+  return { status: "success", message: "Homepage saved." };
+}
+
+/** Reverts the homepage to the originally-migrated content. */
+export async function resetHomepage(): Promise<void> {
+  await assertAdmin();
+  await prisma.setting.deleteMany({ where: { key: "homepage" } });
+  revalidateStorefront();
+  redirect("/admin/homepage");
 }
 
 // ---------- Shipments (The Courier Guy) ----------
@@ -224,8 +279,6 @@ export async function updatePage(
 // ---------- Media ----------
 
 const UPLOAD_DIR = "images/uploads";
-const ALLOWED_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/avif", "image/gif"]);
-const MAX_BYTES = 10 * 1024 * 1024;
 
 export async function uploadMedia(
   _prev: AdminActionState,
@@ -233,26 +286,19 @@ export async function uploadMedia(
 ): Promise<AdminActionState> {
   await assertAdmin();
   const file = formData.get("file");
-  if (!(file instanceof File) || file.size === 0) {
+  if (!(file instanceof File)) {
     return { status: "error", message: "Choose a file to upload." };
   }
-  if (!ALLOWED_TYPES.has(file.type)) {
-    return { status: "error", message: "Only JPEG, PNG, WebP, AVIF, or GIF images." };
+  try {
+    const { url } = await saveUpload(file, String(formData.get("alt") ?? ""));
+    revalidatePath("/admin/media");
+    return { status: "success", message: `Uploaded ${url}` };
+  } catch (err) {
+    return {
+      status: "error",
+      message: err instanceof UploadError ? err.message : "Upload failed. Please try again.",
+    };
   }
-  if (file.size > MAX_BYTES) {
-    return { status: "error", message: "Max file size is 10 MB." };
-  }
-  const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-  const filename = `${Date.now()}-${safeName}`;
-  const dir = path.join(process.cwd(), "public", UPLOAD_DIR);
-  await fs.mkdir(dir, { recursive: true });
-  await fs.writeFile(path.join(dir, filename), Buffer.from(await file.arrayBuffer()));
-  const publicPath = `/${UPLOAD_DIR}/${filename}`;
-  await prisma.mediaAsset.create({
-    data: { path: publicPath, alt: String(formData.get("alt") ?? ""), bytes: file.size },
-  });
-  revalidatePath("/admin/media");
-  return { status: "success", message: `Uploaded ${publicPath}` };
 }
 
 export async function deleteMedia(formData: FormData): Promise<void> {
@@ -261,8 +307,12 @@ export async function deleteMedia(formData: FormData): Promise<void> {
   const asset = await prisma.mediaAsset.findUnique({ where: { id } });
   if (asset) {
     await prisma.mediaAsset.delete({ where: { id } });
-    // Only uploaded files are removed from disk; migrated catalog images stay.
-    if (asset.path.startsWith(`/${UPLOAD_DIR}/`)) {
+    if (asset.path.startsWith("https://") && asset.path.includes("blob.vercel-storage.com")) {
+      // Uploaded to Vercel Blob — remove it there.
+      const { del } = await import("@vercel/blob");
+      await del(asset.path).catch(() => {});
+    } else if (asset.path.startsWith(`/${UPLOAD_DIR}/`)) {
+      // Local dev upload — remove from disk. Migrated catalog images stay.
       await fs.rm(path.join(process.cwd(), "public", asset.path), { force: true });
     }
   }

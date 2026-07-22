@@ -4,6 +4,7 @@ import { logout } from "@/lib/actions/admin-auth";
 
 const nav = [
   { label: "Overview", href: "/admin" },
+  { label: "Homepage", href: "/admin/homepage" },
   { label: "Products", href: "/admin/products" },
   { label: "Orders", href: "/admin/orders" },
   { label: "Articles", href: "/admin/articles" },

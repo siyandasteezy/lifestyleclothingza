@@ -3,6 +3,8 @@
 import { useActionState } from "react";
 import { upsertArticle, type AdminActionState } from "@/lib/actions/admin";
 import { adminInput, AdminCard, Label, SaveButton } from "@/components/admin/ui";
+import { RichTextEditor } from "@/components/admin/RichTextEditor";
+import { ImageField } from "@/components/admin/ImageField";
 
 export interface ArticleInput {
   id: string | null;
@@ -52,14 +54,8 @@ export function ArticleEditForm({ article }: { article: ArticleInput }) {
             <textarea id="a-excerpt" name="excerpt" defaultValue={article.excerpt} rows={2} className={adminInput} />
           </div>
           <div>
-            <Label htmlFor="a-body">Body (HTML)</Label>
-            <textarea
-              id="a-body"
-              name="bodyHtml"
-              defaultValue={article.bodyHtml}
-              rows={16}
-              className={`${adminInput} font-mono text-xs`}
-            />
+            <Label htmlFor="a-body">Body</Label>
+            <RichTextEditor name="bodyHtml" defaultValue={article.bodyHtml} ariaLabel="Article body" />
           </div>
         </AdminCard>
       </div>
@@ -73,16 +69,7 @@ export function ArticleEditForm({ article }: { article: ArticleInput }) {
               <option value="DRAFT">Draft</option>
             </select>
           </div>
-          <div>
-            <Label htmlFor="a-hero">Hero image path</Label>
-            <input
-              id="a-hero"
-              name="heroImage"
-              defaultValue={article.heroImage ?? ""}
-              placeholder="/images/uploads/…"
-              className={adminInput}
-            />
-          </div>
+          <ImageField name="heroImage" label="Hero image" defaultValue={article.heroImage ?? ""} aspect="aspect-3/2" />
         </AdminCard>
 
         <AdminCard className="space-y-4">
