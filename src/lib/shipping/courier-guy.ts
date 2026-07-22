@@ -180,3 +180,57 @@ export async function bookShipment(input: {
 export function trackingUrl(reference: string): string {
   return `https://portal.thecourierguy.co.za/track?ref=${encodeURIComponent(reference)}`;
 }
+
+export interface TrackingEvent {
+  status: string;
+  message: string;
+  date: string | null;
+}
+
+export interface TrackingResult {
+  status: string;
+  events: TrackingEvent[];
+  estimatedDelivery: string | null;
+}
+
+/**
+ * Live tracking for a booked shipment. Returns null when the courier isn't
+ * configured, the reference is unknown, or the API errors — callers fall back
+ * to the order's own status. Parsed defensively against field-name drift.
+ */
+export async function trackShipment(reference: string): Promise<TrackingResult | null> {
+  if (!courierGuyConfigured() || !reference) return null;
+  try {
+    const res = await fetch(
+      `${API_BASE}/tracking/shipments?tracking_reference=${encodeURIComponent(reference)}`,
+      {
+        headers: { Authorization: `Bearer ${process.env.COURIER_GUY_API_KEY}` },
+        signal: AbortSignal.timeout(10_000),
+      },
+    );
+    if (!res.ok) return null;
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    const data: any = await res.json();
+    const shipment = Array.isArray(data?.shipments) ? data.shipments[0] : data;
+    if (!shipment) return null;
+
+    const rawEvents: any[] =
+      shipment.tracking_events ?? shipment.events ?? data.tracking_events ?? [];
+    const events: TrackingEvent[] = rawEvents
+      .map((e) => ({
+        status: String(e.status ?? e.state ?? "").trim(),
+        message: String(e.message ?? e.description ?? e.status ?? "").trim(),
+        date: e.date ?? e.timestamp ?? e.created_at ?? null,
+      }))
+      .filter((e) => e.status || e.message);
+
+    return {
+      status: String(shipment.status ?? shipment.state ?? events[0]?.status ?? "").trim(),
+      events,
+      estimatedDelivery:
+        shipment.estimated_delivery_to ?? shipment.estimated_delivery_from ?? null,
+    };
+  } catch {
+    return null;
+  }
+}

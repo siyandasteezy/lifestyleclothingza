@@ -28,7 +28,7 @@
       ]
     },
     { "label": "Contact", "href": "/pages/contact" },
-    { "label": "Track Your Order", "href": "https://portal.thecourierguy.co.za/track" }
+    { "label": "Track Your Order", "href": "/track" }
   ],
   "footerMenu": [
     { "label": "Search", "href": "/search" },
