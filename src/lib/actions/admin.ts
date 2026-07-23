@@ -314,41 +314,29 @@ export async function resetHomepage(): Promise<void> {
   redirect("/admin/homepage");
 }
 
+// ---------- Store settings ----------
+
+export async function updateStoreSettingsAction(
+  _prev: AdminActionState,
+  formData: FormData,
+): Promise<AdminActionState> {
+  await assertAdmin();
+  const { updateStoreSettings } = await import("@/lib/settings");
+  await updateStoreSettings({
+    // Unchecked checkboxes don't submit at all; presence == on.
+    autoBookCourier: formData.get("autoBookCourier") === "on",
+  });
+  revalidatePath("/admin/settings");
+  return { status: "success", message: "Settings saved." };
+}
+
 // ---------- Shipments (The Courier Guy) ----------
 
 export async function bookCourierShipment(formData: FormData): Promise<void> {
   await assertAdmin();
   const id = String(formData.get("id"));
-  const order = await prisma.order.findUnique({ where: { id } });
-  if (!order || order.trackingReference) return;
-
-  const address = order.shippingAddress as Record<string, string> | null;
-  if (!address) return;
-
-  const { bookShipment } = await import("@/lib/shipping/courier-guy");
-  const shipment = await bookShipment({
-    address: {
-      name: order.shippingName ?? "",
-      address1: address.address1 ?? "",
-      address2: address.address2,
-      city: address.city ?? "",
-      province: address.province ?? "",
-      postalCode: address.postalCode ?? "",
-      phone: order.phone ?? undefined,
-      email: order.email,
-    },
-    orderNumber: order.number,
-    serviceLevelCode: address.serviceLevelCode || undefined,
-    declaredValueCents: order.subtotalCents,
-  });
-  await prisma.order.update({
-    where: { id },
-    data: {
-      shipmentId: shipment.shipmentId,
-      trackingReference: shipment.trackingReference,
-      status: order.status === "PAID" ? "FULFILLED" : order.status,
-    },
-  });
+  const { bookForOrder } = await import("@/lib/shipping/courier-guy");
+  await bookForOrder(id);
   revalidatePath(`/admin/orders/${id}`);
 }
 

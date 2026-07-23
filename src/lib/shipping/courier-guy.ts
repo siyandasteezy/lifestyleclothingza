@@ -181,6 +181,60 @@ export function trackingUrl(reference: string): string {
   return `https://portal.thecourierguy.co.za/track?ref=${encodeURIComponent(reference)}`;
 }
 
+/**
+ * Books a shipment for a stored Order row and updates it in place. Idempotent —
+ * skips work if the order already has a tracking reference or no address.
+ * Used by both the manual "Book shipment" admin button and the webhook's
+ * auto-book path, so the same guards live in one place.
+ *
+ * Returns whether a shipment was actually booked this call. Rethrows API
+ * errors so callers can log a specific reason; caller state on failure is
+ * whatever it was — the order isn't half-updated.
+ */
+export async function bookForOrder(orderId: string): Promise<
+  { booked: false; reason: string } | { booked: true; shipmentId: string; trackingReference: string }
+> {
+  // Lazy import to keep this module free of the Prisma dep for edge callers.
+  const { prisma } = await import("@/lib/db");
+  const order = await prisma.order.findUnique({ where: { id: orderId } });
+  if (!order) return { booked: false, reason: "order not found" };
+  if (order.trackingReference) return { booked: false, reason: "already booked" };
+  const address = order.shippingAddress as Record<string, string> | null;
+  if (!address) return { booked: false, reason: "no shipping address" };
+  if (!courierGuyConfigured()) return { booked: false, reason: "courier not configured" };
+
+  const shipment = await bookShipment({
+    address: {
+      name: order.shippingName ?? "",
+      address1: address.address1 ?? "",
+      address2: address.address2,
+      city: address.city ?? "",
+      province: address.province ?? "",
+      postalCode: address.postalCode ?? "",
+      phone: order.phone ?? undefined,
+      email: order.email,
+    },
+    orderNumber: order.number,
+    serviceLevelCode: address.serviceLevelCode || undefined,
+    declaredValueCents: order.subtotalCents,
+  });
+  await prisma.order.update({
+    where: { id: order.id },
+    data: {
+      shipmentId: shipment.shipmentId,
+      trackingReference: shipment.trackingReference,
+      // Only advance to FULFILLED when the order was already PAID; other states
+      // (like PENDING) shouldn't be pushed forward just because a booking succeeded.
+      status: order.status === "PAID" ? "FULFILLED" : order.status,
+    },
+  });
+  return {
+    booked: true,
+    shipmentId: shipment.shipmentId,
+    trackingReference: shipment.trackingReference,
+  };
+}
+
 export interface TrackingEvent {
   status: string;
   message: string;

@@ -11,6 +11,7 @@ const nav = [
   { label: "Pages", href: "/admin/pages" },
   { label: "Media", href: "/admin/media" },
   { label: "Messages", href: "/admin/messages" },
+  { label: "Settings", href: "/admin/settings" },
 ];
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
