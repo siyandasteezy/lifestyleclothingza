@@ -19,7 +19,19 @@ export async function POST(req: NextRequest) {
     const { url } = await saveUpload(file, String(form.get("alt") ?? ""));
     return NextResponse.json({ url });
   } catch (err) {
-    const message = err instanceof UploadError ? err.message : "Upload failed. Please try again.";
-    return NextResponse.json({ error: message }, { status: 400 });
+    // UploadError: safe user-facing validation (type/size). Anything else is a
+    // real bug — log it to Vercel logs so `vercel logs` shows the cause, and
+    // surface the class name (not the raw message) to the admin so screenshots
+    // stay diagnostic without leaking internals like credentials or paths.
+    if (err instanceof UploadError) {
+      return NextResponse.json({ error: err.message }, { status: 400 });
+    }
+    const detail =
+      err instanceof Error ? `${err.name}: ${err.message.slice(0, 200)}` : String(err);
+    console.error("admin upload failed:", detail);
+    return NextResponse.json(
+      { error: `Upload failed. Server said: ${detail}` },
+      { status: 500 },
+    );
   }
 }
