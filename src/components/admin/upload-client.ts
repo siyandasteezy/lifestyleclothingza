@@ -1,15 +1,41 @@
 "use client";
 
-/** Uploads a file to the admin upload endpoint and returns its public URL. */
+import { upload } from "@vercel/blob/client";
+
+const MAX_BYTES = 15 * 1024 * 1024;
+const ALLOWED_TYPES = [
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/avif",
+  "image/gif",
+];
+
+/**
+ * Uploads a file directly from the browser to Vercel Blob via a signed token.
+ * Bypasses Vercel's 4.5 MB route-handler body limit, so phone photos work.
+ * The token endpoint is auth-gated to admins.
+ */
 export async function uploadImage(file: File): Promise<string> {
-  const body = new FormData();
-  body.append("file", file);
-  const res = await fetch("/api/admin/upload", { method: "POST", body });
-  const data = (await res.json()) as { url?: string; error?: string };
-  if (!res.ok || !data.url) {
-    throw new Error(data.error ?? "Upload failed.");
+  if (!ALLOWED_TYPES.includes(file.type)) {
+    throw new Error("Only JPEG, PNG, WebP, AVIF, or GIF images.");
   }
-  return data.url;
+  if (file.size > MAX_BYTES) {
+    throw new Error(`Image is too large (${Math.round(file.size / 1024 / 1024)} MB). Max is 15 MB.`);
+  }
+  try {
+    const blob = await upload(file.name, file, {
+      access: "public",
+      handleUploadUrl: "/api/admin/blob-token",
+      contentType: file.type,
+    });
+    return blob.url;
+  } catch (err) {
+    // The SDK sometimes throws BlobError with a useful message; otherwise
+    // fall through with something more readable than "Unexpected token".
+    const message = err instanceof Error ? err.message : String(err);
+    throw new Error(`Upload failed: ${message}`);
+  }
 }
 
 /** Opens a native file picker and resolves with the chosen image File (or null). */
