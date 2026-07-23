@@ -8,7 +8,39 @@ import { adminInput, AdminCard, AdminHeading, StatusBadge } from "@/components/a
 
 export const dynamic = "force-dynamic";
 
-const STATUSES = ["PENDING", "PAID", "FULFILLED", "CANCELLED", "REFUNDED"] as const;
+/**
+ * Order lifecycle labels shown in the admin. Values match the OrderStatus
+ * enum in the schema (mustn't change); labels are the human-readable version.
+ * Auto-flip transitions PENDING→PAID (Yoco webhook) and PAID→FULFILLED
+ * (booking a Courier Guy shipment); the rest are set manually.
+ */
+const STATUSES = [
+  {
+    value: "PENDING",
+    label: "Pending — awaiting payment",
+    hint: "Order placed, Yoco hasn’t confirmed payment yet. Flips to Paid automatically once it does.",
+  },
+  {
+    value: "PAID",
+    label: "Paid — ready to ship",
+    hint: "Payment received. Click “Book Courier Guy shipment” when the parcel is ready.",
+  },
+  {
+    value: "FULFILLED",
+    label: "Fulfilled — shipment booked",
+    hint: "The Courier Guy has the parcel. Tracking is live for the customer.",
+  },
+  {
+    value: "CANCELLED",
+    label: "Cancelled — will not be honoured",
+    hint: "Customer cancelled, payment failed, or you decided not to fulfil it.",
+  },
+  {
+    value: "REFUNDED",
+    label: "Refunded — money returned",
+    hint: "Set this after issuing the refund in your Yoco dashboard.",
+  },
+] as const;
 
 export default async function AdminOrderDetail({
   params,
@@ -73,10 +105,15 @@ export default async function AdminOrderDetail({
               <label className="sr-only" htmlFor="order-status">
                 Order status
               </label>
-              <select id="order-status" name="status" defaultValue={order.status} className={adminInput}>
+              <select
+                id="order-status"
+                name="status"
+                defaultValue={order.status}
+                className={adminInput}
+              >
                 {STATUSES.map((s) => (
-                  <option key={s} value={s}>
-                    {s}
+                  <option key={s.value} value={s.value}>
+                    {s.label}
                   </option>
                 ))}
               </select>
@@ -87,6 +124,9 @@ export default async function AdminOrderDetail({
                 Save
               </button>
             </form>
+            <p className="mt-2 text-xs text-stone">
+              {STATUSES.find((s) => s.value === order.status)?.hint}
+            </p>
           </AdminCard>
 
           <AdminCard>
