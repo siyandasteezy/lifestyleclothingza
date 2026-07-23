@@ -14,7 +14,14 @@ export default async function AdminProducts() {
 
   return (
     <>
-      <AdminHeading title="Products" />
+      <AdminHeading title="Products">
+        <Link
+          href="/admin/products/new"
+          className="h-10 rounded-full bg-ink px-5 text-sm leading-10 font-semibold text-bone hover:bg-clay"
+        >
+          + New product
+        </Link>
+      </AdminHeading>
       <AdminCard className="overflow-x-auto p-0">
         <table className="w-full text-sm">
           <thead>

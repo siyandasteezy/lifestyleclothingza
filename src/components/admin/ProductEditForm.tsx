@@ -30,12 +30,44 @@ interface ProductInput {
 
 const initialState: AdminActionState = { status: "idle" };
 
-export function ProductEditForm({ product }: { product: ProductInput }) {
+export interface ProductEditSuggestions {
+  vendors: string[];
+  productTypes: string[];
+  tags: string[];
+}
+
+export function ProductEditForm({
+  product,
+  suggestions,
+}: {
+  product: ProductInput;
+  suggestions?: ProductEditSuggestions;
+}) {
   const action = updateProduct.bind(null, product.id);
   const [state, formAction, pending] = useActionState(action, initialState);
+  const vendors = suggestions?.vendors ?? [];
+  const productTypes = suggestions?.productTypes ?? [];
+  const tags = suggestions?.tags ?? [];
 
   return (
     <form action={formAction} className="grid gap-5 lg:grid-cols-[1fr_20rem] lg:items-start">
+      {/* Shared with all three inputs — one datalist per field type. */}
+      <datalist id="edit-vendor-suggestions">
+        {vendors.map((v) => (
+          <option key={v} value={v} />
+        ))}
+      </datalist>
+      <datalist id="edit-product-type-suggestions">
+        {productTypes.map((v) => (
+          <option key={v} value={v} />
+        ))}
+      </datalist>
+      <datalist id="edit-tag-suggestions">
+        {tags.map((v) => (
+          <option key={v} value={v} />
+        ))}
+      </datalist>
+
       <div className="space-y-5">
         <AdminCard className="space-y-4">
           <div>
@@ -49,15 +81,33 @@ export function ProductEditForm({ product }: { product: ProductInput }) {
           <div className="grid gap-4 sm:grid-cols-3">
             <div>
               <Label htmlFor="p-vendor">Vendor</Label>
-              <input id="p-vendor" name="vendor" defaultValue={product.vendor} className={adminInput} />
+              <input
+                id="p-vendor"
+                name="vendor"
+                defaultValue={product.vendor}
+                list="edit-vendor-suggestions"
+                className={adminInput}
+              />
             </div>
             <div>
               <Label htmlFor="p-type">Product type</Label>
-              <input id="p-type" name="productType" defaultValue={product.productType} className={adminInput} />
+              <input
+                id="p-type"
+                name="productType"
+                defaultValue={product.productType}
+                list="edit-product-type-suggestions"
+                className={adminInput}
+              />
             </div>
             <div>
               <Label htmlFor="p-tags">Tags (comma-separated)</Label>
-              <input id="p-tags" name="tags" defaultValue={product.tags.join(", ")} className={adminInput} />
+              <input
+                id="p-tags"
+                name="tags"
+                defaultValue={product.tags.join(", ")}
+                list="edit-tag-suggestions"
+                className={adminInput}
+              />
             </div>
           </div>
         </AdminCard>

@@ -99,6 +99,172 @@ export async function updateProduct(
   return { status: "success", message: "Product saved." };
 }
 
+function slugify(input: string): string {
+  return input
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "") // strip diacritics
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60);
+}
+
+const createProductSchema = z.object({
+  title: z.string().min(1, "Title is required."),
+  handle: z.string(),
+  bodyHtml: z.string(),
+  vendor: z.string(),
+  productType: z.string(),
+  tags: z.string(),
+  status: z.enum(["ACTIVE", "DRAFT", "ARCHIVED"]),
+  defaultPrice: z.string(),
+  defaultInventory: z.string(),
+});
+
+/**
+ * Creates a new product with options → variants generated from the cross-product
+ * of option values. If no options are supplied, one "Default Title" variant is
+ * created. Redirects to the edit page on success.
+ */
+export async function createProduct(
+  _prev: AdminActionState,
+  formData: FormData,
+): Promise<AdminActionState> {
+  await assertAdmin();
+  const parsed = createProductSchema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) {
+    return { status: "error", message: parsed.error.issues[0]?.message ?? "Invalid product data." };
+  }
+  const d = parsed.data;
+
+  // Handle: use the user's if provided, else slugify the title. Must be unique.
+  const handle = d.handle.trim() || slugify(d.title);
+  if (!handle) return { status: "error", message: "Couldn't derive a URL slug from the title." };
+  if (!/^[a-z0-9-]+$/.test(handle)) {
+    return {
+      status: "error",
+      message: "URL slug can only contain lowercase letters, numbers, and dashes.",
+    };
+  }
+  if (await prisma.product.findUnique({ where: { handle } })) {
+    return {
+      status: "error",
+      message: `A product with the URL "/products/${handle}" already exists. Pick a different title or slug.`,
+    };
+  }
+
+  // Collect options: up to 3, positions 1..3. Values arrive comma-separated.
+  const options: { name: string; position: number; values: string[] }[] = [];
+  for (let i = 0; i < 3; i++) {
+    const name = String(formData.get(`option-${i}-name`) ?? "").trim();
+    const rawValues = String(formData.get(`option-${i}-values`) ?? "");
+    const values = rawValues
+      .split(",")
+      .map((v) => v.trim())
+      .filter(Boolean);
+    if (name && values.length > 0) {
+      options.push({ name, position: options.length + 1, values });
+    }
+  }
+
+  // Variants: cross-product of option values, or one default variant if no options.
+  const defaultPriceCents = Math.max(0, Math.round(parseFloat(d.defaultPrice || "0") * 100)) || 0;
+  const defaultInventory = Math.max(0, parseInt(d.defaultInventory || "0", 10) || 0);
+
+  type VariantInput = {
+    title: string;
+    option1: string | null;
+    option2: string | null;
+    option3: string | null;
+    priceCents: number;
+    available: boolean;
+    inventoryQty: number;
+    position: number;
+  };
+  const variants: VariantInput[] = [];
+  if (options.length === 0) {
+    variants.push({
+      title: "Default Title",
+      option1: null,
+      option2: null,
+      option3: null,
+      priceCents: defaultPriceCents,
+      available: true,
+      inventoryQty: defaultInventory,
+      position: 1,
+    });
+  } else {
+    // Recursive cross-product keeps this readable and works for 1–3 options.
+    const combos: string[][] = [[]];
+    for (const opt of options) {
+      const next: string[][] = [];
+      for (const combo of combos) {
+        for (const value of opt.values) next.push([...combo, value]);
+      }
+      combos.splice(0, combos.length, ...next);
+    }
+    for (const [i, combo] of combos.entries()) {
+      variants.push({
+        title: combo.join(" / "),
+        option1: combo[0] ?? null,
+        option2: combo[1] ?? null,
+        option3: combo[2] ?? null,
+        priceCents: defaultPriceCents,
+        available: true,
+        inventoryQty: defaultInventory,
+        position: i + 1,
+      });
+    }
+  }
+
+  // Images: submitted as image-0, image-1, … by ProductImagesField.
+  const imageUrls: string[] = [];
+  for (let i = 0; formData.has(`image-${i}`); i++) {
+    const url = String(formData.get(`image-${i}`) ?? "").trim();
+    if (url) imageUrls.push(url);
+  }
+
+  // Everything in one transaction so a mid-flight failure never leaves an
+  // orphan Product without its options/variants.
+  const created = await prisma.$transaction(async (tx) => {
+    const product = await tx.product.create({
+      data: {
+        handle,
+        title: d.title,
+        bodyHtml: d.bodyHtml,
+        vendor: d.vendor,
+        productType: d.productType,
+        tags: d.tags.split(",").map((t) => t.trim()).filter(Boolean),
+        status: d.status,
+        publishedAt: d.status === "ACTIVE" ? new Date() : null,
+      },
+    });
+    if (options.length > 0) {
+      await tx.productOption.createMany({
+        data: options.map((o) => ({ productId: product.id, ...o })),
+      });
+    }
+    await tx.productVariant.createMany({
+      data: variants.map((v) => ({ productId: product.id, ...v })),
+    });
+    if (imageUrls.length > 0) {
+      await tx.productImage.createMany({
+        data: imageUrls.map((src, i) => ({
+          productId: product.id,
+          src,
+          alt: d.title,
+          position: i + 1,
+        })),
+      });
+    }
+    return product;
+  });
+
+  revalidateStorefront();
+  revalidatePath("/admin/products");
+  redirect(`/admin/products/${created.id}`);
+}
+
 // ---------- Orders ----------
 
 export async function updateOrderStatus(formData: FormData): Promise<void> {
