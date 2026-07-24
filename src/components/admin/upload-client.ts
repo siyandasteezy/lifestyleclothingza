@@ -1,8 +1,5 @@
 "use client";
 
-import { upload } from "@vercel/blob/client";
-
-const MAX_BYTES = 15 * 1024 * 1024;
 const ALLOWED_TYPES = [
   "image/jpeg",
   "image/png",
@@ -11,31 +8,78 @@ const ALLOWED_TYPES = [
   "image/gif",
 ];
 
+// Vercel serverless functions cap request bodies at ~4.5 MB. Keep well under.
+const SERVER_LIMIT_BYTES = 4 * 1024 * 1024;
+// Anything above this we shrink client-side first (in-memory canvas resize).
+const COMPRESS_THRESHOLD_BYTES = 3 * 1024 * 1024;
+// Longest-edge target after compression. 2400px is generous for retina display.
+const MAX_EDGE_PX = 2400;
+
 /**
- * Uploads a file directly from the browser to Vercel Blob via a signed token.
- * Bypasses Vercel's 4.5 MB route-handler body limit, so phone photos work.
- * The token endpoint is auth-gated to admins.
+ * Uploads a File to the admin endpoint, compressing large photos client-side
+ * so we never hit Vercel's 4.5 MB body cap. Returns the public URL.
  */
 export async function uploadImage(file: File): Promise<string> {
   if (!ALLOWED_TYPES.includes(file.type)) {
     throw new Error("Only JPEG, PNG, WebP, AVIF, or GIF images.");
   }
-  if (file.size > MAX_BYTES) {
-    throw new Error(`Image is too large (${Math.round(file.size / 1024 / 1024)} MB). Max is 15 MB.`);
+
+  // GIFs would lose animation if drawn to canvas — send as-is and hope they fit.
+  const payload =
+    file.type === "image/gif" || file.size < COMPRESS_THRESHOLD_BYTES
+      ? file
+      : await compressImage(file);
+
+  if (payload.size > SERVER_LIMIT_BYTES) {
+    throw new Error(
+      `Image is still ${Math.round(payload.size / 1024 / 1024)} MB after compression. Try a smaller photo.`,
+    );
   }
+
+  const body = new FormData();
+  body.append("file", payload, payload instanceof File ? payload.name : file.name);
+
+  const res = await fetch("/api/admin/upload", { method: "POST", body });
+
+  // Vercel returns plaintext for platform-level rejections (413, 502…), so guard
+  // against JSON.parse crashing with an "Unexpected token" that hides the cause.
+  const raw = await res.text();
+  let data: { url?: string; error?: string } = {};
   try {
-    const blob = await upload(file.name, file, {
-      access: "public",
-      handleUploadUrl: "/api/admin/blob-token",
-      contentType: file.type,
-    });
-    return blob.url;
-  } catch (err) {
-    // The SDK sometimes throws BlobError with a useful message; otherwise
-    // fall through with something more readable than "Unexpected token".
-    const message = err instanceof Error ? err.message : String(err);
-    throw new Error(`Upload failed: ${message}`);
+    data = raw ? (JSON.parse(raw) as typeof data) : {};
+  } catch {
+    throw new Error(
+      `Upload failed (${res.status}): ${raw.slice(0, 200) || res.statusText}`,
+    );
   }
+  if (!res.ok || !data.url) {
+    throw new Error(data.error ?? `Upload failed (${res.status}).`);
+  }
+  return data.url;
+}
+
+/** Resize a photo to at most MAX_EDGE_PX on its longer side, re-encode as JPEG. */
+async function compressImage(file: File): Promise<File> {
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, MAX_EDGE_PX / Math.max(bitmap.width, bitmap.height));
+  const width = Math.round(bitmap.width * scale);
+  const height = Math.round(bitmap.height * scale);
+
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Canvas 2D context unavailable.");
+  ctx.drawImage(bitmap, 0, 0, width, height);
+  bitmap.close();
+
+  const blob = await new Promise<Blob | null>((resolve) =>
+    canvas.toBlob(resolve, "image/jpeg", 0.85),
+  );
+  if (!blob) throw new Error("Image compression failed.");
+
+  const rename = file.name.replace(/\.\w+$/, ".jpg");
+  return new File([blob], rename, { type: "image/jpeg" });
 }
 
 /** Opens a native file picker and resolves with the chosen image File (or null). */
@@ -45,8 +89,6 @@ export function pickImageFile(): Promise<File | null> {
     input.type = "file";
     input.accept = "image/jpeg,image/png,image/webp,image/avif,image/gif";
     input.onchange = () => resolve(input.files?.[0] ?? null);
-    // If the dialog is dismissed no change fires; that's fine — nothing resolves,
-    // and the caller's flow simply ends when the promise is GC'd on unmount.
     input.click();
   });
 }
