@@ -16,6 +16,7 @@ const SECTION_TITLES: Record<string, string> = {
   slideshow: "Hero slideshow",
   richText: "Intro statement",
   imageWithTextOverlay: "Headwear feature",
+  collectionList: "Collection tiles",
   imageBanner: "Hoodie feature",
   imageWithText: "The Edit — story",
   imagesWithText: "The Edit — extra copy",
@@ -146,6 +147,20 @@ function SectionFields({ section, onChange }: { section: any; onChange: (u: (s: 
         <div className="space-y-3">
           <Text label="Heading" value={section.heading} onChange={(v) => onChange((s) => (s.heading = v))} />
           {section.image && <ImagePick label="Image" value={section.image} onChange={(v) => onChange((s) => (s.image = v))} />}
+        </div>
+      );
+
+    case "collectionList":
+      return (
+        <div className="space-y-3">
+          <Text label="Heading" value={section.heading} onChange={(v) => onChange((s) => (s.heading = v))} />
+          {section.collections.map((c: any, ci: number) => (
+            <div key={ci} className="space-y-2 border-t border-line pt-3 first:border-0 first:pt-0">
+              <Text label={`Tile ${ci + 1} title`} value={c.title} onChange={(v) => onChange((s) => (s.collections[ci].title = v))} />
+              <ImagePick label="Tile image" value={c.image} onChange={(v) => onChange((s) => (s.collections[ci].image = v))} />
+              <p className="text-xs text-stone">Links to /collections/{c.handle}</p>
+            </div>
+          ))}
         </div>
       );
 
