@@ -65,7 +65,7 @@
       "type": "collectionList",
       "heading": "Collections",
       "collections": [
-        { "handle": "hoodie-collection", "title": "Premium Hoodie", "image": "/images/home/rn-image_picker_lib_temp_c3920391-48a5-4ad6-b074-4a80976a4163.jpg" },
+        { "handle": "hoodie-collection", "title": "Premium Hoodie", "image": "/images/products/signature-hoodie-1.jpg" },
         { "handle": "short-sleeve-t-shirts", "title": "Lifestyle T-shirts", "image": "/images/home/rn-image_picker_lib_temp_52d3cb9a-51f6-4bd1-a310-ebb6ff6f266c.webp" },
         { "handle": "5-panel-caps", "title": "Headwear", "image": "/images/home/99EFD2A4-043C-410B-931E-67F30A62530F.png" }
       ]
