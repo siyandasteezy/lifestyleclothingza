@@ -11,7 +11,8 @@ Custom rebuild of lifestyleclothingza.com (migrated off Shopify). See README.md 
 ## Rules
 
 - **Node:** system default is v14 — always use `~/.nvm/versions/node/v24.14.0/bin` (see `.nvmrc`). `.claude/launch.json` already handles this for the dev server.
-- **Content is sacred:** copy in `/content/*.json` was migrated verbatim from the live store (including intentional quirks like "Contct Us" and the Facebook "Track Your Order" link). Never rewrite it; only the owner edits copy via the admin.
+- **Content is sacred:** copy in `/content/*.json` was migrated verbatim from the live store (including intentional quirks like the Facebook "Track Your Order" link). Never rewrite it; only the owner edits copy via the admin.
+  - **SEO exception (owner-approved, 2026-07-27):** brand-identity and data-hygiene fields are exempt because they are machine-read signals, not voice — `site.json` `name`/`metaTitle`/`metaDescription`, nav labels, the "Contct Us" footer typo, and product `vendor`/size/colour option values. Normalise these with `scripts/normalize-options.ts` (idempotent) rather than by hand. Product and collection *descriptions* remain sacred.
 - **URL parity:** `/products/:handle`, `/collections/:handle`, `/blogs/news/:handle`, `/pages/:handle` must keep matching the old Shopify URLs. Add 301s in `next.config.ts` when a URL must change.
 - **Prisma is v6** (v7 has breaking config changes — do not upgrade casually). Money is stored as integer cents (`priceCents`).
 - **Data layer:** storefront reads go through `src/lib/data/index.ts` (Prisma or JSON archive via `DATA_SOURCE`). Admin reads/writes Prisma directly.

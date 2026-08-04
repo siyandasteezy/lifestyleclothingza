@@ -1,8 +1,8 @@
 {
-  "name": "LIfestyle Clothingza",
+  "name": "Lifestyle Clothing ZA",
   "domain": "https://lifestyleclothingza.com",
-  "metaTitle": "LIfestyle Clothingza",
-  "metaDescription": "Lifestyle Clothingza",
+  "metaTitle": "Plus Size Streetwear South Africa | Lifestyle Clothing ZA",
+  "metaDescription": "Streetwear built for real bodies — hoodies, tees, caps and more from XS to 5XL. South African design, nationwide delivery, free shipping over R500.",
   "logo": "/images/home/CL_LOgo.png",
   "email": "support@lifestyleclothingza.com",
   "currency": "ZAR",
@@ -17,14 +17,14 @@
       "label": "Catalog",
       "href": "/collections/all",
       "children": [
-        { "label": "Lifestyle Clothingza Headwear", "href": "/collections/5-panel-caps" },
-        { "label": "Lifestyle Clothingza Winter Hat", "href": "/collections/slouchy-hats" },
-        { "label": "Lifestyle Clothingza Hoodies", "href": "/collections/hoodie-collection" },
-        { "label": "Lifestyle Clothingza Short Sleeve T-shirts", "href": "/collections/short-sleeve-t-shirts" },
-        { "label": "Lifestyle Summer Silky Scarf", "href": "/collections/summer-silky-scarfs" },
-        { "label": "Lifestyle Clothingza Croppie", "href": "/collections/croppie-tee" },
+        { "label": "Headwear", "href": "/collections/5-panel-caps" },
+        { "label": "Winter Hats", "href": "/collections/slouchy-hats" },
+        { "label": "Hoodies", "href": "/collections/hoodie-collection" },
+        { "label": "T-Shirts", "href": "/collections/short-sleeve-t-shirts" },
+        { "label": "Silky Scarfs", "href": "/collections/summer-silky-scarfs" },
+        { "label": "Croppie Tees", "href": "/collections/croppie-tee" },
         { "label": "Everyday Socks", "href": "/collections/everyday-summer-socks" },
-        { "label": "Lifestyle Jewellery", "href": "/collections/jewellery" }
+        { "label": "Jewellery", "href": "/collections/jewellery" }
       ]
     },
     { "label": "Contact", "href": "/pages/contact" },
@@ -33,7 +33,7 @@
   "footerMenu": [
     { "label": "Search", "href": "/search" },
     { "label": "About Us", "href": "/pages/about-us" },
-    { "label": "Contct Us", "href": "/pages/contact" },
+    { "label": "Contact Us", "href": "/pages/contact" },
     { "label": "Refund Policy", "href": "/pages/refund-policy" },
     { "label": "Privacy Policy", "href": "/pages/privacy-policy" },
     { "label": "FAQs On Size & Fit", "href": "/pages/faqs-on-size-fit" },
