@@ -1,8 +1,14 @@
-// The Courier Guy shipping via the Shiplogic API (https://api.shiplogic.com).
+// The Courier Guy shipping via the Shiplogic API.
 // Falls back to the store's flat rate when no API key is configured, so
 // checkout keeps working before the courier account is connected.
-
-const API_BASE = "https://api.shiplogic.com/v2";
+//
+// The API moved from api.shiplogic.com to api.portal.thecourierguy.co.za; the
+// old host was retired on 2026-07-31. Kept in an env var so a future cutover is
+// a dashboard change rather than a redeploy.
+// `||` not `??` — an unset var in .env is an empty string, not undefined, and
+// that must fall through to the default rather than blanking the host.
+const API_BASE =
+  process.env.COURIER_GUY_API_BASE?.trim() || "https://api.portal.thecourierguy.co.za/v2";
 
 export const FREE_SHIPPING_THRESHOLD_CENTS = 50000;
 export const FLAT_SHIPPING_CENTS = 9900;
@@ -126,7 +132,14 @@ export async function quoteShipping(
       method: `The Courier Guy — ${best.name}`,
       serviceLevelCode: best.code,
     };
-  } catch {
+  } catch (error) {
+    // Falling back is deliberate — a courier outage must never block checkout.
+    // But it silently charges the flat rate instead of a live quote, so log it:
+    // an unnoticed fallback looks exactly like normal operation from outside.
+    console.error(
+      `[courier-guy] rate quote failed against ${API_BASE}, using flat rate:`,
+      error instanceof Error ? error.message : error,
+    );
     return { cents: FLAT_SHIPPING_CENTS, method: FLAT_METHOD };
   }
 }
