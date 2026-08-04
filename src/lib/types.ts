@@ -32,6 +32,8 @@ export interface ProductVM {
   handle: string;
   title: string;
   bodyHtml: string;
+  /** Per-product measurement table. Empty until the owner supplies real cm. */
+  sizeChartHtml: string;
   vendor: string;
   productType: string;
   tags: string[];

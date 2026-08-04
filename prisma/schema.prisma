@@ -23,6 +23,10 @@ model Product {
   handle      String   @unique
   title       String
   bodyHtml    String   @default("")
+  // Per-product measurement table (real cm). The FAQ page promises one on every
+  // product page; until this is filled the PDP links to the generic size guide
+  // instead of claiming measurements it does not have.
+  sizeChartHtml String @default("")
   vendor      String   @default("")
   productType String   @default("")
   tags        String[] @default([])

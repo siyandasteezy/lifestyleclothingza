@@ -33,6 +33,7 @@ const productSchema = z.object({
   tags: z.string(),
   status: z.enum(["ACTIVE", "DRAFT", "ARCHIVED"]),
   bodyHtml: z.string(),
+  sizeChartHtml: z.string(),
   metaTitle: z.string(),
   metaDescription: z.string(),
 });
@@ -55,6 +56,7 @@ export async function updateProduct(
       tags: d.tags.split(",").map((t) => t.trim()).filter(Boolean),
       status: d.status,
       bodyHtml: d.bodyHtml,
+      sizeChartHtml: d.sizeChartHtml,
       metaTitle: d.metaTitle || null,
       metaDescription: d.metaDescription || null,
     },

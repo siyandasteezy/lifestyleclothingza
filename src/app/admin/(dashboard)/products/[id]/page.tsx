@@ -52,6 +52,7 @@ export default async function AdminProductEdit({
           tags: product.tags,
           status: product.status,
           bodyHtml: product.bodyHtml,
+          sizeChartHtml: product.sizeChartHtml,
           metaTitle: product.metaTitle,
           metaDescription: product.metaDescription,
           variants: product.variants.map((v) => ({

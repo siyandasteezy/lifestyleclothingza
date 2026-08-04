@@ -37,6 +37,7 @@ function toProductVM(p: any): ProductVM {
     handle: p.handle,
     title: p.title,
     bodyHtml: p.bodyHtml ?? "",
+    sizeChartHtml: p.sizeChartHtml ?? "",
     vendor: p.vendor ?? "",
     productType: p.productType ?? "",
     tags: p.tags ?? [],

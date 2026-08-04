@@ -15,6 +15,7 @@ interface ProductInput {
   tags: string[];
   status: "ACTIVE" | "DRAFT" | "ARCHIVED";
   bodyHtml: string;
+  sizeChartHtml: string;
   metaTitle: string | null;
   metaDescription: string | null;
   variants: {
@@ -77,6 +78,19 @@ export function ProductEditForm({
           <div>
             <Label htmlFor="p-body">Description</Label>
             <RichTextEditor name="bodyHtml" defaultValue={product.bodyHtml} ariaLabel="Product description" />
+          </div>
+          <div>
+            <Label htmlFor="p-size-chart">Size chart</Label>
+            <p className="mb-2 text-xs text-stone">
+              Real measurements in cm for this product — chest, length, sleeve. Shown in the
+              Size &amp; fit panel on the product page. Left empty, the page links to the
+              general size guide instead.
+            </p>
+            <RichTextEditor
+              name="sizeChartHtml"
+              defaultValue={product.sizeChartHtml}
+              ariaLabel="Size chart"
+            />
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
             <div>

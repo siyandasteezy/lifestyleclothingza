@@ -28,6 +28,7 @@ function toProductVM(p: ProductWithRelations): ProductVM {
     handle: p.handle,
     title: p.title,
     bodyHtml: p.bodyHtml,
+    sizeChartHtml: p.sizeChartHtml,
     vendor: p.vendor,
     productType: p.productType,
     tags: p.tags,
