@@ -31,6 +31,11 @@ const STATUSES = [
     hint: "The Courier Guy has the parcel. Tracking is live for the customer.",
   },
   {
+    value: "DELIVERED",
+    label: "Delivered — customer has it",
+    hint: "Set this yourself once the parcel is collected from the locker or handed over. Nothing sets it automatically.",
+  },
+  {
     value: "CANCELLED",
     label: "Cancelled — will not be honoured",
     hint: "Customer cancelled, payment failed, or you decided not to fulfil it.",

@@ -43,6 +43,7 @@ const badgeTones: Record<string, string> = {
   PUBLISHED: "bg-moss/15 text-moss",
   PAID: "bg-moss/15 text-moss",
   FULFILLED: "bg-ink/10 text-ink",
+  DELIVERED: "bg-moss/15 text-moss",
   PENDING: "bg-gold/15 text-gold",
   DRAFT: "bg-stone/15 text-stone",
   ARCHIVED: "bg-stone/15 text-stone",

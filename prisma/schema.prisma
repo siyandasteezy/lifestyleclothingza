@@ -155,6 +155,9 @@ enum OrderStatus {
   PENDING
   PAID
   FULFILLED
+  // Set by hand once the parcel reaches the customer. Orders sent through a
+  // Courier Guy locker have no delivery callback, so nothing sets this for us.
+  DELIVERED
   CANCELLED
   REFUNDED
 }

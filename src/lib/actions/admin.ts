@@ -351,7 +351,7 @@ export async function updateOrderStatus(formData: FormData): Promise<void> {
   await assertAdmin();
   const id = String(formData.get("id"));
   const status = z
-    .enum(["PENDING", "PAID", "FULFILLED", "CANCELLED", "REFUNDED"])
+    .enum(["PENDING", "PAID", "FULFILLED", "DELIVERED", "CANCELLED", "REFUNDED"])
     .parse(formData.get("status"));
   await prisma.order.update({ where: { id }, data: { status } });
   revalidatePath("/admin/orders");
