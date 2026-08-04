@@ -44,10 +44,13 @@ const STATUSES = [
 
 export default async function AdminOrderDetail({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ bookingError?: string }>;
 }) {
   const { id } = await params;
+  const { bookingError } = await searchParams;
   const order = await prisma.order.findUnique({ where: { id }, include: { items: true } });
   if (!order) notFound();
 
@@ -58,6 +61,16 @@ export default async function AdminOrderDetail({
       <AdminHeading title={`Order #${order.number}`}>
         <StatusBadge status={order.status} />
       </AdminHeading>
+
+      {bookingError && (
+        <div
+          role="alert"
+          className="mb-5 rounded-lg border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-900"
+        >
+          <p className="font-semibold">Shipment not booked</p>
+          <p className="mt-1">{bookingError}</p>
+        </div>
+      )}
 
       <div className="grid gap-5 lg:grid-cols-[1fr_20rem] lg:items-start">
         <AdminCard className="p-0">

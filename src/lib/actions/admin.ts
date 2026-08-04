@@ -332,12 +332,47 @@ export async function updateStoreSettingsAction(
 
 // ---------- Shipments (The Courier Guy) ----------
 
+/**
+ * Turns a raw courier API error into something the store owner can act on.
+ * The underlying detail is kept — it is what makes a support call useful — but
+ * the known cases lead with the actual remedy.
+ */
+function bookingErrorMessage(raw: string): string {
+  const detail = raw.replace(/^Shiplogic shipment failed:\s*/, "");
+  if (/insufficient funds/i.test(detail)) {
+    return `The Courier Guy account has insufficient funds, so the waybill was not created. Top the account up in the Courier Guy portal and book again. (${detail})`;
+  }
+  if (/service level/i.test(detail)) {
+    return `The Courier Guy has no service covering this delivery address. Check the address, or book this one manually in the portal. (${detail})`;
+  }
+  if (/unauthor|forbidden|401|403/i.test(detail)) {
+    return `The Courier Guy rejected our API key. Check COURIER_GUY_API_KEY. (${detail})`;
+  }
+  return detail;
+}
+
 export async function bookCourierShipment(formData: FormData): Promise<void> {
   await assertAdmin();
   const id = String(formData.get("id"));
   const { bookForOrder } = await import("@/lib/shipping/courier-guy");
-  await bookForOrder(id);
+
+  // A booking failure must not take the order page down with it — the owner
+  // needs to read the reason and still see the order. Errors are logged with
+  // the order id for the function logs, then shown on the page.
+  let message: string | null = null;
+  try {
+    const result = await bookForOrder(id);
+    if (!result.booked) message = `Not booked: ${result.reason}`;
+  } catch (error) {
+    const raw = error instanceof Error ? error.message : String(error);
+    console.error(`[admin] Courier Guy booking failed for order ${id}:`, raw);
+    message = bookingErrorMessage(raw);
+  }
+
   revalidatePath(`/admin/orders/${id}`);
+  // redirect() signals via a thrown control-flow error, so it must sit outside
+  // the try/catch above or it would be swallowed as a booking failure.
+  if (message) redirect(`/admin/orders/${id}?bookingError=${encodeURIComponent(message)}`);
 }
 
 // ---------- Articles ----------
