@@ -2,9 +2,10 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { formatMoney } from "@/lib/money";
-import { bookCourierShipment, updateOrderStatus } from "@/lib/actions/admin";
+import { updateOrderStatus } from "@/lib/actions/admin";
 import { courierGuyConfigured, trackingUrl } from "@/lib/shipping/courier-guy";
 import { adminInput, AdminCard, AdminHeading, StatusBadge } from "@/components/admin/ui";
+import { CourierRates } from "@/components/admin/CourierRates";
 
 export const dynamic = "force-dynamic";
 
@@ -180,15 +181,7 @@ export default async function AdminOrderDetail({
                 </a>
               </p>
             ) : courierGuyConfigured() ? (
-              <form action={bookCourierShipment} className="mt-4">
-                <input type="hidden" name="id" value={order.id} />
-                <button
-                  type="submit"
-                  className="h-10 w-full rounded-full bg-ink px-5 text-sm font-semibold text-bone hover:bg-clay"
-                >
-                  Book Courier Guy shipment
-                </button>
-              </form>
+              <CourierRates orderId={order.id} chargedCents={order.shippingCents} />
             ) : (
               <p className="mt-3 text-xs text-stone">
                 Connect The Courier Guy (set COURIER_GUY_API_KEY) to book shipments from here.

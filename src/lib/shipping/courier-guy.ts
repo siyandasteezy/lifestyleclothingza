@@ -277,7 +277,69 @@ export function trackingUrl(reference: string): string {
  * errors so callers can log a specific reason; caller state on failure is
  * whatever it was — the order isn't half-updated.
  */
-export async function bookForOrder(orderId: string): Promise<
+/** Delivery address for an order row, or null when it has none stored. */
+function orderAddress(order: {
+  shippingName: string | null;
+  shippingAddress: unknown;
+  phone: string | null;
+  email: string;
+}): DeliveryAddress | null {
+  const address = order.shippingAddress as Record<string, string> | null;
+  if (!address) return null;
+  return {
+    name: order.shippingName ?? "",
+    address1: address.address1 ?? "",
+    address2: address.address2,
+    city: address.city ?? "",
+    province: address.province ?? "",
+    postalCode: address.postalCode ?? "",
+    phone: order.phone ?? undefined,
+    email: order.email,
+  };
+}
+
+export interface OrderRate {
+  code: string;
+  name: string;
+  cents: number;
+}
+
+/**
+ * Live courier prices for an order, so the admin can see what a booking costs
+ * before committing to one. The same call already runs inside bookShipment to
+ * resolve the service level; this surfaces it instead of discarding the price.
+ */
+export async function ratesForOrder(
+  orderId: string,
+): Promise<{ ok: true; rates: OrderRate[] } | { ok: false; error: string }> {
+  const { prisma } = await import("@/lib/db");
+  const order = await prisma.order.findUnique({ where: { id: orderId } });
+  if (!order) return { ok: false, error: "Order not found." };
+  if (!courierGuyConfigured()) return { ok: false, error: "COURIER_GUY_API_KEY is not set." };
+  const address = orderAddress(order);
+  if (!address) return { ok: false, error: "This order has no shipping address." };
+
+  try {
+    const rates = await fetchRates(address, order.subtotalCents);
+    return {
+      ok: true,
+      rates: rates
+        .filter((r): r is typeof r & { code: string } => Boolean(r.code))
+        .map((r) => ({ code: r.code, name: r.name, cents: r.cents })),
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      error: `Couldn't get rates: ${error instanceof Error ? error.message : String(error)}`,
+    };
+  }
+}
+
+export async function bookForOrder(
+  orderId: string,
+  /** Service level chosen by the admin. Falls back to the cheapest available. */
+  serviceLevelCode?: string,
+): Promise<
   { booked: false; reason: string } | { booked: true; shipmentId: string; trackingReference: string }
 > {
   // Lazy import to keep this module free of the Prisma dep for edge callers.
@@ -301,7 +363,9 @@ export async function bookForOrder(orderId: string): Promise<
       email: order.email,
     },
     orderNumber: order.number,
-    serviceLevelCode: address.serviceLevelCode || undefined,
+    // The admin's pick wins over the code captured at checkout; bookShipment
+    // validates either against the route's live rates before sending it.
+    serviceLevelCode: serviceLevelCode || address.serviceLevelCode || undefined,
     declaredValueCents: order.subtotalCents,
   });
   await prisma.order.update({

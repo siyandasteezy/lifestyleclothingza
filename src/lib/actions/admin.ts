@@ -431,9 +431,39 @@ function bookingErrorMessage(raw: string): string {
   return detail;
 }
 
+export interface CourierRatesState {
+  status: "idle" | "loaded" | "error";
+  rates?: { code: string; name: string; cents: number }[];
+  message?: string;
+}
+
+/**
+ * Live courier prices for an order, fetched on demand from the admin order page.
+ * Deliberately a button rather than a page-load fetch: it costs a round trip to
+ * the courier, and only matters when you are about to book.
+ */
+// Neither trailing argument is used — the order id is bound — but
+// useActionState requires the (prevState, formData) shape.
+export async function getCourierRates(
+  orderId: string,
+  _prev: CourierRatesState,
+  _formData: FormData,
+): Promise<CourierRatesState> {
+  await assertAdmin();
+  const { ratesForOrder } = await import("@/lib/shipping/courier-guy");
+  const result = await ratesForOrder(orderId);
+  if (!result.ok) {
+    console.error(`[admin] rate lookup failed for order ${orderId}: ${result.error}`);
+    return { status: "error", message: result.error };
+  }
+  return { status: "loaded", rates: result.rates };
+}
+
 export async function bookCourierShipment(formData: FormData): Promise<void> {
   await assertAdmin();
   const id = String(formData.get("id"));
+  // Empty when booking straight from the button without checking rates first.
+  const serviceLevelCode = String(formData.get("serviceLevelCode") ?? "").trim() || undefined;
   const { bookForOrder } = await import("@/lib/shipping/courier-guy");
 
   // A booking failure must not take the order page down with it — the owner
@@ -441,7 +471,7 @@ export async function bookCourierShipment(formData: FormData): Promise<void> {
   // the order id for the function logs, then shown on the page.
   let message: string | null = null;
   try {
-    const result = await bookForOrder(id);
+    const result = await bookForOrder(id, serviceLevelCode);
     if (!result.booked) message = `Not booked: ${result.reason}`;
   } catch (error) {
     const raw = error instanceof Error ? error.message : String(error);
