@@ -19,11 +19,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
+    // Product entries carry their images so the catalogue is discoverable in
+    // Google Images too — apparel is a visual-search category.
     ...products.map((p) => ({
       url: absoluteUrl(`/products/${p.handle}`),
       lastModified: p.publishedAt ?? undefined,
       changeFrequency: "weekly" as const,
       priority: 0.7,
+      images: p.images.map((i) => absoluteUrl(i.src)),
     })),
     ...[...new Set(articles.map((a) => a.blogHandle))].map((blog) => ({
       url: absoluteUrl(`/blogs/${blog}`),

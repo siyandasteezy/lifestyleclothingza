@@ -6,7 +6,7 @@ import { ProductForm } from "@/components/product/ProductForm";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getCollections, getPage, getProduct, getProducts } from "@/lib/data";
+import { getCollections, getProduct, getProducts } from "@/lib/data";
 import { breadcrumbJsonLd, buildMetadata, descriptionFromHtml, productJsonLd } from "@/lib/seo";
 
 export const revalidate = 300;
@@ -50,14 +50,23 @@ export default async function ProductPage({ params }: Props) {
         .slice(0, 4)
     : [];
 
-  // Size & fit guidance rendered at the point of decision
-  const sizeFit = await getPage("faqs-on-size-fit");
+  // The generic Size & Fit FAQ used to be inlined here, which meant the same
+  // several hundred words rendered on every PDP and swamped the unique-text
+  // budget on a 34-product catalogue. The guide now lives at its own URL and
+  // the PDP shows this product's own measurements once they exist.
+  const sizes = product.options.find((o) => /size/i.test(o.name))?.values ?? [];
+  const sizeRange =
+    sizes.length > 1
+      ? `${sizes[0]} to ${sizes[sizes.length - 1]}`
+      : sizes.length === 1
+        ? `${sizes[0]} only`
+        : null;
 
   return (
     <>
       <JsonLd
         data={[
-          productJsonLd(product),
+          ...productJsonLd(product),
           breadcrumbJsonLd([
             { name: "Home", path: "/" },
             ...(home ? [{ name: home.title, path: `/collections/${home.handle}` }] : []),
@@ -111,20 +120,32 @@ export default async function ProductPage({ params }: Props) {
               Yoco secure checkout · Delivery by The Courier Guy · 2–5 business days
             </p>
 
-            {sizeFit && (
-              <details className="group mt-4 border-t border-line pt-4">
-                <summary className="cursor-pointer list-none font-display text-[11px] tracking-[0.2em] text-ink uppercase hover:text-clay [&::-webkit-details-marker]:hidden">
-                  Size &amp; fit
-                  <span aria-hidden className="ml-2 inline-block transition group-open:rotate-45">
-                    +
-                  </span>
-                </summary>
+            <details className="group mt-4 border-t border-line pt-4">
+              <summary className="cursor-pointer list-none font-display text-[11px] tracking-[0.2em] text-ink uppercase hover:text-clay [&::-webkit-details-marker]:hidden">
+                Size &amp; fit
+                <span aria-hidden className="ml-2 inline-block transition group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              {product.sizeChartHtml ? (
                 <div
-                  className="prose mt-4 text-sm"
-                  dangerouslySetInnerHTML={{ __html: sizeFit.bodyHtml }}
+                  className="prose mt-4 overflow-x-auto text-sm"
+                  dangerouslySetInnerHTML={{ __html: product.sizeChartHtml }}
                 />
-              </details>
-            )}
+              ) : (
+                <p className="mt-4 text-sm text-stone">
+                  {sizeRange && <>This piece runs {sizeRange}. </>}
+                  <Link href="/pages/faqs-on-size-fit" className="text-ink underline hover:text-clay">
+                    Read the size &amp; fit guide
+                  </Link>{" "}
+                  or{" "}
+                  <Link href="/pages/contact" className="text-ink underline hover:text-clay">
+                    ask us for measurements
+                  </Link>
+                  .
+                </p>
+              )}
+            </details>
 
             {product.bodyHtml && (
               <details className="group mt-4 border-t border-b border-line py-4" open>

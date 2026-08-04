@@ -4,7 +4,12 @@ import { ProductGrid } from "@/components/product/ProductGrid";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCollection, getCollectionProducts, getCollections } from "@/lib/data";
-import { breadcrumbJsonLd, buildMetadata, descriptionFromHtml } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  buildMetadata,
+  collectionJsonLd,
+  descriptionFromHtml,
+} from "@/lib/seo";
 
 export const revalidate = 300;
 
@@ -54,10 +59,16 @@ export default async function CollectionPage({ params }: Props) {
   return (
     <>
       <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: collection.title, path: `/collections/${handle}` },
-        ])}
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: collection.title, path: `/collections/${handle}` },
+          ]),
+          collectionJsonLd(
+            { handle, title: collection.title, descriptionHtml: collection.descriptionHtml },
+            products,
+          ),
+        ]}
       />
       <Container className="py-12 md:py-16">
         <header className="mb-12 max-w-3xl">

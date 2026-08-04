@@ -24,6 +24,8 @@ export const metadata: Metadata = buildMetadata({
   title: site.metaTitle,
   description: site.metaDescription,
   path: "/",
+  // metaTitle already ends in the brand; the root template would repeat it.
+  absoluteTitle: true,
 });
 
 /**
