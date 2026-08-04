@@ -11,7 +11,7 @@
     "db:seed": "tsx prisma/seed.ts",
     "db:studio": "prisma studio",
     "postinstall": "prisma generate",
-    "vercel-build": "prisma db push --skip-generate && SEED_IF_EMPTY=true tsx prisma/seed.ts && next build",
+    "vercel-build": "prisma db push --skip-generate && tsx scripts/rename-handles.ts --db && SEED_IF_EMPTY=true tsx prisma/seed.ts && next build",
     "yoco:register-webhook": "tsx scripts/register-yoco-webhook.ts"
   },
   "dependencies": {

@@ -20,6 +20,13 @@
 //
 //   npx tsx scripts/rename-handles.ts --content
 //   DATABASE_URL="<prod>" npx tsx scripts/rename-handles.ts --db
+//
+// --db runs as part of `vercel-build`, between the schema push and the Next
+// build, so the rename lands with the deploy that expects it rather than
+// depending on someone running it at the right moment. It is idempotent and
+// reports "already renamed" / "NOT FOUND" instead of failing, so it is safe on
+// every later deploy and on a fresh, empty database. Once a deploy has applied
+// it, the step can be dropped from vercel-build.
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
