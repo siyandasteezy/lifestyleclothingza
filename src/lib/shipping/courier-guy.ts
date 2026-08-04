@@ -92,6 +92,64 @@ export interface ShippingQuote {
   serviceLevelCode?: string;
 }
 
+interface CourierRate {
+  cents: number;
+  code: string | undefined;
+  name: string;
+}
+
+/**
+ * Live rates for an address, cheapest first. Throws when the API errors or
+ * returns nothing usable, so callers decide what to do about it.
+ *
+ * Service level codes are route-dependent: metro destinations quote ECO/OVN,
+ * regional ones quote ECOR/OVNR. Nothing may assume a fixed code.
+ */
+async function fetchRates(
+  address: DeliveryAddress,
+  declaredValueCents: number,
+): Promise<CourierRate[]> {
+  const res = await shiplogic("/rates", {
+    collection_address: collectionAddress(),
+    delivery_address: toShiplogicAddress(address),
+    parcels: [DEFAULT_PARCEL],
+    declared_value: declaredValueCents / 100,
+  });
+  if (!res.ok) throw new Error(`rates ${res.status}`);
+  const data = (await res.json()) as {
+    rates?: { rate: number | string; service_level?: { code?: string; name?: string } }[];
+  };
+  const rates = (data.rates ?? [])
+    .map((r) => ({
+      cents: Math.round(parseFloat(String(r.rate)) * 100),
+      code: r.service_level?.code,
+      name: r.service_level?.name ?? "Courier",
+    }))
+    .filter((r) => Number.isFinite(r.cents) && r.cents > 0)
+    .sort((a, b) => a.cents - b.cents);
+  if (rates.length === 0) throw new Error("no rates");
+  return rates;
+}
+
+/**
+ * Chooses the service level to book: the preferred code when the route actually
+ * offers it, otherwise the cheapest one it does offer. Throws when there is
+ * nothing to choose from, since booking a guessed code fails at the API.
+ *
+ * Exported for testing — the only other way to exercise it is to book a real
+ * shipment, which dispatches a real courier collection.
+ */
+export function pickServiceLevel(
+  preferred: string | undefined,
+  rates: { code: string | undefined }[],
+): string {
+  const codes = rates.map((r) => r.code).filter((c): c is string => Boolean(c));
+  if (preferred && codes.includes(preferred)) return preferred;
+  const cheapest = codes[0];
+  if (!cheapest) throw new Error("no service levels returned");
+  return cheapest;
+}
+
 /**
  * Cheapest Courier Guy rate for the address; the flat store rate when the
  * API is not configured, the API errors, or the order qualifies for free shipping.
@@ -107,26 +165,7 @@ export async function quoteShipping(
     return { cents: FLAT_SHIPPING_CENTS, method: FLAT_METHOD };
   }
   try {
-    const res = await shiplogic("/rates", {
-      collection_address: collectionAddress(),
-      delivery_address: toShiplogicAddress(address),
-      parcels: [DEFAULT_PARCEL],
-      declared_value: subtotalCents / 100,
-    });
-    if (!res.ok) throw new Error(`rates ${res.status}`);
-    const data = (await res.json()) as {
-      rates?: { rate: number | string; service_level?: { code?: string; name?: string } }[];
-    };
-    const rates = (data.rates ?? [])
-      .map((r) => ({
-        cents: Math.round(parseFloat(String(r.rate)) * 100),
-        code: r.service_level?.code,
-        name: r.service_level?.name ?? "Courier",
-      }))
-      .filter((r) => Number.isFinite(r.cents) && r.cents > 0)
-      .sort((a, b) => a.cents - b.cents);
-    if (rates.length === 0) throw new Error("no rates");
-    const best = rates[0];
+    const best = (await fetchRates(address, subtotalCents))[0];
     return {
       cents: best.cents,
       method: `The Courier Guy — ${best.name}`,
@@ -159,6 +198,34 @@ export async function bookShipment(input: {
   if (!courierGuyConfigured()) {
     throw new Error("COURIER_GUY_API_KEY is not configured");
   }
+
+  // Service level codes vary by route — metro quotes ECO/OVN, regional quotes
+  // ECOR/OVNR — so the code captured at checkout cannot be trusted or defaulted.
+  // It is missing entirely for free-shipping orders (which skip the rate call)
+  // and for any order that fell back to the flat rate. Booking a code the route
+  // doesn't offer fails with "could not find rates for the requested service
+  // level code", so re-quote and only use a code the route actually returned.
+  let serviceLevelCode = input.serviceLevelCode;
+  try {
+    const rates = await fetchRates(input.address, input.declaredValueCents);
+    const resolved = pickServiceLevel(serviceLevelCode, rates);
+    if (resolved !== serviceLevelCode) {
+      console.warn(
+        `[courier-guy] order #${input.orderNumber}: service level ${
+          serviceLevelCode ? `"${serviceLevelCode}" unavailable` : "missing"
+        }, using "${resolved}" (available: ${rates.map((r) => r.code).join(", ")})`,
+      );
+      serviceLevelCode = resolved;
+    }
+  } catch (error) {
+    // Re-quoting is a best-effort improvement. If it fails, fall through with
+    // whatever we had rather than blocking a booking that might still succeed.
+    console.error(
+      `[courier-guy] order #${input.orderNumber}: could not re-quote service levels:`,
+      error instanceof Error ? error.message : error,
+    );
+  }
+
   const res = await shiplogic("/shipments", {
     collection_address: collectionAddress(),
     collection_contact: {
@@ -174,7 +241,7 @@ export async function bookShipment(input: {
     parcels: [DEFAULT_PARCEL],
     declared_value: input.declaredValueCents / 100,
     customer_reference: `Order #${input.orderNumber}`,
-    service_level_code: input.serviceLevelCode ?? "ECO",
+    service_level_code: serviceLevelCode ?? "ECO",
   });
   if (!res.ok) {
     throw new Error(`Shiplogic shipment failed: ${res.status} ${(await res.text()).slice(0, 200)}`);
