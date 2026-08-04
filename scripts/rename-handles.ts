@@ -24,7 +24,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { COLLECTION_RENAMES, PRODUCT_RENAMES } from "../src/lib/handle-renames";
+import { COLLECTION_RENAMES, COLLECTION_TITLES, PRODUCT_RENAMES } from "../src/lib/handle-renames";
 
 const CONTENT_DIR = join(process.cwd(), "content");
 
@@ -126,6 +126,13 @@ function renameContent(): void {
     "collections.json",
   );
   for (const collection of collections) {
+    // Title corrections are keyed by the ORIGINAL handle, so apply them before
+    // the handle itself moves.
+    const title = COLLECTION_TITLES[collection.handle];
+    if (title && collection.title !== title) {
+      changes.push(`collection ${collection.handle} title "${collection.title}" -> "${title}"`);
+      collection.title = title;
+    }
     const next = COLLECTION_RENAMES[collection.handle];
     if (next) {
       changes.push(`collection ${collection.handle} -> ${next}  (${collection.title})`);
@@ -156,6 +163,20 @@ async function renameDb(): Promise<void> {
   const { PrismaClient } = await import("@prisma/client");
   const prisma = new PrismaClient();
   try {
+    // Titles first: they are keyed by the original handle, which the rename
+    // below is about to change.
+    for (const [handle, title] of Object.entries(COLLECTION_TITLES)) {
+      const row = await prisma.collection.findUnique({ where: { handle } });
+      if (!row) {
+        console.log(`  collection ${handle} title: NOT FOUND`);
+      } else if (row.title === title) {
+        console.log(`  collection ${handle} title: already "${title}"`);
+      } else {
+        await prisma.collection.update({ where: { handle }, data: { title } });
+        console.log(`  collection ${handle} title: "${row.title}" -> "${title}"`);
+      }
+    }
+
     for (const [model, map] of [
       ["product", PRODUCT_RENAMES],
       ["collection", COLLECTION_RENAMES],

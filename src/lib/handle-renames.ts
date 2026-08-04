@@ -25,10 +25,24 @@ export const PRODUCT_RENAMES: Record<string, string> = {
 export const COLLECTION_RENAMES: Record<string, string> = {
   "5-panel-caps": "headwear", // titled "Headwear"
   "slouchy-hats": "winter-hats", // titled "Winter Hats"
-  // NOT renamed, pending an owner decision:
-  //   dresses    — titled "Lifestyle Skirts", holds a "Maxi Dress", and its own
-  //                copy says "Maxi Skirt". Which of the three is wrong is not
-  //                knowable without seeing the garment.
-  //   jewellery  — titled "Accessories", with a description covering bags,
-  //                belts and scarves. The slug may be the narrow one.
+  // Owner confirmed this is a broad accessories collection, not a jewellery
+  // one — its own copy already covers bags, belts, scarves and socks — so the
+  // narrow slug is what was wrong, and the "Accessories" title stays.
+  jewellery: "accessories",
+};
+
+/**
+ * Collection titles that contradicted their URL, where the URL was right.
+ *
+ * These are not renames, so they need no redirect — but they do need applying,
+ * because there is no collections editor in the admin and the deploy-time seed
+ * is guarded by SEED_IF_EMPTY, so content/collections.json no longer reaches a
+ * live database on its own.
+ */
+export const COLLECTION_TITLES: Record<string, string> = {
+  // Owner confirmed the garment is a Maxi Dress, so /dresses was right all
+  // along and the "Lifestyle Skirts" title was the error. The collection's own
+  // description still calls it a "Maxi Skirt" — that is owner copy to fix in
+  // its own right, and is deliberately left alone here.
+  dresses: "Dresses",
 };

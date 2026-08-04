@@ -1,7 +1,7 @@
 [
  {
   "shopifyId": 479374966999,
-  "handle": "jewellery",
+  "handle": "accessories",
   "title": "Accessories",
   "descriptionHtml": "<p><span>Accessories are an essential extension of the Lifestyle Clothing identity—carefully curated pieces designed to elevate, refine, and complete every look. Far from being optional, they serve as powerful style statements that enhance both form and function across our collections.</span></p>\n<p> </p>\n<p><span>From timeless jewellery and statement bags to precision-crafted belts, scarves, headwear, and sunglasses, each accessory is created to complement our garments while allowing individuality to stand out. At the same time, our functional pieces—such as premium socks and everyday essentials—are designed with comfort, durability, and effortless wear in mind.</span></p>\n<p> </p>\n<p><span>At Lifestyle Clothing, accessories are not an after thought —they are a defining detail. They bring intention to every outfit, confidence to every step, and a seamless balance between style and purpose.</span></p>",
   "image": "/images/collections/jewellery.png",
@@ -50,7 +50,7 @@
  {
   "shopifyId": 485654397143,
   "handle": "dresses",
-  "title": "Lifestyle Skirts",
+  "title": "Dresses",
   "descriptionHtml": "<p><span>Step into bold confidence with our Lifestyle Maxi Skirt — where streetwear edge meets everyday comfort. Crafted from premium fabric, this piece delivers a smooth, structured fit that flatters every body type while keeping you comfortable all day.</span></p>",
   "image": null,
   "publishedAt": "2026-03-18T05:55:27+02:00",
