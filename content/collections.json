@@ -35,7 +35,7 @@
  },
  {
   "shopifyId": 460589891799,
-  "handle": "5-panel-caps",
+  "handle": "headwear",
   "title": "Headwear",
   "descriptionHtml": "<p>Lifestyle Clothing Headwear</p>",
   "image": "/images/collections/5-panel-caps.jpg",
@@ -66,12 +66,12 @@
   "image": "/images/collections/short-sleeve-t-shirts.jpg",
   "publishedAt": "2025-05-22T19:21:26+02:00",
   "productHandles": [
-   "lifestyle-premium-tee-copy",
+   "faith-motion-graphic-tee",
    "ungachazi-silky-shirt",
    "lifestyle-premium-tee",
    "chubby-lifestyle-croppie-tee",
    "lifestyle-signature-tee",
-   "copy-lifstl-motorsports",
+   "lifstl-biker-tshirt",
    "lifstl-motorsports",
    "east-rand-origin-2-0",
    "365days-exclusive",
@@ -114,20 +114,20 @@
   "image": "/images/collections/summer-silky-scarfs.jpg",
   "publishedAt": "2025-05-22T19:38:57+02:00",
   "productHandles": [
-   "untitled-21apr_20-51"
+   "silky-scarf"
   ]
  },
  {
   "shopifyId": 460590219479,
-  "handle": "slouchy-hats",
+  "handle": "winter-hats",
   "title": "Winter Hats",
   "descriptionHtml": "<p><meta charset=\"utf-8\">Slouchy Beanie by Lifestyle Clothing. Designed for confidence, comfort, and bold everyday style. Available in inclusive sizing.</p>",
   "image": "/images/collections/slouchy-hats.jpg",
   "publishedAt": "2025-05-22T18:54:42+02:00",
   "productHandles": [
    "slouchy-beanie",
-   "unisex-beanie-hat-cozy-stylish-stretchy",
-   "unisex-beanie-hat-faux-pearls-copy"
+   "unisex-beanie-hat-faux-pearls",
+   "unisex-beanie-hat"
   ]
  }
 ]

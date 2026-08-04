@@ -68,8 +68,14 @@ export default async function HomePage() {
     keep.includes(g.title),
   );
 
-  const headwearTile = tiles.find((t) => t.handle === "5-panel-caps")!;
-  const hoodieTile = tiles.find((t) => t.handle === "hoodie-collection")!;
+  // These two tiles are looked up by handle because the layout gives them fixed
+  // positions. A `!` here meant a handle rename — or the owner removing a tile
+  // in the admin — took the whole homepage down with a 500, so fall back to
+  // position instead. CollectionsIndex requires both to be present.
+  const tileFor = (handle: string, fallbackIndex: number) =>
+    tiles.find((t) => t.handle === handle) ?? tiles[fallbackIndex] ?? tiles[0];
+  const headwearTile = tileFor("headwear", 0);
+  const hoodieTile = tileFor("hoodie-collection", 1);
 
   return (
     <>
@@ -85,14 +91,17 @@ export default async function HomePage() {
         cta={richText.cta}
       />
 
-      {/* iii — Collections index (carries the headwear + hoodie campaign copy) */}
-      <CollectionsIndex
-        collections={collections}
-        headwear={headwearTile}
-        hoodie={hoodieTile}
-        bucket={bucket}
-        undeniable={undeniable}
-      />
+      {/* iii — Collections index (carries the headwear + hoodie campaign copy).
+          Skipped rather than crashed if the admin has left no tiles to show. */}
+      {headwearTile && hoodieTile && (
+        <CollectionsIndex
+          collections={collections}
+          headwear={headwearTile}
+          hoodie={hoodieTile}
+          bucket={bucket}
+          undeniable={undeniable}
+        />
+      )}
 
       {/* iv — The Edit */}
       <TheEdit products={tees} story={story} more={more} />

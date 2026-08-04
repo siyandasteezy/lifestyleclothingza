@@ -40,7 +40,7 @@
       "heading": "Bucket Your Lifestyle.",
       "subheading": "Step into effortless cool with our signature headwear a must-have for the modern wardrobe.",
       "body": "Our premium head wear blend casual flair with effortless comfort. Designed for the modern minimalist, each piece adds a bold yet refined finish to your daily look. Perfect for every season, every vibe.",
-      "cta": { "label": "Grab Yours", "href": "/collections/5-panel-caps" },
+      "cta": { "label": "Grab Yours", "href": "/collections/headwear" },
       "image": "/images/home/61214309-167F-48DD-9523-FA5EC24D10C8.jpg"
     },
     {
@@ -67,7 +67,7 @@
       "collections": [
         { "handle": "hoodie-collection", "title": "Premium Hoodie", "image": "/images/products/signature-hoodie-1.jpg" },
         { "handle": "short-sleeve-t-shirts", "title": "Lifestyle T-shirts", "image": "/images/home/rn-image_picker_lib_temp_52d3cb9a-51f6-4bd1-a310-ebb6ff6f266c.webp" },
-        { "handle": "5-panel-caps", "title": "Headwear", "image": "/images/home/99EFD2A4-043C-410B-931E-67F30A62530F.png" }
+        { "handle": "headwear", "title": "Headwear", "image": "/images/home/99EFD2A4-043C-410B-931E-67F30A62530F.png" }
       ]
     },
     {

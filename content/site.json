@@ -17,8 +17,8 @@
       "label": "Catalog",
       "href": "/collections/all",
       "children": [
-        { "label": "Headwear", "href": "/collections/5-panel-caps" },
-        { "label": "Winter Hats", "href": "/collections/slouchy-hats" },
+        { "label": "Headwear", "href": "/collections/headwear" },
+        { "label": "Winter Hats", "href": "/collections/winter-hats" },
         { "label": "Hoodies", "href": "/collections/hoodie-collection" },
         { "label": "T-Shirts", "href": "/collections/short-sleeve-t-shirts" },
         { "label": "Silky Scarfs", "href": "/collections/summer-silky-scarfs" },
