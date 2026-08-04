@@ -68,7 +68,9 @@ export function TrackForm() {
 const STEPS = ["Order placed", "Payment confirmed", "Shipped", "Delivered"] as const;
 
 function currentStep(o: OrderTracking): number {
-  if (/deliver/i.test(o.courierStatus ?? "")) return 4;
+  // Locker orders get no courier callback, so the admin marking DELIVERED is
+  // the only signal the customer's tracking page will ever receive.
+  if (o.status === "DELIVERED" || /deliver/i.test(o.courierStatus ?? "")) return 4;
   if (o.status === "FULFILLED" || o.trackingReference) return 3;
   if (o.status === "PAID") return 2;
   return 1;

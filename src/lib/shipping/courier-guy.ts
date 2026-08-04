@@ -15,11 +15,10 @@ export const FLAT_SHIPPING_CENTS = 9900;
 const FLAT_METHOD = "Standard delivery (2–5 business days)";
 
 // Delivery window published on the PDP and in Offer shippingDetails schema.
-// Transit is the courier's quoted 2–5 business days. Handling is how long we
-// take to hand the parcel over — NOT confirmed by the owner yet, so it is
-// declared here as a single assumption rather than hard-coded into the schema.
+// Transit is the courier's quoted 2–5 business days; handling is how long we
+// take to get the parcel to the courier, confirmed by the owner as 2–3 days.
 export const TRANSIT_DAYS = { min: 2, max: 5 } as const;
-export const HANDLING_DAYS = { min: 1, max: 2 } as const;
+export const HANDLING_DAYS = { min: 2, max: 3 } as const;
 
 export function courierGuyConfigured(): boolean {
   return Boolean(process.env.COURIER_GUY_API_KEY);

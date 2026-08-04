@@ -7,7 +7,7 @@ import { trackShipment, trackingUrl, type TrackingEvent } from "@/lib/shipping/c
 
 export interface OrderTracking {
   number: number;
-  status: string; // PENDING | PAID | FULFILLED | CANCELLED | REFUNDED
+  status: string; // PENDING | PAID | FULFILLED | DELIVERED | CANCELLED | REFUNDED
   placedAt: string;
   totalLabel: string;
   itemCount: number;

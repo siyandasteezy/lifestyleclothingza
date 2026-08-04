@@ -1,7 +1,12 @@
 "use client";
 
 import { useActionState } from "react";
-import { updateProduct, type AdminActionState } from "@/lib/actions/admin";
+import {
+  addProductVariant,
+  deleteProductVariant,
+  updateProduct,
+  type AdminActionState,
+} from "@/lib/actions/admin";
 import { adminInput, AdminCard, Label, SaveButton } from "@/components/admin/ui";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import { ProductImagesField } from "@/components/admin/ProductImagesField";
@@ -18,6 +23,8 @@ interface ProductInput {
   sizeChartHtml: string;
   metaTitle: string | null;
   metaDescription: string | null;
+  /** Declared options, in position order — the add-variant row picks from these. */
+  options: { name: string; position: number; values: string[] }[];
   variants: {
     id: string;
     title: string;
@@ -46,12 +53,25 @@ export function ProductEditForm({
 }) {
   const action = updateProduct.bind(null, product.id);
   const [state, formAction, pending] = useActionState(action, initialState);
+  const [addState, addAction, addPending] = useActionState(
+    addProductVariant.bind(null, product.id),
+    initialState,
+  );
+  const [deleteState, deleteAction] = useActionState(deleteProductVariant, initialState);
+  const lastVariant = product.variants.length <= 1;
   const vendors = suggestions?.vendors ?? [];
   const productTypes = suggestions?.productTypes ?? [];
   const tags = suggestions?.tags ?? [];
 
   return (
-    <form action={formAction} className="grid gap-5 lg:grid-cols-[1fr_20rem] lg:items-start">
+    <>
+      {/* Variant add/delete carriers. They hold no controls — the inputs and
+          buttons live inside the variants table and point here with the form
+          attribute, since a form cannot be nested inside the product form. */}
+      <form id="variant-add" action={addAction} />
+      <form id="variant-delete" action={deleteAction} />
+
+      <form action={formAction} className="grid gap-5 lg:grid-cols-[1fr_20rem] lg:items-start">
       {/* Shared with all three inputs — one datalist per field type. */}
       <datalist id="edit-vendor-suggestions">
         {vendors.map((v) => (
@@ -136,6 +156,9 @@ export function ProductEditForm({
                 <th className="px-5 py-2.5">Compare at</th>
                 <th className="px-5 py-2.5">Stock</th>
                 <th className="px-5 py-2.5">Available</th>
+                <th className="px-5 py-2.5">
+                  <span className="sr-only">Delete</span>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -183,10 +206,126 @@ export function ProductEditForm({
                       className="h-4 w-4 accent-ink"
                     />
                   </td>
+                  <td className="px-5 py-2.5 text-right">
+                    {/* Submits the sibling delete form; the id rides on the value. */}
+                    <button
+                      type="submit"
+                      form="variant-delete"
+                      name="variantId"
+                      value={v.id}
+                      disabled={lastVariant}
+                      title={
+                        lastVariant
+                          ? "A product needs at least one variant"
+                          : `Delete ${v.title}`
+                      }
+                      className="rounded-full px-3 py-1 text-xs font-semibold text-clay hover:bg-clay/10 disabled:cursor-not-allowed disabled:text-stone disabled:hover:bg-transparent"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))}
+
+              {/* Add a variant. Inputs belong to the sibling "variant-add" form
+                  via the form attribute, because forms cannot nest. */}
+              <tr className="border-t border-line bg-bone/40">
+                <td className="px-5 py-3">
+                  {product.options.length === 0 ? (
+                    <span className="text-xs text-stone">Default Title</span>
+                  ) : (
+                    <div className="flex flex-wrap gap-2">
+                      {product.options.map((o) => (
+                        <select
+                          key={o.position}
+                          form="variant-add"
+                          name={`option-${o.position}`}
+                          aria-label={o.name}
+                          defaultValue=""
+                          className={`${adminInput} w-auto min-w-28`}
+                        >
+                          <option value="" disabled>
+                            {o.name}…
+                          </option>
+                          {o.values.map((value) => (
+                            <option key={value} value={value}>
+                              {value}
+                            </option>
+                          ))}
+                        </select>
+                      ))}
+                    </div>
+                  )}
+                </td>
+                <td className="px-5 py-3">
+                  <input
+                    form="variant-add"
+                    name="price"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    required
+                    placeholder="0.00"
+                    aria-label="Price for new variant"
+                    className={`${adminInput} w-28`}
+                  />
+                </td>
+                <td className="px-5 py-3">
+                  <input
+                    form="variant-add"
+                    name="compareAt"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    placeholder="—"
+                    aria-label="Compare-at price for new variant"
+                    className={`${adminInput} w-28`}
+                  />
+                </td>
+                <td className="px-5 py-3">
+                  <input
+                    form="variant-add"
+                    name="inventory"
+                    type="number"
+                    min="0"
+                    defaultValue={0}
+                    aria-label="Stock for new variant"
+                    className={`${adminInput} w-20`}
+                  />
+                </td>
+                <td className="px-5 py-3">
+                  <input
+                    form="variant-add"
+                    name="sku"
+                    placeholder="SKU"
+                    aria-label="SKU for new variant"
+                    className={`${adminInput} w-24`}
+                  />
+                </td>
+                <td className="px-5 py-3 text-right">
+                  <button
+                    type="submit"
+                    form="variant-add"
+                    disabled={addPending}
+                    className="rounded-full bg-ink px-4 py-1.5 text-xs font-semibold text-bone hover:bg-clay disabled:opacity-50"
+                  >
+                    {addPending ? "Adding…" : "Add"}
+                  </button>
+                </td>
+              </tr>
             </tbody>
           </table>
+          {(addState.status !== "idle" || deleteState.status !== "idle") && (
+            <p aria-live="polite" className="border-t border-line px-5 py-2.5 text-sm">
+              {[addState, deleteState]
+                .filter((s) => s.status !== "idle")
+                .map((s, i) => (
+                  <span key={i} className={s.status === "error" ? "text-clay" : "text-moss"}>
+                    {s.status === "success" ? `✓ ${s.message}` : s.message}
+                  </span>
+                ))}
+            </p>
+          )}
         </AdminCard>
 
         <AdminCard>
@@ -243,6 +382,7 @@ export function ProductEditForm({
           </p>
         </div>
       </div>
-    </form>
+      </form>
+    </>
   );
 }
