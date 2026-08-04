@@ -8,6 +8,7 @@ import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { getAdmin } from "@/lib/auth";
 import { saveUpload, UploadError } from "@/lib/media";
+import { canDeleteVariant, planVariant } from "@/lib/variants";
 
 async function assertAdmin() {
   const admin = await getAdmin();
@@ -99,6 +100,83 @@ export async function updateProduct(
 
   revalidateStorefront();
   return { status: "success", message: "Product saved." };
+}
+
+/**
+ * Adds a variant to an existing product.
+ *
+ * Option values are constrained to the values already declared on the product's
+ * options, so variants and options cannot drift apart — introducing a new value
+ * is an option edit, not a variant edit.
+ */
+export async function addProductVariant(
+  productId: string,
+  _prev: AdminActionState,
+  formData: FormData,
+): Promise<AdminActionState> {
+  await assertAdmin();
+
+  const product = await prisma.product.findUnique({
+    where: { id: productId },
+    include: { options: { orderBy: { position: "asc" } }, variants: true },
+  });
+  if (!product) return { status: "error", message: "Product not found." };
+
+  const optionValues: Record<number, string> = {};
+  for (const option of product.options) {
+    optionValues[option.position] = String(formData.get(`option-${option.position}`) ?? "");
+  }
+
+  const plan = planVariant(product.options, product.variants, {
+    optionValues,
+    price: String(formData.get("price") ?? ""),
+    compareAt: String(formData.get("compareAt") ?? ""),
+    inventory: String(formData.get("inventory") ?? "0"),
+    sku: String(formData.get("sku") ?? ""),
+  });
+  if (!plan.ok) return { status: "error", message: plan.error };
+
+  await prisma.productVariant.create({
+    data: { productId, available: true, ...plan.draft },
+  });
+
+  revalidatePath(`/admin/products/${productId}`);
+  revalidateStorefront();
+  return { status: "success", message: `Added "${plan.draft.title}".` };
+}
+
+/**
+ * Deletes a variant. Past orders keep their own snapshot of the title, price and
+ * image, and OrderItem.variantId is nullable with onDelete: SetNull, so order
+ * history survives — but a product must always keep at least one variant or it
+ * cannot be bought at all.
+ */
+export async function deleteProductVariant(
+  _prev: AdminActionState,
+  formData: FormData,
+): Promise<AdminActionState> {
+  await assertAdmin();
+
+  // The id rides on the clicked button's value, so one form serves every row.
+  const variantId = String(formData.get("variantId") ?? "");
+  const variant = await prisma.productVariant.findUnique({ where: { id: variantId } });
+  if (!variant) return { status: "error", message: "Variant not found." };
+
+  const remaining = await prisma.productVariant.count({
+    where: { productId: variant.productId },
+  });
+  if (!canDeleteVariant(remaining)) {
+    return {
+      status: "error",
+      message: "A product needs at least one variant. Add another before deleting this one.",
+    };
+  }
+
+  await prisma.productVariant.delete({ where: { id: variantId } });
+
+  revalidatePath(`/admin/products/${variant.productId}`);
+  revalidateStorefront();
+  return { status: "success", message: `Deleted "${variant.title}".` };
 }
 
 function slugify(input: string): string {

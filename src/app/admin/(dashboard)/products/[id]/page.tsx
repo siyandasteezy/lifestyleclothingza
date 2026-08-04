@@ -30,6 +30,7 @@ export default async function AdminProductEdit({
     prisma.product.findUnique({
       where: { id },
       include: {
+        options: { orderBy: { position: "asc" } },
         variants: { orderBy: { position: "asc" } },
         images: { orderBy: { position: "asc" } },
       },
@@ -53,6 +54,11 @@ export default async function AdminProductEdit({
           status: product.status,
           bodyHtml: product.bodyHtml,
           sizeChartHtml: product.sizeChartHtml,
+          options: product.options.map((o) => ({
+            name: o.name,
+            position: o.position,
+            values: o.values,
+          })),
           metaTitle: product.metaTitle,
           metaDescription: product.metaDescription,
           variants: product.variants.map((v) => ({
