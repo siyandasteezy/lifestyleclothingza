@@ -83,11 +83,24 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()}, {site.name} — Proudly South African
           </p>
-          <p>
-            <a href={`mailto:${site.email}`} className="hover:text-clay">
-              {site.email}
-            </a>
-          </p>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
+            <p>
+              <a href={`mailto:${site.email}`} className="hover:text-clay">
+                {site.email}
+              </a>
+            </p>
+            <p>
+              Developed by{" "}
+              <a
+                href="https://www.smartpick.co.za/it"
+                target="_blank"
+                rel="noopener"
+                className="underline decoration-line underline-offset-4 hover:text-clay hover:decoration-clay"
+              >
+                SmartP1ck
+              </a>
+            </p>
+          </div>
         </div>
       </div>
 
