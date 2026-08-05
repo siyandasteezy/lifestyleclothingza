@@ -29,7 +29,36 @@ export interface VariantDraft {
   position: number;
 }
 
-export type VariantPlan = { ok: true; draft: VariantDraft } | { ok: false; error: string };
+/** An option value the product did not declare yet, to be added alongside the variant. */
+export interface NewOptionValue {
+  position: number;
+  /** The option's full value list with the new value in its proper place. */
+  values: string[];
+}
+
+export type VariantPlan =
+  | { ok: true; draft: VariantDraft; newValues: NewOptionValue[] }
+  | { ok: false; error: string };
+
+/**
+ * Canonical size ladder, matching scripts/normalize-options.ts. The product page
+ * renders its size buttons in the option's stored order, so a size added from
+ * the admin has to land in its right place rather than on the end — otherwise
+ * the storefront shows "S · 5XL · M".
+ */
+const SIZE_ORDER = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
+
+/** Adds `value` to an option's values, keeping sizes in ladder order. */
+export function withOptionValue(option: VariantOption, value: string): string[] {
+  if (option.values.includes(value)) return option.values;
+  const next = [...option.values, value];
+  // Only reorder when every value is a known size; anything else (colours,
+  // one-off labels) keeps the order the owner chose.
+  if (next.every((v) => SIZE_ORDER.includes(v))) {
+    return next.sort((a, b) => SIZE_ORDER.indexOf(a) - SIZE_ORDER.indexOf(b));
+  }
+  return next;
+}
 
 export interface VariantFormValues {
   /** Chosen value per option position, keyed by position (1-3). */
@@ -50,12 +79,19 @@ export function planVariant(
   form: VariantFormValues,
 ): VariantPlan {
   const values: (string | null)[] = [null, null, null];
+  const newValues: NewOptionValue[] = [];
 
   for (const option of options) {
     const value = (form.optionValues[option.position] ?? "").trim();
-    if (!value) return { ok: false, error: `Pick a ${option.name}.` };
+    if (!value) return { ok: false, error: `Pick or enter a ${option.name}.` };
+    if (value.length > 40) {
+      return { ok: false, error: `That ${option.name} is too long.` };
+    }
+    // A value the product does not stock yet is allowed: it is how a new size
+    // gets added. The option grows to include it, so options and variants stay
+    // in step rather than drifting apart.
     if (!option.values.includes(value)) {
-      return { ok: false, error: `"${value}" is not a valid ${option.name}.` };
+      newValues.push({ position: option.position, values: withOptionValue(option, value) });
     }
     values[option.position - 1] = value;
   }
@@ -84,6 +120,7 @@ export function planVariant(
 
   return {
     ok: true,
+    newValues,
     draft: {
       title,
       sku: form.sku.trim(),

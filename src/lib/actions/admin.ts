@@ -136,13 +136,24 @@ export async function addProductVariant(
   });
   if (!plan.ok) return { status: "error", message: plan.error };
 
-  await prisma.productVariant.create({
-    data: { productId, available: true, ...plan.draft },
+  // One transaction: a variant referencing an option value the product does not
+  // declare would render a size the storefront cannot offer.
+  await prisma.$transaction(async (tx) => {
+    for (const added of plan.newValues) {
+      await tx.productOption.update({
+        where: { productId_position: { productId, position: added.position } },
+        data: { values: added.values },
+      });
+    }
+    await tx.productVariant.create({ data: { productId, available: true, ...plan.draft } });
   });
 
   revalidatePath(`/admin/products/${productId}`);
   revalidateStorefront();
-  return { status: "success", message: `Added "${plan.draft.title}".` };
+  const added = plan.newValues.length
+    ? ` New option value added, so the storefront now offers it.`
+    : "";
+  return { status: "success", message: `Added "${plan.draft.title}".${added}` };
 }
 
 /**

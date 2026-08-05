@@ -235,24 +235,27 @@ export function ProductEditForm({
                     <span className="text-xs text-stone">Default Title</span>
                   ) : (
                     <div className="flex flex-wrap gap-2">
+                      {/* Free text with suggestions, not a closed <select>: adding
+                          a size the product does not stock yet is the main reason
+                          to add a variant. Unknown values are added to the option. */}
                       {product.options.map((o) => (
-                        <select
-                          key={o.position}
-                          form="variant-add"
-                          name={`option-${o.position}`}
-                          aria-label={o.name}
-                          defaultValue=""
-                          className={`${adminInput} w-auto min-w-28`}
-                        >
-                          <option value="" disabled>
-                            {o.name}…
-                          </option>
-                          {o.values.map((value) => (
-                            <option key={value} value={value}>
-                              {value}
-                            </option>
-                          ))}
-                        </select>
+                        <span key={o.position}>
+                          <datalist id={`opt-${o.position}-values`}>
+                            {o.values.map((value) => (
+                              <option key={value} value={value} />
+                            ))}
+                          </datalist>
+                          <input
+                            form="variant-add"
+                            name={`option-${o.position}`}
+                            list={`opt-${o.position}-values`}
+                            placeholder={`${o.name}…`}
+                            aria-label={`${o.name} — pick one or type a new value`}
+                            autoComplete="off"
+                            maxLength={40}
+                            className={`${adminInput} w-auto min-w-28`}
+                          />
+                        </span>
                       ))}
                     </div>
                   )}
