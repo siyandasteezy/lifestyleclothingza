@@ -41,8 +41,22 @@ export const COLLECTION_RENAMES: Record<string, string> = {
  */
 export const COLLECTION_TITLES: Record<string, string> = {
   // Owner confirmed the garment is a Maxi Dress, so /dresses was right all
-  // along and the "Lifestyle Skirts" title was the error. The collection's own
-  // description still calls it a "Maxi Skirt" — that is owner copy to fix in
-  // its own right, and is deliberately left alone here.
+  // along and the "Lifestyle Skirts" title was the error.
   dresses: "Dresses",
+};
+
+/**
+ * Owner-approved wording corrections to collection descriptions, as
+ * find → replace pairs per handle.
+ *
+ * Descriptions are owner copy and normally off limits, but the same problem as
+ * COLLECTION_TITLES applies: there is no collections editor, so a correction the
+ * owner has asked for has no other route to a live database. Kept as an exact
+ * find/replace rather than a whole rewritten description so the change is
+ * auditable and cannot quietly restyle the rest of the copy.
+ */
+export const COLLECTION_COPY_FIXES: Record<string, [find: string, replace: string][]> = {
+  // The collection holds a "Maxi Dress" and sits at /dresses; only the
+  // description still called it a skirt. Owner confirmed: it is a dress.
+  dresses: [["Lifestyle Maxi Skirt", "Lifestyle Maxi Dress"]],
 };

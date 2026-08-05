@@ -31,7 +31,12 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { COLLECTION_RENAMES, COLLECTION_TITLES, PRODUCT_RENAMES } from "../src/lib/handle-renames";
+import {
+  COLLECTION_COPY_FIXES,
+  COLLECTION_RENAMES,
+  COLLECTION_TITLES,
+  PRODUCT_RENAMES,
+} from "../src/lib/handle-renames";
 
 const CONTENT_DIR = join(process.cwd(), "content");
 
@@ -140,6 +145,12 @@ function renameContent(): void {
       changes.push(`collection ${collection.handle} title "${collection.title}" -> "${title}"`);
       collection.title = title;
     }
+    for (const [find, replace] of COLLECTION_COPY_FIXES[collection.handle] ?? []) {
+      const record = collection as unknown as { descriptionHtml?: string };
+      if (!record.descriptionHtml?.includes(find)) continue;
+      record.descriptionHtml = record.descriptionHtml.split(find).join(replace);
+      changes.push(`collection ${collection.handle} copy: "${find}" -> "${replace}"`);
+    }
     const next = COLLECTION_RENAMES[collection.handle];
     if (next) {
       changes.push(`collection ${collection.handle} -> ${next}  (${collection.title})`);
@@ -181,6 +192,28 @@ async function renameDb(): Promise<void> {
       } else {
         await prisma.collection.update({ where: { handle }, data: { title } });
         console.log(`  collection ${handle} title: "${row.title}" -> "${title}"`);
+      }
+    }
+
+    // Description wording corrections, also keyed by the original handle.
+    for (const [handle, fixes] of Object.entries(COLLECTION_COPY_FIXES)) {
+      const row = await prisma.collection.findUnique({ where: { handle } });
+      if (!row) {
+        console.log(`  collection ${handle} copy: NOT FOUND`);
+        continue;
+      }
+      let html = row.descriptionHtml;
+      const applied: string[] = [];
+      for (const [find, replace] of fixes) {
+        if (!html.includes(find)) continue;
+        html = html.split(find).join(replace);
+        applied.push(`"${find}" -> "${replace}"`);
+      }
+      if (applied.length === 0) {
+        console.log(`  collection ${handle} copy: nothing to fix`);
+      } else {
+        await prisma.collection.update({ where: { handle }, data: { descriptionHtml: html } });
+        console.log(`  collection ${handle} copy: ${applied.join(", ")}`);
       }
     }
 
