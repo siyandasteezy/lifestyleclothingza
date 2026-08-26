@@ -5,6 +5,7 @@ import { useActionState, useEffect, useMemo, useState } from "react";
 import { addToCart, type CartActionState } from "@/lib/actions/cart";
 import { Price } from "@/components/ui/Price";
 import type { ProductVM } from "@/lib/types";
+import { CURRENCY, itemFromProduct, toRand, trackEvent } from "@/lib/analytics";
 
 const initialState: CartActionState = { status: "idle" };
 
@@ -37,6 +38,15 @@ export function ProductForm({ product }: { product: ProductVM }) {
       if (result.status === "success") {
         window.dispatchEvent(new Event("cart:updated"));
         setToast(true);
+        // Only after the server confirms, so a failed add is never counted.
+        // Quantity comes off the submitted form rather than component state,
+        // which is what actually reached the cart.
+        const quantity = Number(formData.get("quantity") ?? 1) || 1;
+        trackEvent("add_to_cart", {
+          currency: CURRENCY,
+          value: toRand((selected?.priceCents ?? product.minPriceCents) * quantity),
+          items: [itemFromProduct(product, selected, quantity)],
+        });
       }
       return result;
     },

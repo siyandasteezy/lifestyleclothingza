@@ -4,6 +4,8 @@ import { Container } from "@/components/ui/Container";
 import { prisma } from "@/lib/db";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { TrackEvent } from "@/components/analytics/TrackEvent";
+import { CURRENCY, itemsFromOrder, toRand, type OrderItemLike } from "@/lib/analytics";
 
 export const dynamic = "force-dynamic";
 
@@ -23,13 +25,30 @@ export default async function ConfirmationPage({
   const number = orderParam ? parseInt(orderParam, 10) : NaN;
 
   let status: string | null = null;
+  let order: {
+    id: string;
+    subtotalCents: number;
+    shippingCents: number;
+    totalCents: number;
+    items: OrderItemLike[];
+  } | null = null;
   if (Number.isInteger(number)) {
     try {
-      const order = await prisma.order.findUnique({
+      const row = await prisma.order.findUnique({
         where: { number },
-        select: { status: true },
+        select: {
+          id: true,
+          status: true,
+          subtotalCents: true,
+          shippingCents: true,
+          totalCents: true,
+          items: {
+            select: { title: true, variantTitle: true, quantity: true, priceCents: true },
+          },
+        },
       });
-      status = order?.status ?? null;
+      status = row?.status ?? null;
+      order = row;
     } catch {
       // No database available — keep the generic confirmation.
     }
@@ -39,6 +58,24 @@ export default async function ConfirmationPage({
 
   return (
     <Container className="flex flex-col items-center py-24 text-center">
+      {/* Revenue is only booked once payment is confirmed. Firing on a PENDING
+          order would count abandoned checkouts and automated store-bot orders
+          as sales — the shop already receives those. Orders that clear after
+          the customer closes this page are not captured here; that needs a
+          server-side event from the Yoco webhook. */}
+      {paid && order && (
+        <TrackEvent
+          event="purchase"
+          dedupeKey={String(number)}
+          params={{
+            transaction_id: String(number),
+            value: toRand(order.totalCents),
+            shipping: toRand(order.shippingCents),
+            currency: CURRENCY,
+            items: itemsFromOrder(order.items),
+          }}
+        />
+      )}
       <p className="text-5xl" aria-hidden>
         ✓
       </p>

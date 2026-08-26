@@ -6,6 +6,8 @@ import { Container } from "@/components/ui/Container";
 import { Price } from "@/components/ui/Price";
 import { updateCartLine, clearCart } from "@/lib/actions/cart";
 import { resolveCart } from "@/lib/cart";
+import { TrackEvent } from "@/components/analytics/TrackEvent";
+import { CURRENCY, itemsFromCart, toRand } from "@/lib/analytics";
 import { formatMoney } from "@/lib/money";
 import { buildMetadata } from "@/lib/seo";
 
@@ -33,6 +35,14 @@ export default async function CartPage() {
 
   return (
     <Container className="py-10 md:py-14">
+      <TrackEvent
+        event="view_cart"
+        params={{
+          currency: CURRENCY,
+          value: toRand(subtotalCents),
+          items: itemsFromCart(lines),
+        }}
+      />
       <h1 className="mb-8 font-display text-display-md">Your cart</h1>
       <div className="grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-start">
         <ul className="divide-y divide-line border border-line bg-paper">

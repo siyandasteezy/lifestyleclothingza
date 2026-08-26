@@ -6,6 +6,8 @@ import { ProductForm } from "@/components/product/ProductForm";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { TrackEvent } from "@/components/analytics/TrackEvent";
+import { CURRENCY, itemFromProduct, toRand } from "@/lib/analytics";
 import { getCollections, getProduct, getProducts } from "@/lib/data";
 import { breadcrumbJsonLd, buildMetadata, descriptionFromHtml, productJsonLd } from "@/lib/seo";
 
@@ -73,6 +75,14 @@ export default async function ProductPage({ params }: Props) {
             { name: product.title, path: `/products/${product.handle}` },
           ]),
         ]}
+      />
+      <TrackEvent
+        event="view_item"
+        params={{
+          currency: CURRENCY,
+          value: toRand(product.minPriceCents),
+          items: [itemFromProduct(product, product.variants[0])],
+        }}
       />
       <Container className="py-8 md:py-12">
         <nav aria-label="Breadcrumb" className="mb-8 text-xs tracking-[0.08em] text-stone">

@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { Price } from "@/components/ui/Price";
 import { resolveCart } from "@/lib/cart";
+import { TrackEvent } from "@/components/analytics/TrackEvent";
+import { CURRENCY, itemsFromCart, toRand } from "@/lib/analytics";
 import { formatMoney } from "@/lib/money";
 import { buildMetadata } from "@/lib/seo";
 import { yocoConfigured } from "@/lib/payments/yoco";
@@ -27,6 +29,14 @@ export default async function CheckoutPage() {
 
   return (
     <Container className="py-10 md:py-14">
+      <TrackEvent
+        event="begin_checkout"
+        params={{
+          currency: CURRENCY,
+          value: toRand(subtotalCents),
+          items: itemsFromCart(lines),
+        }}
+      />
       <h1 className="mb-8 font-display text-display-md">Checkout</h1>
       <div className="grid gap-10 lg:grid-cols-[1fr_24rem] lg:items-start">
         <CheckoutForm paymentEnabled={yocoConfigured()} />
