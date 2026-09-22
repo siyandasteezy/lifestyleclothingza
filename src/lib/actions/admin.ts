@@ -190,6 +190,70 @@ export async function deleteProductVariant(
   return { status: "success", message: `Deleted "${variant.title}".` };
 }
 
+const collectionSchema = z.object({
+  title: z.string().min(1, "Title is required."),
+  descriptionHtml: z.string(),
+  image: z.string(),
+  metaTitle: z.string(),
+  metaDescription: z.string(),
+});
+
+/**
+ * Edits a collection's own content.
+ *
+ * The handle is deliberately not editable here: collection URLs are indexed,
+ * and changing one without a matching 301 discards whatever the page has
+ * earned. Renames go through src/lib/handle-renames.ts, which keeps the
+ * redirect and the rename in one place.
+ */
+export async function updateCollection(
+  id: string,
+  _prev: AdminActionState,
+  formData: FormData,
+): Promise<AdminActionState> {
+  await assertAdmin();
+  const parsed = collectionSchema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) {
+    return { status: "error", message: parsed.error.issues[0]?.message ?? "Invalid collection." };
+  }
+  const d = parsed.data;
+
+  await prisma.collection.update({
+    where: { id },
+    data: {
+      title: d.title,
+      descriptionHtml: d.descriptionHtml,
+      image: d.image.trim() || null,
+      metaTitle: d.metaTitle || null,
+      metaDescription: d.metaDescription || null,
+    },
+  });
+
+  revalidatePath(`/admin/collections/${id}`);
+  revalidateStorefront();
+  return { status: "success", message: "Collection saved." };
+}
+
+/**
+ * Removes a collection. Its products are untouched — only the grouping goes,
+ * along with the CollectionProduct rows, which cascade.
+ *
+ * The URL dies with it, so a collection that has been indexed should be emptied
+ * rather than deleted unless a redirect is going in alongside.
+ */
+export async function deleteCollection(id: string): Promise<void> {
+  await assertAdmin();
+  const collection = await prisma.collection.findUnique({
+    where: { id },
+    select: { handle: true },
+  });
+  if (!collection) redirect("/admin/collections");
+
+  await prisma.collection.delete({ where: { id } });
+  revalidateStorefront();
+  redirect("/admin/collections");
+}
+
 /**
  * Files a product under a collection, creating the collection when the name is
  * a new one.

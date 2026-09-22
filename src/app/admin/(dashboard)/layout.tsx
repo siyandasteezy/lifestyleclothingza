@@ -6,6 +6,7 @@ const nav = [
   { label: "Overview", href: "/admin" },
   { label: "Homepage", href: "/admin/homepage" },
   { label: "Products", href: "/admin/products" },
+  { label: "Collections", href: "/admin/collections" },
   { label: "Orders", href: "/admin/orders" },
   { label: "Articles", href: "/admin/articles" },
   { label: "Pages", href: "/admin/pages" },

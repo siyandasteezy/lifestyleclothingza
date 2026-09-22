@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useActionState } from "react";
 import {
   addProductToCollection,
@@ -373,12 +374,16 @@ export function ProductEditForm({
                   key={c.id}
                   className="flex items-center gap-2 rounded-lg border border-line px-3 py-1.5 text-sm"
                 >
-                  <span className="min-w-0 flex-1">
-                    <span className="block truncate">{c.title}</span>
+                  <Link
+                    href={`/admin/collections/${c.id}`}
+                    className="min-w-0 flex-1 hover:text-clay"
+                    title={`Edit ${c.title}`}
+                  >
+                    <span className="block truncate font-medium">{c.title}</span>
                     <code className="block truncate text-[11px] text-stone">
                       /collections/{c.handle}
                     </code>
-                  </span>
+                  </Link>
                   {/* Submits the sibling remove form; the id rides on the value. */}
                   <button
                     type="submit"
