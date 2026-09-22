@@ -76,6 +76,7 @@ export const contentSource: DataSource = {
         descriptionHtml: c.descriptionHtml ?? "",
         image: c.image ?? null,
         productHandles: c.productHandles ?? [],
+        createdAt: c.publishedAt ?? null,
       }),
     );
   },

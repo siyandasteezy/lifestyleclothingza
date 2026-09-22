@@ -85,6 +85,7 @@ const reads: DataSource = {
         descriptionHtml: c.descriptionHtml,
         image: c.image,
         productHandles: c.products.map((cp) => cp.product.handle),
+        createdAt: c.createdAt.toISOString(),
         metaTitle: c.metaTitle,
         metaDescription: c.metaDescription,
       }),
@@ -103,6 +104,7 @@ const reads: DataSource = {
       descriptionHtml: c.descriptionHtml,
       image: c.image,
       productHandles: c.products.map((cp) => cp.product.handle),
+      createdAt: c.createdAt.toISOString(),
       metaTitle: c.metaTitle,
       metaDescription: c.metaDescription,
     };

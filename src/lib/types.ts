@@ -50,6 +50,8 @@ export interface ProductVM {
 export interface CollectionVM {
   handle: string;
   title: string;
+  /** When the collection was created — orders new ones to the top of the nav. */
+  createdAt: string | null;
   descriptionHtml: string;
   image: string | null;
   productHandles: string[];

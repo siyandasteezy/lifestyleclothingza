@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { site } from "@/lib/site";
+import { site, type MenuItem } from "@/lib/site";
 import { cn } from "@/lib/cn";
 import { CartLink } from "@/components/cart/CartLink";
 import { MobileMenu } from "./MobileMenu";
@@ -13,7 +13,7 @@ import { MobileMenu } from "./MobileMenu";
  * Transparent over the homepage cover, solid plaster after 40px of scroll.
  * Everywhere else it is always solid.
  */
-export function Header() {
+export function Header({ menu = site.mainMenu }: { menu?: MenuItem[] }) {
   const pathname = usePathname();
   const overCover = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
@@ -39,7 +39,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 w-full max-w-[100rem] items-center justify-between gap-4 px-4 sm:px-6 md:h-20 lg:px-10">
         <div className="flex items-center gap-2 md:hidden">
-          <MobileMenu menu={site.mainMenu} />
+          <MobileMenu menu={menu} />
         </div>
 
         <Link href="/" className="flex shrink-0 items-center" aria-label={`${site.name} — home`}>
@@ -55,7 +55,7 @@ export function Header() {
 
         <nav aria-label="Main menu" className="hidden md:block">
           <ul className="flex items-center gap-7">
-            {site.mainMenu.map((item) =>
+            {menu.map((item) =>
               item.children ? (
                 <li key={item.label} className="group relative">
                   <Link

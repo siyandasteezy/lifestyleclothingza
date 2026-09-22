@@ -3,8 +3,16 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import { getCollections } from "@/lib/data";
+import { buildMenu } from "@/lib/menu";
+import { site } from "@/lib/site";
 
-export default function StorefrontLayout({ children }: { children: React.ReactNode }) {
+export default async function StorefrontLayout({ children }: { children: React.ReactNode }) {
+  // Collections created in the admin are not in the curated menu, so they are
+  // merged in here — newest first — rather than never appearing.
+  const collections = await getCollections();
+  const menu = buildMenu(site.mainMenu, collections);
+
   return (
     <>
       <a
@@ -15,7 +23,7 @@ export default function StorefrontLayout({ children }: { children: React.ReactNo
       </a>
       <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
       <AnnouncementBar />
-      <Header />
+      <Header menu={menu} />
       <main id="main-content" className="flex-1">
         {children}
       </main>
