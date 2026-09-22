@@ -33,6 +33,7 @@ import { join } from "node:path";
 
 import {
   COLLECTION_COPY_FIXES,
+  COLLECTION_MERGES,
   COLLECTION_RENAMES,
   COLLECTION_TITLES,
   PRODUCT_RENAMES,
@@ -181,7 +182,50 @@ async function renameDb(): Promise<void> {
   const { PrismaClient } = await import("@prisma/client");
   const prisma = new PrismaClient();
   try {
-    // Titles first: they are keyed by the original handle, which the rename
+    // Merges first: they move products onto a surviving collection and delete
+    // the source, so everything after this sees the final set of collections.
+    for (const [from, into] of Object.entries(COLLECTION_MERGES)) {
+      const source = await prisma.collection.findUnique({
+        where: { handle: from },
+        include: { products: { orderBy: { position: "asc" } } },
+      });
+      if (!source) {
+        console.log(`  merge ${from} -> ${into}: source gone, already merged`);
+        continue;
+      }
+      const target = await prisma.collection.findUnique({
+        where: { handle: into },
+        include: { products: true },
+      });
+      if (!target) {
+        console.log(`  merge ${from} -> ${into}: TARGET NOT FOUND, skipped`);
+        continue;
+      }
+
+      const already = new Set(target.products.map((p) => p.productId));
+      let position = target.products.reduce((max, p) => Math.max(max, p.position), -1);
+      let moved = 0;
+      for (const link of source.products) {
+        // A product in both collections keeps its place in the target rather
+        // than being added twice.
+        if (already.has(link.productId)) continue;
+        position += 1;
+        await prisma.collectionProduct.create({
+          data: { collectionId: target.id, productId: link.productId, position },
+        });
+        moved += 1;
+      }
+
+      // Deleting cascades the source's own join rows; the products themselves
+      // are never touched.
+      await prisma.collection.delete({ where: { id: source.id } });
+      console.log(
+        `  merge ${from} -> ${into}: moved ${moved} product(s)` +
+          `${source.products.length - moved ? `, ${source.products.length - moved} already there` : ""}, source deleted`,
+      );
+    }
+
+    // Titles next: they are keyed by the original handle, which the rename
     // below is about to change.
     for (const [handle, title] of Object.entries(COLLECTION_TITLES)) {
       const row = await prisma.collection.findUnique({ where: { handle } });

@@ -89,7 +89,11 @@ function checkSource() {
     .split("\n")
     .filter(Boolean)
     // handle-renames.ts is the map itself; it is meant to name the old handles.
-    .filter((line) => !line.startsWith("src/lib/handle-renames.ts"));
+    .filter((line) => !line.startsWith("src/lib/handle-renames.ts"))
+    // Only quoted or path-delimited occurrences are handle references. Some of
+    // these words are legitimate elsewhere — "jewellery" is a productType key in
+    // the feed's category map, which has nothing to do with the old collection.
+    .filter((line) => stale.some((h) => new RegExp(`["'/]${h}["'/]`).test(line)));
   if (hits.length) {
     for (const hit of hits) bad(`source still references a renamed handle: ${hit.trim()}`);
   } else {

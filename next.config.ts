@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { COLLECTION_RENAMES, PRODUCT_RENAMES } from "./src/lib/handle-renames";
+import { COLLECTION_MERGES, COLLECTION_RENAMES, PRODUCT_RENAMES } from "./src/lib/handle-renames";
 
 const nextConfig: NextConfig = {
   images: {
@@ -37,6 +37,20 @@ const nextConfig: NextConfig = {
         {
           source: `/collections/${from}/:filter((?!products).*)`,
           destination: `/collections/${to}`,
+          permanent: true,
+        },
+      ]),
+      // A merged collection's URL dies with it, so it redirects to the one that
+      // absorbed it — same treatment as a rename.
+      ...Object.entries(COLLECTION_MERGES).flatMap(([from, into]) => [
+        {
+          source: `/collections/${from}`,
+          destination: `/collections/${into}`,
+          permanent: true,
+        },
+        {
+          source: `/collections/${from}/:filter((?!products).*)`,
+          destination: `/collections/${into}`,
           permanent: true,
         },
       ]),

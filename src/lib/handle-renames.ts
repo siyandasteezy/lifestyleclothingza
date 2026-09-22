@@ -40,6 +40,9 @@ export const COLLECTION_RENAMES: Record<string, string> = {
  * live database on its own.
  */
 export const COLLECTION_TITLES: Record<string, string> = {
+  // Absorbs the duplicate "Tshirts"/"Tshirt" collections, so the surviving one
+  // is named the way the nav already labels it rather than "Lifestyle T-shirts".
+  "short-sleeve-t-shirts": "T-Shirts",
   // Owner confirmed the garment is a Maxi Dress, so /dresses was right all
   // along and the "Lifestyle Skirts" title was the error.
   dresses: "Dresses",
@@ -59,4 +62,21 @@ export const COLLECTION_COPY_FIXES: Record<string, [find: string, replace: strin
   // The collection holds a "Maxi Dress" and sits at /dresses; only the
   // description still called it a skirt. Owner confirmed: it is a dress.
   dresses: [["Lifestyle Maxi Skirt", "Lifestyle Maxi Dress"]],
+};
+
+/**
+ * Collections to fold into another, as source handle -> surviving handle.
+ *
+ * Created through the admin, where typing a name that does not exist creates a
+ * collection — so "Tshirts" and "Tshirt" became their own categories alongside
+ * the migrated one, leaving three pages competing for the same query on a
+ * catalogue far too small to support that.
+ *
+ * Merging moves the products across, deletes the empty source and redirects its
+ * URL. The survivor is the migrated collection: it holds the products and is the
+ * only one of the three search has ever seen.
+ */
+export const COLLECTION_MERGES: Record<string, string> = {
+  tshirts: "short-sleeve-t-shirts",
+  tshirt: "short-sleeve-t-shirts",
 };

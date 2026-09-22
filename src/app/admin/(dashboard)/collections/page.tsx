@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { AdminCard, AdminHeading } from "@/components/admin/ui";
+import { duplicateNameHandles } from "@/lib/collections-audit";
 
 export const dynamic = "force-dynamic";
 
@@ -10,9 +11,27 @@ export default async function AdminCollections() {
     orderBy: { title: "asc" },
   });
 
+  // Two collections named the same thing compete for the same search query.
+  const duplicates = duplicateNameHandles(collections);
+
   return (
     <>
       <AdminHeading title="Collections" />
+      {duplicates.size > 0 && (
+        <div
+          role="alert"
+          className="mb-5 rounded-lg border border-clay/40 bg-clay/5 px-4 py-3 text-sm"
+        >
+          <p className="font-semibold">
+            {duplicates.size} collections share a name
+          </p>
+          <p className="mt-1 text-stone">
+            Marked <span className="font-semibold text-clay">Duplicate</span> below. Two
+            categories with the same name split their products and compete for the same
+            search results. Worth folding one into the other.
+          </p>
+        </div>
+      )}
       <p className="mb-5 text-sm text-stone">
         Collections are created from a product page — under Collections, type a name that does
         not exist yet. Edit the copy, image and SEO for each one here.
@@ -37,6 +56,11 @@ export default async function AdminCollections() {
                   >
                     {c.title}
                   </Link>
+                  {duplicates.has(c.handle) && (
+                    <span className="ml-2 rounded-full bg-clay/15 px-2 py-0.5 text-[11px] font-semibold text-clay">
+                      Duplicate
+                    </span>
+                  )}
                 </td>
                 <td className="px-5 py-3 text-stone">/collections/{c.handle}</td>
                 <td className="px-5 py-3">
