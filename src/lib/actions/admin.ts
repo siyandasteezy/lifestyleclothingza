@@ -190,6 +190,107 @@ export async function deleteProductVariant(
   return { status: "success", message: `Deleted "${variant.title}".` };
 }
 
+/**
+ * Files a product under a collection, creating the collection when the name is
+ * a new one.
+ *
+ * Until now nothing in the admin touched collection membership, so a product
+ * added here landed in no category at all: absent from the nav, from every
+ * category page, and from its own "you may also like" block, reachable only
+ * through /collections/all and the sitemap.
+ */
+export async function addProductToCollection(
+  productId: string,
+  _prev: AdminActionState,
+  formData: FormData,
+): Promise<AdminActionState> {
+  await assertAdmin();
+
+  const raw = String(formData.get("collection") ?? "").trim();
+  if (!raw) return { status: "error", message: "Pick a collection or type a new name." };
+  if (raw.length > 80) return { status: "error", message: "That name is too long." };
+
+  const product = await prisma.product.findUnique({
+    where: { id: productId },
+    select: { id: true },
+  });
+  if (!product) return { status: "error", message: "Product not found." };
+
+  // The field is one box for both jobs, so the typed value may be an existing
+  // collection's title, its handle, or the name of one that does not exist yet.
+  const handle = slugify(raw);
+  let collection = await prisma.collection.findFirst({
+    where: {
+      OR: [{ handle }, { handle: raw }, { title: { equals: raw, mode: "insensitive" } }],
+    },
+  });
+
+  const isNew = !collection;
+  if (!collection) {
+    if (!handle) {
+      return { status: "error", message: "That name doesn't produce a usable URL." };
+    }
+    collection = await prisma.collection.create({
+      data: { handle, title: raw, publishedAt: new Date() },
+    });
+  }
+
+  const already = await prisma.collectionProduct.findUnique({
+    where: { collectionId_productId: { collectionId: collection.id, productId } },
+  });
+  if (already) {
+    return { status: "error", message: `Already in "${collection.title}".` };
+  }
+
+  // Append rather than reuse a gap: collection pages order by position.
+  const last = await prisma.collectionProduct.aggregate({
+    where: { collectionId: collection.id },
+    _max: { position: true },
+  });
+  await prisma.collectionProduct.create({
+    data: {
+      collectionId: collection.id,
+      productId,
+      position: (last._max.position ?? -1) + 1,
+    },
+  });
+
+  revalidatePath(`/admin/products/${productId}`);
+  revalidateStorefront();
+  return {
+    status: "success",
+    message: isNew
+      ? `Created "${collection.title}" at /collections/${collection.handle} and added this product.`
+      : `Added to "${collection.title}".`,
+  };
+}
+
+/** Removes a product from one collection. The collection itself is left alone. */
+export async function removeProductFromCollection(
+  _prev: AdminActionState,
+  formData: FormData,
+): Promise<AdminActionState> {
+  await assertAdmin();
+  const productId = String(formData.get("productId") ?? "");
+  // The collection id rides on the clicked button's value, so one form serves
+  // every row.
+  const collectionId = String(formData.get("collectionId") ?? "");
+
+  const link = await prisma.collectionProduct.findUnique({
+    where: { collectionId_productId: { collectionId, productId } },
+    include: { collection: { select: { title: true } } },
+  });
+  if (!link) return { status: "error", message: "Not in that collection." };
+
+  await prisma.collectionProduct.delete({
+    where: { collectionId_productId: { collectionId, productId } },
+  });
+
+  revalidatePath(`/admin/products/${productId}`);
+  revalidateStorefront();
+  return { status: "success", message: `Removed from "${link.collection.title}".` };
+}
+
 function slugify(input: string): string {
   return input
     .toLowerCase()

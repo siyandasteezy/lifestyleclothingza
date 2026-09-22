@@ -30,6 +30,7 @@ export default async function AdminProductEdit({
     prisma.product.findUnique({
       where: { id },
       include: {
+        collections: { include: { collection: true }, orderBy: { position: "asc" } },
         options: { orderBy: { position: "asc" } },
         variants: { orderBy: { position: "asc" } },
         images: { orderBy: { position: "asc" } },
@@ -37,6 +38,10 @@ export default async function AdminProductEdit({
     }),
     loadSuggestions(),
   ]);
+  const allCollections = await prisma.collection.findMany({
+    select: { handle: true, title: true },
+    orderBy: { title: "asc" },
+  });
   if (!product) notFound();
 
   return (
@@ -44,6 +49,7 @@ export default async function AdminProductEdit({
       <AdminHeading title={product.title} />
       <ProductEditForm
         suggestions={suggestions}
+        allCollections={allCollections}
         product={{
           id: product.id,
           handle: product.handle,
@@ -54,6 +60,11 @@ export default async function AdminProductEdit({
           status: product.status,
           bodyHtml: product.bodyHtml,
           sizeChartHtml: product.sizeChartHtml,
+          collections: product.collections.map((c) => ({
+            id: c.collection.id,
+            handle: c.collection.handle,
+            title: c.collection.title,
+          })),
           options: product.options.map((o) => ({
             name: o.name,
             position: o.position,

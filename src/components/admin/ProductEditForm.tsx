@@ -2,8 +2,10 @@
 
 import { useActionState } from "react";
 import {
+  addProductToCollection,
   addProductVariant,
   deleteProductVariant,
+  removeProductFromCollection,
   updateProduct,
   type AdminActionState,
 } from "@/lib/actions/admin";
@@ -23,6 +25,8 @@ interface ProductInput {
   sizeChartHtml: string;
   metaTitle: string | null;
   metaDescription: string | null;
+  /** Collections this product is filed under. */
+  collections: { id: string; handle: string; title: string }[];
   /** Declared options, in position order — the add-variant row picks from these. */
   options: { name: string; position: number; values: string[] }[];
   variants: {
@@ -47,9 +51,12 @@ export interface ProductEditSuggestions {
 export function ProductEditForm({
   product,
   suggestions,
+  allCollections = [],
 }: {
   product: ProductInput;
   suggestions?: ProductEditSuggestions;
+  /** Every collection on the store, offered as suggestions in the picker. */
+  allCollections?: { handle: string; title: string }[];
 }) {
   const action = updateProduct.bind(null, product.id);
   const [state, formAction, pending] = useActionState(action, initialState);
@@ -58,6 +65,14 @@ export function ProductEditForm({
     initialState,
   );
   const [deleteState, deleteAction] = useActionState(deleteProductVariant, initialState);
+  const [addCollectionState, addCollectionAction, addCollectionPending] = useActionState(
+    addProductToCollection.bind(null, product.id),
+    initialState,
+  );
+  const [removeCollectionState, removeCollectionAction] = useActionState(
+    removeProductFromCollection,
+    initialState,
+  );
   const lastVariant = product.variants.length <= 1;
   const vendors = suggestions?.vendors ?? [];
   const productTypes = suggestions?.productTypes ?? [];
@@ -70,6 +85,10 @@ export function ProductEditForm({
           attribute, since a form cannot be nested inside the product form. */}
       <form id="variant-add" action={addAction} />
       <form id="variant-delete" action={deleteAction} />
+      <form id="collection-add" action={addCollectionAction} />
+      <form id="collection-remove" action={removeCollectionAction}>
+        <input type="hidden" name="productId" value={product.id} />
+      </form>
 
       <form action={formAction} className="grid gap-5 lg:grid-cols-[1fr_20rem] lg:items-start">
       {/* Shared with all three inputs — one datalist per field type. */}
@@ -338,6 +357,85 @@ export function ProductEditForm({
       </div>
 
       <div className="space-y-5">
+        <AdminCard className="space-y-3">
+          <h2 className="font-display text-base font-bold">Collections</h2>
+          <p className="text-xs text-stone">
+            Which catalogue pages this product appears on. A product in no collection is
+            reachable only from Shop all and search.
+          </p>
+
+          {product.collections.length === 0 ? (
+            <p className="text-sm text-clay">Not in any collection yet.</p>
+          ) : (
+            <ul className="space-y-1.5">
+              {product.collections.map((c) => (
+                <li
+                  key={c.id}
+                  className="flex items-center gap-2 rounded-lg border border-line px-3 py-1.5 text-sm"
+                >
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate">{c.title}</span>
+                    <code className="block truncate text-[11px] text-stone">
+                      /collections/{c.handle}
+                    </code>
+                  </span>
+                  {/* Submits the sibling remove form; the id rides on the value. */}
+                  <button
+                    type="submit"
+                    form="collection-remove"
+                    name="collectionId"
+                    value={c.id}
+                    title={`Remove from ${c.title}`}
+                    className="shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold text-clay hover:bg-clay/10"
+                  >
+                    Remove
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* One box for both jobs: pick an existing collection from the list, or
+              type a name that does not exist yet and it is created. */}
+          <datalist id="collection-suggestions">
+            {allCollections.map((c) => (
+              <option key={c.handle} value={c.title} />
+            ))}
+          </datalist>
+          <div className="flex gap-2">
+            <input
+              form="collection-add"
+              name="collection"
+              list="collection-suggestions"
+              placeholder="Choose or name a new one…"
+              aria-label="Add to a collection, or type a new collection name"
+              autoComplete="off"
+              maxLength={80}
+              className={`${adminInput} min-w-0 flex-1`}
+            />
+            <button
+              type="submit"
+              form="collection-add"
+              disabled={addCollectionPending}
+              className="shrink-0 rounded-full bg-ink px-4 text-xs font-semibold text-bone hover:bg-clay disabled:opacity-50"
+            >
+              {addCollectionPending ? "Adding…" : "Add"}
+            </button>
+          </div>
+
+          {[addCollectionState, removeCollectionState]
+            .filter((s) => s.status !== "idle")
+            .map((s, i) => (
+              <p
+                key={i}
+                aria-live="polite"
+                className={`text-sm ${s.status === "error" ? "text-clay" : "text-moss"}`}
+              >
+                {s.status === "success" ? `✓ ${s.message}` : s.message}
+              </p>
+            ))}
+        </AdminCard>
+
         <AdminCard className="space-y-4">
           <div>
             <Label htmlFor="p-status">Status</Label>
