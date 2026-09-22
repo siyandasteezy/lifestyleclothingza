@@ -54,7 +54,9 @@ export function buildMetadata({
     title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical },
-    robots: noIndex ? { index: false, follow: false } : undefined,
+    // noindex but still followed: keeping a page out of the index is no reason
+    // to stop link equity flowing through it to the pages that should rank.
+    robots: noIndex ? { index: false, follow: true } : undefined,
     openGraph: {
       title,
       description,

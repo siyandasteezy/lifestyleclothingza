@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { CollectionFilters } from "@/components/product/CollectionFilters";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getCollection, getCollectionProducts, getCollections } from "@/lib/data";
+import { getCollection, getCollectionProducts, getCollections, getProducts } from "@/lib/data";
+import { eligibleSizes, sizeSlug } from "@/lib/sizes";
 import {
   breadcrumbJsonLd,
   buildMetadata,
@@ -59,6 +60,9 @@ export default async function CollectionPage({ params }: Props) {
   // real collection pages, so they stay crawlable and double as internal
   // linking between categories.
   const allCollections = await getCollections();
+  // Size facets are judged across the whole catalogue, not this collection, so
+  // the row is the same everywhere and always points at a page that exists.
+  const sizes = eligibleSizes(await getProducts()).map((s) => ({ label: s, slug: sizeSlug(s) }));
 
   return (
     <>
@@ -95,6 +99,7 @@ export default async function CollectionPage({ params }: Props) {
         <CollectionFilters
           products={products}
           collections={allCollections.map((c) => ({ handle: c.handle, title: c.title }))}
+          sizes={sizes}
           currentHandle={handle}
         />
       </Container>

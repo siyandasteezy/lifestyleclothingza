@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getArticles, getCollections, getPages, getProducts } from "@/lib/data";
 import { absoluteUrl } from "@/lib/site";
+import { eligibleSizes, isPlusSize, sizeSlug } from "@/lib/sizes";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [products, collections, pages, articles] = await Promise.all([
@@ -19,6 +20,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
+    // Size facets, but only the ones that are actually indexable. The straight
+    // sizes are noindex — listing them here would ask for exactly what their
+    // robots tag refuses.
+    ...eligibleSizes(products)
+      .filter(isPlusSize)
+      .map((size) => ({
+        url: absoluteUrl(`/shop/${sizeSlug(size)}`),
+        changeFrequency: "weekly" as const,
+        priority: 0.8,
+      })),
     // Product entries carry their images so the catalogue is discoverable in
     // Google Images too — apparel is a visual-search category.
     ...products.map((p) => ({

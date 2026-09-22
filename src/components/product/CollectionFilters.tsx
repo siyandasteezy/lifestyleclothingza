@@ -45,11 +45,14 @@ function getServerBand(): string | null {
 export function CollectionFilters({
   products,
   collections,
+  sizes = [],
   currentHandle,
   priorityCount = 4,
 }: {
   products: ProductVM[];
   collections: { handle: string; title: string }[];
+  /** Size facets worth linking to. Real pages, so these are links not buttons. */
+  sizes?: { label: string; slug: string }[];
   currentHandle: string;
   priorityCount?: number;
 }) {
@@ -111,6 +114,25 @@ export function CollectionFilters({
             </Link>
           ))}
         </div>
+
+        {sizes.length > 0 && (
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
+            <span className="font-display text-[10px] tracking-[0.25em] text-stone uppercase">
+              Size
+            </span>
+            {/* Links, not filters: each size is its own page across the whole
+                range, which is what the plus-size positioning needs to rank. */}
+            {sizes.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/shop/${s.slug}`}
+                className={cn(pill, "border-line text-ink hover:border-ink")}
+              >
+                {s.label}
+              </Link>
+            ))}
+          </div>
+        )}
 
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
           <span className="font-display text-[10px] tracking-[0.25em] text-stone uppercase">
