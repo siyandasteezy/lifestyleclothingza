@@ -2,8 +2,8 @@
 
 import { useEditor, EditorContent, type Editor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
+import { TableKit } from "@tiptap/extension-table";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import { pickImageFile, uploadImage } from "./upload-client";
@@ -29,11 +29,19 @@ export function RichTextEditor({
     // Avoids an SSR/hydration mismatch in the App Router.
     immediatelyRender: false,
     extensions: [
+      // Link is configured through StarterKit, which bundles it in v3 —
+      // importing it separately registered a duplicate extension, which Tiptap
+      // warns about at runtime.
       StarterKit.configure({
         heading: { levels: [2, 3] },
+        link: { openOnClick: false, autolink: true },
       }),
-      Link.configure({ openOnClick: false, autolink: true }),
       Image.configure({ inline: false }),
+      // Tables are how a size chart is written, and StarterKit has none — so a
+      // pasted table was silently dropped by the schema before this.
+      // resizable:false keeps the markup to plain rows and cells, which is what
+      // the storefront .prose styles render.
+      TableKit.configure({ table: { resizable: false } }),
     ],
     content: defaultValue,
     editorProps: {
@@ -103,6 +111,10 @@ function Toolbar({ editor }: { editor: Editor | null }) {
     return <div className="h-11 border-b border-line bg-bone" aria-hidden />;
   }
 
+  // Table controls are contextual: show editing buttons inside a table, and the
+  // insert button outside one.
+  const inTable = editor.isActive("table");
+
   const btn = (active: boolean) =>
     cn(
       "flex h-8 min-w-8 items-center justify-center px-2 text-sm transition-colors",
@@ -169,6 +181,69 @@ function Toolbar({ editor }: { editor: Editor | null }) {
       <button type="button" title="Insert image" onClick={addImage} className={btn(false)}>
         Image
       </button>
+      <span className="mx-1 h-5 w-px bg-line" />
+      {/* Row and column controls only appear inside a table — outside one they
+          would do nothing, and a toolbar of dead buttons is worse than a short
+          one. A size chart is the reason this exists. */}
+      {inTable ? (
+        <>
+          <button
+            type="button"
+            title="Add row below"
+            onClick={() => editor.chain().focus().addRowAfter().run()}
+            className={btn(false)}
+          >
+            +Row
+          </button>
+          <button
+            type="button"
+            title="Delete row"
+            onClick={() => editor.chain().focus().deleteRow().run()}
+            className={btn(false)}
+          >
+            −Row
+          </button>
+          <button
+            type="button"
+            title="Add column right"
+            onClick={() => editor.chain().focus().addColumnAfter().run()}
+            className={btn(false)}
+          >
+            +Col
+          </button>
+          <button
+            type="button"
+            title="Delete column"
+            onClick={() => editor.chain().focus().deleteColumn().run()}
+            className={btn(false)}
+          >
+            −Col
+          </button>
+          <button
+            type="button"
+            title="Delete the whole table"
+            onClick={() => editor.chain().focus().deleteTable().run()}
+            className={cn(btn(false), "text-clay")}
+          >
+            ✕ Table
+          </button>
+        </>
+      ) : (
+        <button
+          type="button"
+          title="Insert a table — 3 columns with a header row"
+          onClick={() =>
+            editor
+              .chain()
+              .focus()
+              .insertTable({ rows: 3, cols: 3, withHeaderRow: true })
+              .run()
+          }
+          className={btn(false)}
+        >
+          Table
+        </button>
+      )}
     </div>
   );
 }

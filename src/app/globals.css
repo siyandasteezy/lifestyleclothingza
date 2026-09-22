@@ -147,3 +147,35 @@ body::after {
   font-variant-numeric: tabular-nums;
   color: var(--color-ink);
 }
+
+/* Tiptap tables in the admin editor.
+   The storefront .prose styles draw a bottom rule per row, which reads well on
+   a published size chart but leaves cell edges invisible while typing into one.
+   These rules apply only inside the editor. */
+.ProseMirror table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 1em 0;
+  overflow: hidden;
+}
+.ProseMirror th,
+.ProseMirror td {
+  border: 1px solid var(--color-line);
+  padding: 0.4rem 0.6rem;
+  vertical-align: top;
+  position: relative;
+}
+.ProseMirror th {
+  background: var(--color-bone);
+  font-weight: 600;
+  text-align: left;
+}
+/* The cell the cursor is in, and any cells dragged across. */
+.ProseMirror .selectedCell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: color-mix(in oklab, var(--color-clay) 18%, transparent);
+  pointer-events: none;
+}
