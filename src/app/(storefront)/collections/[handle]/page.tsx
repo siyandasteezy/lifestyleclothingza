@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ProductGrid } from "@/components/product/ProductGrid";
+import { CollectionFilters } from "@/components/product/CollectionFilters";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCollection, getCollectionProducts, getCollections } from "@/lib/data";
@@ -55,6 +55,10 @@ export default async function CollectionPage({ params }: Props) {
   const collection = await loadCollection(handle);
   if (!collection) notFound();
   const products = await getCollectionProducts(handle);
+  // Every collection, for the catalogue filter row. These are real links to
+  // real collection pages, so they stay crawlable and double as internal
+  // linking between categories.
+  const allCollections = await getCollections();
 
   return (
     <>
@@ -88,7 +92,11 @@ export default async function CollectionPage({ params }: Props) {
             />
           )}
         </header>
-        <ProductGrid products={products} priorityCount={4} editorial />
+        <CollectionFilters
+          products={products}
+          collections={allCollections.map((c) => ({ handle: c.handle, title: c.title }))}
+          currentHandle={handle}
+        />
       </Container>
     </>
   );
